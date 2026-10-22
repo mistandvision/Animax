@@ -12,13 +12,8 @@
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
   <style>
-    /* Google Fonts for authentic distressed / collegiate stencil styling */
     @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Rubik+Glitch&family=Syne:wght@700;800&display=swap');
 
-    /* ========================================================
-       1. EXACT TYPOGRAPHY HIERARCHY
-       ======================================================== */
-    /* Title Font: Broken Detroit Style (Clean Crimson Red, Left-Aligned) */
     .font-broken-detroit {
       font-family: 'Rubik Glitch', 'Syne', Impact, sans-serif;
       letter-spacing: 0.05em;
@@ -30,7 +25,6 @@
         0 0 24px rgba(185, 28, 28, 0.25);
     }
 
-    /* Summary Font: Typo College Dusty Style (Textured Crisp Pure White) */
     .font-college-dusty {
       font-family: 'Black Ops One', 'Special Elite', Impact, sans-serif;
       letter-spacing: 0.08em;
@@ -39,12 +33,10 @@
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.35);
     }
 
-    /* Taglines / Philosophy / Body Font: Arial */
     .font-arial {
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Uchiha Clan Noir Palette */
     html, body {
       margin: 0;
       background-color: #101116;
@@ -56,7 +48,6 @@
       cursor: none !important;
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 7px;
     }
@@ -71,10 +62,6 @@
       background: #dc2626;
     }
 
-    /* ========================================================
-       2. USER'S EXACT FOG ARCHITECTURE STYLES
-       ======================================================== */
-    /* Asli fog video: kaali background par screen blend se sirf dhuaan dikhta hai */
     #vid {
       position: fixed;
       inset: 0;
@@ -87,7 +74,6 @@
       z-index: 1;
     }
 
-    /* Interactive fog: click/scroll rokta nahi */
     #fog {
       position: fixed;
       inset: 0;
@@ -97,7 +83,6 @@
       z-index: 20;
     }
 
-    /* 3D Balls Canvas */
     #ball-canvas {
       position: fixed;
       inset: 0;
@@ -107,7 +92,6 @@
       z-index: 10;
     }
 
-    /* 2mm Crimson Horizontal Line with Soft Mist */
     .blood-line-2mm {
       height: 2mm;
       background: linear-gradient(90deg, transparent, #7f1d1d 15%, #dc2626 50%, #991b1b 85%, transparent);
@@ -115,7 +99,6 @@
       position: relative;
     }
 
-    /* Horizontal Round Cylinder Shape Buttons */
     .cylinder-btn {
       border-radius: 9999px;
       background: linear-gradient(145deg, rgba(24, 26, 36, 0.95), rgba(12, 14, 20, 0.98));
@@ -129,9 +112,6 @@
       transform: translateY(-2px) scale(1.03);
     }
 
-    /* ========================================================
-       3. 10mm REALISTIC BURNING MASHAL TORCH CURSOR
-       ======================================================== */
     #torch-cursor {
       position: fixed;
       width: 38px;
@@ -162,7 +142,6 @@
       animation: lightPulse 0.45s infinite ease-in-out;
     }
 
-    /* Floating Cutout Photo Animation */
     @keyframes floatCutout {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-9px); }
@@ -170,50 +149,58 @@
     .floating-cutout {
       animation: floatCutout 4.8s ease-in-out infinite;
     }
+
+    .eyes{--w:clamp(130px,27vw,340px);--lid:.05;display:flex;justify-content:center;gap:calc(var(--w)*.8);cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .eye{width:var(--w);height:auto;overflow:visible;transform:scaleY(var(--lid));
+         transition:transform .14s ease-out,filter .9s;filter:drop-shadow(0 0 12px rgba(255,255,255,.3))}
+    .eye.r{transform:scale(-1,var(--lid))}
+    .eyes.opening .eye{transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .9s}
+    .eyes.rinn .eye{filter:drop-shadow(0 0 20px rgba(190,110,255,.85))}
+    .sh{transition:opacity .7s}
+    .rinn .sh{opacity:0}
+    .rn{opacity:0;transition:opacity .7s .25s}
+    .rinn .rn{opacity:1}
+    .s{transform-origin:0 0}
+    .morph .s{animation:pulse .9s ease-in-out}
+    @keyframes pulse{40%{transform:scale(1.2)}}
+    @media (prefers-reduced-motion:reduce){.eye{transition:none!important}}
   </style>
 </head>
 
 <body class="selection:bg-red-800 selection:text-white">
 
-  <!-- =====================================================
-       LAYER 0 & 1: USER'S EXACT FOG VIDEO & VOLUMETRIC CANVAS
-       ===================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <clipPath id="ec"><path d="M4,10 C60,-2 150,6 236,100 C160,108 80,104 38,66 C22,50 10,30 4,10Z"/></clipPath>
+    <linearGradient id="scl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#85858c"/><stop offset=".4" stop-color="#f2f2f5"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <radialGradient id="sclP"><stop offset=".4" stop-color="#fff"/><stop offset="1" stop-color="#c78bff"/></radialGradient>
+    <radialGradient id="sg"><stop offset="0" stop-color="#ff5a2a"/><stop offset=".7" stop-color="#e2260f"/><stop offset="1" stop-color="#8e0b05"/></radialGradient>
+    <radialGradient id="rg"><stop offset="0" stop-color="#fff"/><stop offset=".75" stop-color="#f4eaff"/><stop offset="1" stop-color="#d7b3ff"/></radialGradient>
+    <g id="tm"><circle r="7.5" fill="#150000"/><path d="M5,-6 Q18,-4 13,10 Q12,1 3,-1Z" fill="#150000"/></g>
+  </defs></svg>
+
   <video id="vid" src="fog.mp4" autoplay muted loop playsinline onerror="this.remove()"></video>
-
-  <!-- Interactive physics floating balls canvas -->
   <canvas id="ball-canvas"></canvas>
-
-  <!-- Interactive procedural fog canvas -->
   <canvas id="fog"></canvas>
 
-  <!-- =====================================================
-       LAYER 2: 10mm REALISTIC BURNING MASHAL (TORCH CURSOR)
-       ===================================================== -->
   <div id="torch-cursor">
     <div class="relative w-full h-full flex flex-col items-center">
       <div class="torch-aura absolute -top-14 -left-16 w-44 h-44 rounded-full bg-gradient-to-r from-amber-500/35 via-orange-500/25 to-transparent blur-2xl pointer-events-none"></div>
-
       <div class="torch-flame-motion relative w-8 h-11 mt-1 flex items-center justify-center">
         <div class="absolute inset-0 bg-gradient-to-t from-red-600 via-orange-500 to-amber-300 rounded-full blur-[1px] opacity-95"></div>
         <div class="absolute bottom-1 w-4 h-7 bg-gradient-to-t from-amber-400 via-yellow-200 to-white rounded-full blur-[0.6px]"></div>
         <div class="absolute -top-2.5 w-1.5 h-4.5 bg-yellow-100 rounded-full blur-[0.8px]"></div>
       </div>
-
       <div class="w-4.5 h-3 bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 rounded-sm border-t border-amber-500/80 shadow-md"></div>
       <div class="w-3.5 h-1.5 bg-neutral-700 border-y border-neutral-900"></div>
       <div class="w-2.5 h-9 bg-gradient-to-b from-amber-950 via-neutral-800 to-neutral-950 rounded-b-sm shadow-md"></div>
     </div>
   </div>
 
-  <!-- =====================================================
-       LAYER 3: MAIN VISUAL PAGE CONTENT
-       ===================================================== -->
   <div class="relative z-30 min-h-screen flex flex-col justify-between">
 
-    <!-- 1. TOP FOCUS: ITACHI SHARINGAN EYES -->
     <header class="w-full pt-4 pb-4 px-4 md:px-12 flex flex-col items-center relative overflow-hidden">
       <div class="relative w-full max-w-4xl h-56 sm:h-64 flex items-center justify-center rounded-2xl border border-red-950/40 bg-neutral-950/40 backdrop-blur-sm overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)]">
-        <canvas id="itachi-canvas" class="w-full h-full block"></canvas>
+        <div class="eyes opening" id="eyes" role="img" aria-label="Sharingan eyes that follow the cursor"></div>
       </div>
 
       <div class="w-full max-w-6xl mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center border-b border-neutral-800/80 pb-6">
@@ -237,7 +224,6 @@
       </div>
     </header>
 
-    <!-- 2. BIOGRAPHY SECTION -->
     <section id="biography" class="w-full max-w-6xl mx-auto px-4 md:px-12 py-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
@@ -266,11 +252,9 @@
 
         <div class="lg:col-span-5 flex flex-col items-center justify-center">
           <div class="relative group w-64 h-84 sm:w-72 sm:h-96 flex flex-col items-center justify-end">
-            
             <div class="absolute inset-x-4 top-10 bottom-6 bg-gradient-to-t from-red-600/30 via-red-900/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
 
             <div class="relative w-full h-full flex items-end justify-center floating-cutout">
-              <!-- Yahan Unsplash link ki jagah my-photo.png set kar diya gaya hai -->
               <img id="profile-img" 
                    src="my-photo.png" 
                    alt="Anil - Designer PNG Cutout" 
@@ -289,7 +273,6 @@
       </div>
     </section>
 
-    <!-- 3. NAVIGATION BUTTONS -->
     <section class="w-full py-8 flex justify-center items-center px-4">
       <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 bg-neutral-950/85 p-3.5 rounded-full border border-red-900/60 backdrop-blur-md shadow-[0_0_35px_rgba(220,38,38,0.35)]">
         <a href="#section-design" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
@@ -307,10 +290,8 @@
       </div>
     </section>
 
-    <!-- 4. WORK SECTIONS -->
     <main class="w-full max-w-6xl mx-auto px-4 md:px-12 space-y-20 py-8">
       
-      <!-- 4.1 DESIGN SECTION -->
       <section id="section-design" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -352,7 +333,6 @@
         </div>
       </section>
 
-      <!-- 4.2 VIDEO GRAPHY SECTION -->
       <section id="section-videography" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -415,7 +395,6 @@
         </div>
       </section>
 
-      <!-- 4.3 MOTION ART SECTION -->
       <section id="section-motionart" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -457,7 +436,6 @@
         </div>
       </section>
 
-      <!-- 5. QUALIFICATION -->
       <section id="qualification" class="pt-8 space-y-4 text-left">
         <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl">
           Qailification
@@ -489,7 +467,6 @@
         </div>
       </section>
 
-      <!-- 6. EDUCATION SECTION -->
       <section id="education" class="pt-8 space-y-7 text-left">
         <div class="flex items-center space-x-4">
           <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-red-600/80 flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.35)] text-3xl flex-shrink-0">
@@ -538,7 +515,6 @@
         </div>
       </section>
 
-      <!-- 7. LET'S CONNECT SECTION -->
       <section id="connect" class="pt-10 border-t border-neutral-800/80 space-y-6 text-left">
         <div>
           <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl underline decoration-[#dc2626] decoration-4 underline-offset-8">
@@ -561,7 +537,8 @@
             </div>
           </a>
 
-          <a href="mailto:Anilanx144@gmail.com" 
+          <!-- Updated Email Button with mailto pre-fill -->
+          <a href="mailto:Anilanx144@gmail.com?subject=Hello%20Anil,%20I%20saw%20your%20portfolio&body=Hi%20Anil,%20" 
              class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition flex items-center space-x-3 group">
             <div class="w-10 h-10 rounded-xl bg-red-950/60 text-red-400 border border-red-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
               <i class="ph-bold ph-envelope"></i>
@@ -596,7 +573,6 @@
         </div>
       </section>
 
-      <!-- 8. THANK YOU SECTION -->
       <footer class="pt-16 pb-24 text-center space-y-4">
         <h2 class="font-broken-detroit text-4xl sm:text-5xl inline-block">
           Thank you !!!
@@ -612,7 +588,6 @@
     </main>
   </div>
 
-  <!-- UPLOAD MODAL -->
   <div id="upload-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-neutral-900 border border-red-700/80 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-[0_0_45px_rgba(220,38,38,0.5)]">
       <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
@@ -754,201 +729,81 @@
       requestAnimationFrame(loop);
     })(0);
 
-    const itachiCanvas = document.getElementById('itachi-canvas');
-    const itachiCtx = itachiCanvas.getContext('2d');
-    let sharinganOpeningProgress = 0;
-    let eyeRotation = 0;
-    let hairClock = 0;
+    const AUTO = 0; 
+    const wrap = document.getElementById('eyes');
+    const E = 'M4,10 C60,-2 150,6 236,100 C160,108 80,104 38,66 C22,50 10,30 4,10Z';
 
-    function resizeItachiCanvas() {
-      const parent = itachiCanvas.parentElement.getBoundingClientRect();
-      itachiCanvas.width = parent.width;
-      itachiCanvas.height = parent.height;
-    }
-    window.addEventListener('resize', resizeItachiCanvas);
-    resizeItachiCanvas();
+    const eyeHTML = r => `
+    <svg class="eye${r ? ' r' : ''}" viewBox="0 0 240 110" aria-hidden="true">
+      <g clip-path="url(#ec)">
+        <rect width="240" height="110" fill="url(#scl)"/>
+        <rect class="rn" width="240" height="110" fill="url(#sclP)"/>
+        <g transform="translate(118 52)"><g class="gz" data-s="${r ? -1 : 1}"><g class="s">
+          <g class="sh">
+            <circle r="50" fill="url(#sg)" stroke="#1a0000" stroke-width="3"/>
+            <circle r="31" fill="none" stroke="#1a0000" stroke-width="2.5"/>
+            <use href="#tm" transform="rotate(0) translate(0,-31)"/>
+            <use href="#tm" transform="rotate(120) translate(0,-31)"/>
+            <use href="#tm" transform="rotate(240) translate(0,-31)"/>
+            <circle r="7" fill="#0a0000"/>
+          </g>
+          <g class="rn">
+            <circle r="66" fill="url(#rg)"/>
+            ${[9,20,31,42,54,66].map(x => `<circle r="${x}" fill="none" stroke="#161616" stroke-width="1.8"/>`).join('')}
+            <circle r="3.5" fill="#111"/>
+          </g>
+        </g></g></g>
+      </g>
+      <path d="${E}" fill="none" stroke="#000" stroke-width="2"/>
+    </svg>`;
 
-    function drawSharinganEye(cx, cy, targetX, targetY, isLeft) {
-      const ctx = itachiCtx;
-      const dx = targetX - cx;
-      const dy = targetY - cy;
-      const angle = Math.atan2(dy, dx);
-      const dist = Math.min(18, Math.hypot(dx, dy) * 0.048);
+    wrap.innerHTML = eyeHTML(false) + eyeHTML(true);
 
-      const openHeight = 28 * Math.min(1, sharinganOpeningProgress);
+    requestAnimationFrame(() => requestAnimationFrame(() => wrap.style.setProperty('--lid', 1)));
+    setTimeout(() => wrap.classList.remove('opening'), 1500);
+    (function blink() {
+      setTimeout(() => {
+        wrap.style.setProperty('--lid', .08);
+        setTimeout(() => wrap.style.setProperty('--lid', 1), 130);
+        blink();
+      }, 2500 + Math.random() * 3500);
+    })();
 
-      ctx.save();
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 72, cy);
-        ctx.quadraticCurveTo(cx - 20, cy - openHeight, cx + 50, cy - 2);
-        ctx.quadraticCurveTo(cx - 10, cy + openHeight * 0.88, cx - 72, cy);
-      } else {
-        ctx.moveTo(cx - 50, cy - 2);
-        ctx.quadraticCurveTo(cx + 20, cy - openHeight, cx + 72, cy);
-        ctx.quadraticCurveTo(cx + 10, cy + openHeight * 0.88, cx - 50, cy - 2);
+    const gz = [...wrap.querySelectorAll('.gz')];
+    const cur = gz.map(() => ({ x: 0, y: 0 }));
+    let last = performance.now(), wx = 0, wy = 0, wt = 0;
+    const move = e => { mx = e.clientX; my = e.clientY; last = performance.now(); };
+    addEventListener('pointermove', move);
+    addEventListener('pointerdown', move);
+
+    (function loopEyes(t) {
+      const idle = t - last > 3500;
+      if (idle && t > wt) {
+        wx = (Math.random() - .5) * innerWidth * .5;
+        wy = (Math.random() - .5) * innerHeight * .3;
+        wt = t + 1200 + Math.random() * 1800;
       }
-      ctx.closePath();
-      ctx.fillStyle = '#0c0e14';
-      ctx.fill();
-      ctx.clip();
+      gz.forEach((g, i) => {
+        const b = g.ownerSVGElement.getBoundingClientRect();
+        const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+        const tx = idle ? innerWidth / 2 + wx : mx, ty = idle ? innerHeight / 2 + wy : my;
+        const dx = tx - cx, dy = ty - cy, d = Math.hypot(dx, dy) || 1;
+        const k = Math.min(1, d / (Math.max(innerWidth, innerHeight) * .3));
+        const X = dx / d * k * 28 * (+g.dataset.s), Y = dy / d * k * 13;
+        cur[i].x += (X - cur[i].x) * .14;
+        cur[i].y += (Y - cur[i].y) * .14;
+        g.setAttribute('transform', `translate(${cur[i].x.toFixed(2)} ${cur[i].y.toFixed(2)})`);
+      });
+      requestAnimationFrame(loopEyes);
+    })(performance.now());
 
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
-      ctx.fillRect(cx - 75, cy - 35, 150, 18);
-
-      const irisX = cx + Math.cos(angle) * dist;
-      const irisY = cy + Math.sin(angle) * dist;
-      const irisRadius = 24;
-
-      const irisGrad = ctx.createRadialGradient(irisX, irisY, 2, irisX, irisY, irisRadius + 8);
-      irisGrad.addColorStop(0, '#ff3333');
-      irisGrad.addColorStop(0.65, '#dc2626');
-      irisGrad.addColorStop(1, '#450a0a');
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, irisRadius, 0, Math.PI * 2);
-      ctx.fillStyle = irisGrad;
-      ctx.fill();
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 2.2;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, 14, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
-      ctx.lineWidth = 1.3;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#000000';
-      ctx.fill();
-
-      for (let i = 0; i < 3; i++) {
-        const tomoeAngle = eyeRotation + (i * (Math.PI * 2 / 3));
-        const tx = irisX + Math.cos(tomoeAngle) * 13.5;
-        const ty = irisY + Math.sin(tomoeAngle) * 13.5;
-
-        ctx.save();
-        ctx.translate(tx, ty);
-        ctx.rotate(tomoeAngle + Math.PI / 2);
-
-        ctx.beginPath();
-        ctx.arc(0, 0, 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = '#000000';
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.moveTo(2.2, 0);
-        ctx.quadraticCurveTo(4.2, 5, -2, 7);
-        ctx.quadraticCurveTo(1.2, 3, 0, 0);
-        ctx.fillStyle = '#000000';
-        ctx.fill();
-
-        ctx.restore();
-      }
-
-      ctx.beginPath();
-      ctx.arc(irisX - 6.5, irisY - 7, 2.8, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-      ctx.fill();
-
-      ctx.restore();
-
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 76, cy + 2);
-        ctx.quadraticCurveTo(cx - 20, cy - openHeight - 2, cx + 52, cy - 2);
-      } else {
-        ctx.moveTo(cx - 52, cy - 2);
-        ctx.quadraticCurveTo(cx + 20, cy - openHeight - 2, cx + 76, cy + 2);
-      }
-      ctx.strokeStyle = '#dc2626';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 22, cy + 8);
-        ctx.quadraticCurveTo(cx - 16, cy + 38, cx - 38, cy + 56);
-      } else {
-        ctx.moveTo(cx + 22, cy + 8);
-        ctx.quadraticCurveTo(cx + 16, cy + 38, cx + 38, cy + 56);
-      }
-      ctx.strokeStyle = 'rgba(220, 38, 38, 0.55)';
-      ctx.lineWidth = 2.2;
-      ctx.stroke();
-    }
-
-    function renderItachiEyesAndHair() {
-      const w = itachiCanvas.width;
-      const h = itachiCanvas.height;
-      itachiCtx.clearRect(0, 0, w, h);
-
-      if (sharinganOpeningProgress < 1) {
-        sharinganOpeningProgress += 0.025;
-      }
-
-      const centerX = w / 2;
-      const centerY = h * 0.48;
-      eyeRotation += 0.032;
-      hairClock += 0.036;
-
-      const hairSwayOffset = (mx - centerX) * 0.045;
-
-      const aura = itachiCtx.createRadialGradient(centerX, centerY, 20, centerX, centerY, 240);
-      aura.addColorStop(0, 'rgba(220, 38, 38, 0.35)');
-      aura.addColorStop(0.65, 'rgba(28, 10, 10, 0.5)');
-      aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      itachiCtx.fillStyle = aura;
-      itachiCtx.fillRect(centerX - 260, centerY - 130, 520, 260);
-
-      const canvasRect = itachiCanvas.getBoundingClientRect();
-      const localMouseX = mx - canvasRect.left;
-      const localMouseY = my - canvasRect.top;
-
-      drawSharinganEye(centerX - 105, centerY - 8, localMouseX, localMouseY, true);
-      drawSharinganEye(centerX + 105, centerY - 8, localMouseX, localMouseY, false);
-
-      itachiCtx.fillStyle = '#080a10';
-      itachiCtx.strokeStyle = 'rgba(220, 38, 38, 0.4)';
-      itachiCtx.lineWidth = 1.6;
-
-      const sway1 = Math.sin(hairClock) * 7 + hairSwayOffset;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX - 145, centerY - 100);
-      itachiCtx.quadraticCurveTo(centerX - 120 + sway1, centerY + 8, centerX - 80 + sway1 * 1.4, centerY + 85);
-      itachiCtx.quadraticCurveTo(centerX - 105 + sway1, centerY + 5, centerX - 125, centerY - 100);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway2 = Math.sin(hairClock + 1.2) * 8 + hairSwayOffset * 1.2;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX - 40, centerY - 105);
-      itachiCtx.quadraticCurveTo(centerX - 28 + sway2, centerY - 10, centerX - 50 + sway2, centerY + 70);
-      itachiCtx.quadraticCurveTo(centerX - 45 + sway2, centerY - 25, centerX - 60, centerY - 105);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway3 = Math.sin(hairClock + 2.2) * 7 + hairSwayOffset * 1.1;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX + 145, centerY - 100);
-      itachiCtx.quadraticCurveTo(centerX + 120 + sway3, centerY + 8, centerX + 80 + sway3 * 1.4, centerY + 85);
-      itachiCtx.quadraticCurveTo(centerX + 105 + sway3, centerY + 5, centerX + 125, centerY - 100);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway4 = Math.sin(hairClock + 0.8) * 5 + hairSwayOffset * 0.8;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX + 38, centerY - 105);
-      itachiCtx.quadraticCurveTo(centerX + 30 + sway4, centerY - 30, centerX + 45 + sway4, centerY + 48);
-      itachiCtx.quadraticCurveTo(centerX + 18 + sway4, centerY - 40, centerX + 20, centerY - 105);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      requestAnimationFrame(renderItachiEyesAndHair);
-    }
-    requestAnimationFrame(renderItachiEyesAndHair);
+    const toggle = () => {
+      wrap.classList.add('morph');
+      wrap.classList.toggle('rinn');
+      setTimeout(() => wrap.classList.remove('morph'), 950);
+    };
+    wrap.addEventListener('click', toggle);
+    if (AUTO) setInterval(toggle, AUTO);
 
     const ballCanvas = document.getElementById('ball-canvas');
     const ballCtx = ballCanvas.getContext('2d');
