@@ -178,13 +178,12 @@
   <!-- =====================================================
        LAYER 0 & 1: USER'S EXACT FOG VIDEO & VOLUMETRIC CANVAS
        ===================================================== -->
-  <!-- fog.mp4 ko isi folder me rakho. Na mile to video hat jayegi, canvas fog chalta rahega -->
   <video id="vid" src="fog.mp4" autoplay muted loop playsinline onerror="this.remove()"></video>
 
   <!-- Interactive physics floating balls canvas -->
   <canvas id="ball-canvas"></canvas>
 
-  <!-- Interactive procedural fog canvas (Exact User Implementation) -->
+  <!-- Interactive procedural fog canvas -->
   <canvas id="fog"></canvas>
 
   <!-- =====================================================
@@ -192,26 +191,16 @@
        ===================================================== -->
   <div id="torch-cursor">
     <div class="relative w-full h-full flex flex-col items-center">
-      <!-- Dynamic Moving Light Radiance -->
       <div class="torch-aura absolute -top-14 -left-16 w-44 h-44 rounded-full bg-gradient-to-r from-amber-500/35 via-orange-500/25 to-transparent blur-2xl pointer-events-none"></div>
 
-      <!-- Flame Body (Gradiental Realistic Fire) -->
       <div class="torch-flame-motion relative w-8 h-11 mt-1 flex items-center justify-center">
-        <!-- Outer fiery envelope -->
         <div class="absolute inset-0 bg-gradient-to-t from-red-600 via-orange-500 to-amber-300 rounded-full blur-[1px] opacity-95"></div>
-        <!-- Inner core -->
         <div class="absolute bottom-1 w-4 h-7 bg-gradient-to-t from-amber-400 via-yellow-200 to-white rounded-full blur-[0.6px]"></div>
-        <!-- Flickering flame tip -->
         <div class="absolute -top-2.5 w-1.5 h-4.5 bg-yellow-100 rounded-full blur-[0.8px]"></div>
       </div>
 
-      <!-- Charcoal / Cloth Wrapping -->
       <div class="w-4.5 h-3 bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 rounded-sm border-t border-amber-500/80 shadow-md"></div>
-      
-      <!-- Bound Ring -->
       <div class="w-3.5 h-1.5 bg-neutral-700 border-y border-neutral-900"></div>
-
-      <!-- 10mm Wooden Staff Handle -->
       <div class="w-2.5 h-9 bg-gradient-to-b from-amber-950 via-neutral-800 to-neutral-950 rounded-b-sm shadow-md"></div>
     </div>
   </div>
@@ -221,17 +210,13 @@
        ===================================================== -->
   <div class="relative z-30 min-h-screen flex flex-col justify-between">
 
-    <!-- 1. TOP FOCUS: ITACHI SHARINGAN EYES (NO FACE, SHARP EYES IN CINEMATIC FRAMING) -->
+    <!-- 1. TOP FOCUS: ITACHI SHARINGAN EYES -->
     <header class="w-full pt-4 pb-4 px-4 md:px-12 flex flex-col items-center relative overflow-hidden">
-      
-      <!-- Eyes Canvas: Wide open Sharingan + Rotating Tomoe + Swaying front hair (No face cut) -->
       <div class="relative w-full max-w-4xl h-56 sm:h-64 flex items-center justify-center rounded-2xl border border-red-950/40 bg-neutral-950/40 backdrop-blur-sm overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)]">
         <canvas id="itachi-canvas" class="w-full h-full block"></canvas>
       </div>
 
-      <!-- HEADER ROW: Hello! i'm Anil (Left) & Think Creative. Design Different (Right) -->
       <div class="w-full max-w-6xl mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center border-b border-neutral-800/80 pb-6">
-        <!-- Left: Hello! i'm Anil (Title font, visual, left-align) -->
         <div class="text-left">
           <span class="text-xs uppercase tracking-widest text-red-500/90 font-mono block mb-1">
             <i class="ph-fill ph-circle text-red-500 text-[8px] animate-ping mr-1"></i> Visual Portfolio
@@ -241,7 +226,6 @@
           </h1>
         </div>
 
-        <!-- Right: Think Creative. Design Different (Summary font, pure white, right-align) -->
         <div class="text-left md:text-right">
           <p class="font-college-dusty text-xl sm:text-2xl md:text-3xl tracking-wider">
             Think Creative. Design Different
@@ -253,11 +237,10 @@
       </div>
     </header>
 
-    <!-- 2. BIOGRAPHY SECTION (STYLISH CUTOUT PNG PHOTO, NO BOX) -->
+    <!-- 2. BIOGRAPHY SECTION -->
     <section id="biography" class="w-full max-w-6xl mx-auto px-4 md:px-12 py-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <!-- Left: Biography Content & Philosophy Taglines -->
         <div class="lg:col-span-7 space-y-4 text-left">
           <div>
             <div class="flex items-center space-x-3">
@@ -271,7 +254,6 @@
             </p>
           </div>
 
-          <!-- Tagline in Arial Font -->
           <div class="pl-6 space-y-3 pt-2">
             <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
               I’m a passionate Graphic Designer who believes that great design is more than just visuals — it’s about communicating ideas, telling stories, and creating meaningful experiences.
@@ -282,23 +264,20 @@
           </div>
         </div>
 
-        <!-- Right: Stylized Transparent PNG Cutout (No rectangular box, no border cards) -->
         <div class="lg:col-span-5 flex flex-col items-center justify-center">
           <div class="relative group w-64 h-84 sm:w-72 sm:h-96 flex flex-col items-center justify-end">
             
-            <!-- Soft Ambient Crimson Backlight Halo -->
             <div class="absolute inset-x-4 top-10 bottom-6 bg-gradient-to-t from-red-600/30 via-red-900/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
 
-            <!-- Floating Cutout Character PNG (Masked transparent avatar) -->
             <div class="relative w-full h-full flex items-end justify-center floating-cutout">
+              <!-- Yahan Unsplash link ki jagah my-photo.png set kar diya gaya hai -->
               <img id="profile-img" 
-                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" 
+                   src="my-photo.png" 
                    alt="Anil - Designer PNG Cutout" 
                    class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(220,38,38,0.4)] transition duration-500 group-hover:scale-105"
                    style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
             </div>
 
-            <!-- Upload Custom PNG Photo Button -->
             <label for="avatar-input" class="mt-3 px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-200 hover:text-white flex items-center space-x-1.5 shadow-lg cursor-pointer">
               <i class="ph-bold ph-image text-amber-400"></i>
               <span>Change PNG Photo</span>
@@ -310,7 +289,7 @@
       </div>
     </section>
 
-    <!-- 3. THREE HORIZONTAL ROUND CYLINDER NAVIGATION BUTTONS -->
+    <!-- 3. NAVIGATION BUTTONS -->
     <section class="w-full py-8 flex justify-center items-center px-4">
       <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 bg-neutral-950/85 p-3.5 rounded-full border border-red-900/60 backdrop-blur-md shadow-[0_0_35px_rgba(220,38,38,0.35)]">
         <a href="#section-design" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
@@ -328,10 +307,10 @@
       </div>
     </section>
 
-    <!-- 4. WORK SECTIONS: DESIGN, VIDEO GRAPHY, MOTION ART -->
+    <!-- 4. WORK SECTIONS -->
     <main class="w-full max-w-6xl mx-auto px-4 md:px-12 space-y-20 py-8">
       
-      <!-- 4.1 DESIGN SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <!-- 4.1 DESIGN SECTION -->
       <section id="section-design" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -342,7 +321,6 @@
               Visual Identity &bull; Vector Layouts &bull; Print Production
             </p>
           </div>
-          <!-- Owner Only Upload Rights -->
           <button onclick="openUploadModal('Design')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
             <i class="ph-bold ph-lock-simple text-amber-400"></i>
             <span>Upload Work (Anil Only)</span>
@@ -374,7 +352,7 @@
         </div>
       </section>
 
-      <!-- 4.2 VIDEO GRAPHY SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <!-- 4.2 VIDEO GRAPHY SECTION -->
       <section id="section-videography" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -437,7 +415,7 @@
         </div>
       </section>
 
-      <!-- 4.3 MOTION ART SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <!-- 4.3 MOTION ART SECTION -->
       <section id="section-motionart" class="space-y-6 pt-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
           <div>
@@ -479,7 +457,7 @@
         </div>
       </section>
 
-      <!-- 5. QUALIFICATION (MAGNETIC FLUFFY 3D BALLS ZONE) -->
+      <!-- 5. QUALIFICATION -->
       <section id="qualification" class="pt-8 space-y-4 text-left">
         <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl">
           Qailification
@@ -488,7 +466,6 @@
           Multi-Software Proficiency &bull; Magnetic 3D Fluffy Spheres
         </p>
 
-        <!-- Magnetic cluster status bar -->
         <div class="p-5 rounded-2xl bg-neutral-950/80 border border-red-900/40 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
           <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
             <span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
@@ -514,8 +491,6 @@
 
       <!-- 6. EDUCATION SECTION -->
       <section id="education" class="pt-8 space-y-7 text-left">
-        
-        <!-- Graduation Cap & Left-aligned Title -->
         <div class="flex items-center space-x-4">
           <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-red-600/80 flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.35)] text-3xl flex-shrink-0">
             <i class="ph-bold ph-graduation-cap"></i>
@@ -534,60 +509,47 @@
           </div>
         </div>
 
-        <!-- Tagline in Arial Font -->
         <p class="font-arial text-sm sm:text-base text-gray-200 max-w-3xl leading-relaxed">
           Creative design and video production training focused on visual communication, graphic design, and video editing.
         </p>
 
-        <!-- 2mm Red Horizontal Divider Line with Subtle Fog Overlay -->
         <div class="w-full relative py-2">
           <div class="blood-line-2mm w-full"></div>
           <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-sm pointer-events-none"></div>
         </div>
 
-        <!-- 4 Cylindrical Buttons in Summary Font (Locate & Bounce Software Ball) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          
           <button onclick="navigateAndBounceBall('Photoshop')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-blue-300 hover:text-white flex items-center justify-center space-x-2 border-blue-500/50 hover:border-blue-400">
             <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
             <span>Adobe Photoshop</span>
           </button>
-
           <button onclick="navigateAndBounceBall('Illustrator')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-amber-300 hover:text-white flex items-center justify-center space-x-2 border-amber-500/50 hover:border-amber-400">
             <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
             <span>Adobe Illustrator</span>
           </button>
-
           <button onclick="navigateAndBounceBall('Premiere')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-purple-300 hover:text-white flex items-center justify-center space-x-2 border-purple-500/50 hover:border-purple-400">
             <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
             <span>Adobe Premiere Pro</span>
           </button>
-
           <button onclick="navigateAndBounceBall('Corel')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-emerald-300 hover:text-white flex items-center justify-center space-x-2 border-emerald-500/50 hover:border-emerald-400">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>CorelDRAW</span>
           </button>
-
         </div>
       </section>
 
       <!-- 7. LET'S CONNECT SECTION -->
       <section id="connect" class="pt-10 border-t border-neutral-800/80 space-y-6 text-left">
         <div>
-          <!-- Title font UNDERLINED -->
           <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl underline decoration-[#dc2626] decoration-4 underline-offset-8">
             LET'S CONNECT
           </h2>
-          <!-- Profile in Summary font UNDERLINED -->
           <h3 class="font-college-dusty text-lg sm:text-xl text-white mt-4 underline decoration-gray-300 decoration-2 underline-offset-4">
             Profile
           </h3>
         </div>
 
-        <!-- 4 Contact Links in Arial Font -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          
-          <!-- 1) Instagram Handle with logo -->
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
              class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-pink-500 transition flex items-center space-x-3 group">
             <div class="w-10 h-10 rounded-xl bg-pink-950/60 text-pink-400 border border-pink-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
@@ -599,7 +561,6 @@
             </div>
           </a>
 
-          <!-- 2) Email Address with icon (Direct User Mailbox) -->
           <a href="mailto:Anilanx144@gmail.com" 
              class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition flex items-center space-x-3 group">
             <div class="w-10 h-10 rounded-xl bg-red-950/60 text-red-400 border border-red-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
@@ -611,7 +572,6 @@
             </div>
           </a>
 
-          <!-- 3) Phone Icon with Phone Number -->
           <a href="tel:+918287734779" 
              class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-emerald-500 transition flex items-center space-x-3 group">
             <div class="w-10 h-10 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
@@ -623,7 +583,6 @@
             </div>
           </a>
 
-          <!-- 4) Behance Profile Link with Logo -->
           <a href="https://www.behance.net/Animax10044db5" target="_blank" rel="noopener noreferrer" 
              class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-500 transition flex items-center space-x-3 group">
             <div class="w-10 h-10 rounded-xl bg-blue-950/60 text-blue-400 border border-blue-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
@@ -634,16 +593,14 @@
               <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-blue-400 transition">Animax10044db5</p>
             </div>
           </a>
-
         </div>
       </section>
 
-      <!-- 8. THANK YOU SECTION (CENTER-ALIGNED PHILOSOPHY QUOTE) -->
+      <!-- 8. THANK YOU SECTION -->
       <footer class="pt-16 pb-24 text-center space-y-4">
         <h2 class="font-broken-detroit text-4xl sm:text-5xl inline-block">
           Thank you !!!
         </h2>
-        <!-- Exact Quote in Arial Font -->
         <p class="font-arial text-base sm:text-lg text-gray-200 italic max-w-3xl mx-auto px-4 leading-relaxed">
           “Behind every design is an idea, behind every frame is a story, and behind every creation is a dream”
         </p>
@@ -653,12 +610,9 @@
       </footer>
 
     </main>
-
   </div>
 
-  <!-- =====================================================
-       SECURE UPLOAD MODAL (ONLY ANIL HAS UPLOAD PRIVILEGES)
-       ===================================================== -->
+  <!-- UPLOAD MODAL -->
   <div id="upload-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-neutral-900 border border-red-700/80 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-[0_0_45px_rgba(220,38,38,0.5)]">
       <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
@@ -698,22 +652,16 @@
     </div>
   </div>
 
-  <!-- Floating Toast Message Box -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-red-600 px-4 py-3 rounded-xl shadow-2xl text-xs font-arial text-white flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
     <i class="ph-fill ph-check-circle text-red-500 text-lg"></i>
     <span id="toast-msg">Success</span>
   </div>
 
-  <!-- =====================================================
-       SCRIPTS: USER'S FOG CODE + ITACHI EYES + MASHAL + 3D BALLS
-       ===================================================== -->
   <script>
-    /* ---------- cursor position (smooth) ---------- */
     let mx = innerWidth / 2, my = innerHeight / 2, tx = mx, ty = my;
     addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; });
     addEventListener("touchmove", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
 
-    /* Update 10mm burning mashal torch cursor smoothly */
     const torch = document.getElementById('torch-cursor');
     function updateTorchPosition() {
       if (torch) {
@@ -722,17 +670,15 @@
       }
     }
 
-    /* ---------- USER'S EXACT FOG SETUP ---------- */
     const fc = document.getElementById("fog");
     const fx = fc.getContext("2d");
 
-    // Ek soft dhuaan ka puff (radial gradient), baar-baar isi ko draw karenge
     const sprite = document.createElement("canvas");
     sprite.width = sprite.height = 128;
     {
       const c = sprite.getContext("2d");
       const g = c.createRadialGradient(64, 64, 0, 64, 64, 64);
-      g.addColorStop(0,   "rgba(175,182,200,1)");     // halka white-grey
+      g.addColorStop(0,   "rgba(175,182,200,1)");
       g.addColorStop(.5, "rgba(150,158,178,.45)");
       g.addColorStop(1,   "rgba(140,148,170,0)");
       c.fillStyle = g;
@@ -741,52 +687,46 @@
 
     let puffs = [];
     function fogInit() {
-      // half resolution = fast + soft look
       fc.width = innerWidth / 2;
       fc.height = innerHeight / 2;
       puffs = [];
-      const count = Math.round(innerWidth * innerHeight / 26000) + 12;   // zyada fog chahiye to 26000 kam karo
+      const count = Math.round(innerWidth * innerHeight / 26000) + 12;
       for (let i = 0; i < count; i++) {
         puffs.push({
           x: Math.random() * innerWidth,
           y: Math.random() * innerHeight,
-          r: 140 + Math.random() * 240,              // puff ka size
-          vx: (Math.random() - .3) * .35,            // drift speed
+          r: 140 + Math.random() * 240,
+          vx: (Math.random() - .3) * .35,
           vy: (Math.random() - .5) * .15,
-          a: .1 + Math.random() * .16,               // base opacity
-          ph: Math.random() * 9,                     // random phase (patchy effect ke liye)
-          sp: .1 + Math.random() * .25,              // fade in/out speed
-          ox: 0, oy: 0                               // cursor se dhakke ka offset
+          a: .1 + Math.random() * .16,
+          ph: Math.random() * 9,
+          sp: .1 + Math.random() * .25,
+          ox: 0, oy: 0
         });
       }
     }
 
-    /* ---------- USER'S EXACT FOG DRAW (HAR FRAME) ---------- */
     function fogDraw(t) {
       fx.setTransform(.5, 0, 0, .5, 0, 0);
       fx.clearRect(0, 0, innerWidth, innerHeight);
       fx.globalCompositeOperation = "source-over";
 
       for (const p of puffs) {
-        // behna + upar-neeche halka lehrana
         p.x += p.vx;
         p.y += p.vy + Math.sin(t / 4000 + p.ph) * .12;
 
-        // screen se bahar jaye to doosri taraf se wapas
         if (p.x > innerWidth + p.r) p.x = -p.r;
         if (p.x < -p.r) p.x = innerWidth + p.r;
         if (p.y > innerHeight + p.r) p.y = -p.r;
         if (p.y < -p.r) p.y = innerHeight + p.r;
 
-        // cursor ke paas aate hi puff door dhakel do
         const dx = p.x - mx, dy = p.y - my;
         const d = Math.hypot(dx, dy) || 1;
-        const R = p.r * .55 + 150;                  // cursor ka asar kitni door tak
+        const R = p.r * .55 + 150;
         const push = Math.max(0, R - d);
-        p.ox += (dx / d * push - p.ox) * .06;       // smooth dhakka
+        p.ox += (dx / d * push - p.ox) * .06;
         p.oy += (dy / d * push - p.oy) * .06;
 
-        // patchy fog: kabhi gaadha, kabhi bilkul gayab
         const patch = Math.max(0, Math.sin(t / 1000 * p.sp + p.ph) * .9 + .25);
         fx.globalAlpha = Math.min(.5, p.a * patch * 1.8);
 
@@ -794,7 +734,6 @@
         fx.drawImage(sprite, p.x + p.ox - p.r, p.y + p.oy - p.r, s, s);
       }
 
-      // cursor ke theek neeche fog ka chhota sa "hole" (Mashal clears fog directly)
       fx.globalAlpha = 1;
       fx.globalCompositeOperation = "destination-out";
       const g = fx.createRadialGradient(mx, my, 0, mx, my, 150);
@@ -807,19 +746,14 @@
     addEventListener("resize", fogInit);
     fogInit();
 
-    /* Combined master frame loop */
     (function loop(t) {
-      mx += (tx - mx) * .35;     // cursor smooth follow
+      mx += (tx - mx) * .35;
       my += (ty - my) * .35;
       updateTorchPosition();
       fogDraw(t);
       requestAnimationFrame(loop);
     })(0);
 
-
-    /* =====================================================
-       4. ITACHI SHARINGAN JUTSU: WIDE-OPEN EYES ONLY (NO FACE CUT)
-       ===================================================== */
     const itachiCanvas = document.getElementById('itachi-canvas');
     const itachiCtx = itachiCanvas.getContext('2d');
     let sharinganOpeningProgress = 0;
@@ -841,11 +775,9 @@
       const angle = Math.atan2(dy, dx);
       const dist = Math.min(18, Math.hypot(dx, dy) * 0.048);
 
-      // Wide-open anime eye aperture
       const openHeight = 28 * Math.min(1, sharinganOpeningProgress);
 
       ctx.save();
-      // Sharp anime eye socket
       ctx.beginPath();
       if (isLeft) {
         ctx.moveTo(cx - 72, cy);
@@ -861,16 +793,13 @@
       ctx.fill();
       ctx.clip();
 
-      // Deep eye socket shade
       ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
       ctx.fillRect(cx - 75, cy - 35, 150, 18);
 
-      // Tracking Iris Position
       const irisX = cx + Math.cos(angle) * dist;
       const irisY = cy + Math.sin(angle) * dist;
       const irisRadius = 24;
 
-      // Crimson Sharingan Radial Gradient
       const irisGrad = ctx.createRadialGradient(irisX, irisY, 2, irisX, irisY, irisRadius + 8);
       irisGrad.addColorStop(0, '#ff3333');
       irisGrad.addColorStop(0.65, '#dc2626');
@@ -884,20 +813,17 @@
       ctx.lineWidth = 2.2;
       ctx.stroke();
 
-      // Inner Tomoe orbit ring
       ctx.beginPath();
       ctx.arc(irisX, irisY, 14, 0, Math.PI * 2);
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
       ctx.lineWidth = 1.3;
       ctx.stroke();
 
-      // Center pupil
       ctx.beginPath();
       ctx.arc(irisX, irisY, 5, 0, Math.PI * 2);
       ctx.fillStyle = '#000000';
       ctx.fill();
 
-      // 3 Tomoe spinning Jutsu
       for (let i = 0; i < 3; i++) {
         const tomoeAngle = eyeRotation + (i * (Math.PI * 2 / 3));
         const tx = irisX + Math.cos(tomoeAngle) * 13.5;
@@ -922,7 +848,6 @@
         ctx.restore();
       }
 
-      // Specular light reflection
       ctx.beginPath();
       ctx.arc(irisX - 6.5, irisY - 7, 2.8, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
@@ -930,7 +855,6 @@
 
       ctx.restore();
 
-      // Upper Sharp Eyelid line
       ctx.beginPath();
       if (isLeft) {
         ctx.moveTo(cx - 76, cy + 2);
@@ -943,7 +867,6 @@
       ctx.lineWidth = 4;
       ctx.stroke();
 
-      // Itachi's tear-troughs (creases)
       ctx.beginPath();
       if (isLeft) {
         ctx.moveTo(cx - 22, cy + 8);
@@ -962,7 +885,6 @@
       const h = itachiCanvas.height;
       itachiCtx.clearRect(0, 0, w, h);
 
-      // Eye opening animation progress on site entry
       if (sharinganOpeningProgress < 1) {
         sharinganOpeningProgress += 0.025;
       }
@@ -974,7 +896,6 @@
 
       const hairSwayOffset = (mx - centerX) * 0.045;
 
-      // Soft crimson ambiance around eyes
       const aura = itachiCtx.createRadialGradient(centerX, centerY, 20, centerX, centerY, 240);
       aura.addColorStop(0, 'rgba(220, 38, 38, 0.35)');
       aura.addColorStop(0.65, 'rgba(28, 10, 10, 0.5)');
@@ -986,16 +907,13 @@
       const localMouseX = mx - canvasRect.left;
       const localMouseY = my - canvasRect.top;
 
-      // Draw left & right wide-open Sharingan eyes (No face cut)
       drawSharinganEye(centerX - 105, centerY - 8, localMouseX, localMouseY, true);
       drawSharinganEye(centerX + 105, centerY - 8, localMouseX, localMouseY, false);
 
-      // Natural hanging & swaying front hair bangs
       itachiCtx.fillStyle = '#080a10';
       itachiCtx.strokeStyle = 'rgba(220, 38, 38, 0.4)';
       itachiCtx.lineWidth = 1.6;
 
-      // Left hair lock
       const sway1 = Math.sin(hairClock) * 7 + hairSwayOffset;
       itachiCtx.beginPath();
       itachiCtx.moveTo(centerX - 145, centerY - 100);
@@ -1004,7 +922,6 @@
       itachiCtx.fill();
       itachiCtx.stroke();
 
-      // Center split bang
       const sway2 = Math.sin(hairClock + 1.2) * 8 + hairSwayOffset * 1.2;
       itachiCtx.beginPath();
       itachiCtx.moveTo(centerX - 40, centerY - 105);
@@ -1013,7 +930,6 @@
       itachiCtx.fill();
       itachiCtx.stroke();
 
-      // Right hair lock
       const sway3 = Math.sin(hairClock + 2.2) * 7 + hairSwayOffset * 1.1;
       itachiCtx.beginPath();
       itachiCtx.moveTo(centerX + 145, centerY - 100);
@@ -1022,7 +938,6 @@
       itachiCtx.fill();
       itachiCtx.stroke();
 
-      // Forehead fringe
       const sway4 = Math.sin(hairClock + 0.8) * 5 + hairSwayOffset * 0.8;
       itachiCtx.beginPath();
       itachiCtx.moveTo(centerX + 38, centerY - 105);
@@ -1035,10 +950,6 @@
     }
     requestAnimationFrame(renderItachiEyesAndHair);
 
-
-    /* =====================================================
-       5. QUALIFICATION: MAGNETIC FLUFFY 3D BALLS PHYSICS
-       ===================================================== */
     const ballCanvas = document.getElementById('ball-canvas');
     const ballCtx = ballCanvas.getContext('2d');
 
@@ -1050,7 +961,6 @@
     resizeBallCanvas();
 
     const multiSoftwareBalls = [
-      // Cluster 1: Concentration in Qualifications zone
       { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 220, y: 1550, vx: 0.2, vy: 0.1, r: 42, baseR: 42, bounce: 0 },
       { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 340, y: 1600, vx: -0.2, vy: 0.1, r: 35, baseR: 35, bounce: 0 },
       { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 450, y: 1520, vx: -0.15, vy: 0.2, r: 42, baseR: 42, bounce: 0 },
@@ -1059,8 +969,6 @@
       { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 780, y: 1620, vx: -0.2, vy: -0.15, r: 35, baseR: 35, bounce: 0 },
       { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 890, y: 1540, vx: -0.15, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
       { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 990, y: 1610, vx: 0.2, vy: 0.2, r: 35, baseR: 35, bounce: 0 },
-      
-      // Secondary ambient floating balls across the site
       { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: window.innerWidth * 0.15, y: 550, vx: 0.35, vy: 0.25, r: 38, baseR: 38, bounce: 0 },
       { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: window.innerWidth * 0.85, y: 650, vx: -0.3, vy: 0.3, r: 38, baseR: 38, bounce: 0 },
       { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: window.innerWidth * 0.18, y: 2200, vx: 0.3, vy: -0.3, r: 36, baseR: 36, bounce: 0 },
@@ -1078,7 +986,6 @@
         qualCenterY = rect.top + scrollY + rect.height / 2;
       }
 
-      // 1. Magnetic Attraction between balls
       for (let i = 0; i < multiSoftwareBalls.length; i++) {
         for (let j = i + 1; j < multiSoftwareBalls.length; j++) {
           const b1 = multiSoftwareBalls[i];
@@ -1103,7 +1010,6 @@
         }
       }
 
-      // 2. Render & Torch Repulsion (Dispersion)
       multiSoftwareBalls.forEach(ball => {
         const dyToQual = qualCenterY - ball.y;
         ball.vy += Math.sign(dyToQual) * Math.min(0.04, Math.abs(dyToQual) * 0.000035);
@@ -1129,7 +1035,6 @@
         const screenY = ball.y - scrollY;
         if (screenY + ball.r < -120 || screenY - ball.r > ballCanvas.height + 120) return;
 
-        // CURSOR REPULSION: Torch arrives, balls scatter apart
         const distToTorch = Math.hypot(ball.x - mx, screenY - my);
         const scatterDistance = ball.r + 115;
         if (distToTorch < scatterDistance) {
@@ -1145,7 +1050,6 @@
         if (Math.abs(ball.vx) < 0.08) ball.vx = (Math.random() - 0.5) * 0.4;
         if (Math.abs(ball.vy) < 0.08) ball.vy = (Math.random() - 0.5) * 0.4;
 
-        // Fluffy Glow
         const fluffGlow = ballCtx.createRadialGradient(ball.x, screenY, ball.r * 0.3, ball.x, screenY, ball.r * 2);
         fluffGlow.addColorStop(0, ball.color);
         fluffGlow.addColorStop(0.5, ball.color + '44');
@@ -1156,7 +1060,6 @@
         ballCtx.fillStyle = fluffGlow;
         ballCtx.fill();
 
-        // 3D Spherical Volume
         const sphere3D = ballCtx.createRadialGradient(
           ball.x - ball.r * 0.3, screenY - ball.r * 0.35, ball.r * 0.1,
           ball.x, screenY, ball.r
@@ -1173,7 +1076,6 @@
         ballCtx.strokeStyle = ball.color;
         ballCtx.stroke();
 
-        // Software Logo
         ballCtx.fillStyle = '#ffffff';
         ballCtx.font = `bold ${Math.round(ball.r * 0.65)}px Arial, sans-serif`;
         ballCtx.textAlign = 'center';
@@ -1188,7 +1090,6 @@
     }
     requestAnimationFrame(animateSoftwareBalls);
 
-    // Education Buttons: Locate, Scroll, and Bounce
     function navigateAndBounceBall(toolId) {
       const candidates = multiSoftwareBalls.filter(b => b.id.toLowerCase() === toolId.toLowerCase());
       if (candidates.length > 0) {
@@ -1203,7 +1104,6 @@
         target.vy = -7.5;
         target.vx = (Math.random() - 0.5) * 8.5;
 
-        // Disperse fog instantly around target ball
         fx.globalAlpha = 1;
         fx.globalCompositeOperation = 'destination-out';
         const g = fx.createRadialGradient(target.x, target.y - targetScrollY, 0, target.x, target.y - targetScrollY, 200);
@@ -1216,10 +1116,6 @@
       }
     }
 
-
-    /* =====================================================
-       6. EXCLUSIVE UPLOADER & IMAGE HANDLERS (ANIL ONLY)
-       ===================================================== */
     let activeUploadSection = 'Design';
     const uploadModal = document.getElementById('upload-modal');
     const modalTitle = document.getElementById('modal-title');
@@ -1267,7 +1163,6 @@
       showToast(`Uploaded successfully to ${activeUploadSection}!`);
     }
 
-    // Avatar PNG File Selection
     const avatarInput = document.getElementById('avatar-input');
     const profileImg = document.getElementById('profile-img');
     if (avatarInput) {
@@ -1283,7 +1178,6 @@
       });
     }
 
-    // Toast utility
     function showToast(text) {
       const toast = document.getElementById('toast');
       const msg = document.getElementById('toast-msg');
