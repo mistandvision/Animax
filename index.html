@@ -1,1195 +1,1305 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anil — Graphic Designer, Video Editor & Motion Artist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil — Graphic Designer, Video Editor & Motion Artist</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
-  <style>
-    /* Google Fonts for authentic distressed / collegiate stencil styling */
-    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Rubik+Glitch&family=Syne:wght@700;800&display=swap');
+  <style>
+    /* Google Fonts for authentic distressed / collegiate stencil styling */
+    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Rubik+Glitch&family=Syne:wght@700;800&display=swap');
 
-    /* ========================================================
-       1. EXACT TYPOGRAPHY HIERARCHY
-       ======================================================== */
-    /* Title Font: Broken Detroit Style (Clean Crimson Red, Left-Aligned) */
-    .font-broken-detroit {
-      font-family: 'Rubik Glitch', 'Syne', Impact, sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #dc2626;
-      text-align: left;
-      text-shadow: 
-        0 0 10px rgba(220, 38, 38, 0.45),
-        0 0 24px rgba(185, 28, 28, 0.25);
-    }
+    /* ========================================================
+       1. EXACT TYPOGRAPHY HIERARCHY
+       ======================================================== */
+    /* Title Font: Broken Detroit Style (Clean Crimson Red, Left-Aligned) */
+    .font-broken-detroit {
+      font-family: 'Rubik Glitch', 'Syne', Impact, sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #dc2626;
+      text-align: left;
+      text-shadow: 
+        0 0 10px rgba(220, 38, 38, 0.45),
+        0 0 24px rgba(185, 28, 28, 0.25);
+    }
 
-    /* Summary Font: Typo College Dusty Style (Textured Crisp Pure White) */
-    .font-college-dusty {
-      font-family: 'Black Ops One', 'Special Elite', Impact, sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.35);
-    }
+    /* Summary Font: Typo College Dusty Style (Textured Crisp Pure White) */
+    .font-college-dusty {
+      font-family: 'Black Ops One', 'Special Elite', Impact, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.35);
+    }
 
-    /* Taglines / Philosophy / Body Font: Arial */
-    .font-arial {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    /* Taglines / Philosophy / Body Font: Arial */
+    .font-arial {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-    /* Uchiha Clan Noir Palette */
-    html, body {
-      margin: 0;
-      background-color: #101116;
-      color: #f1f5f9;
-      cursor: none !important;
-      overflow-x: hidden;
-    }
-    a, button, input, label {
-      cursor: none !important;
-    }
+    /* Uchiha Clan Noir Palette */
+    html, body {
+      margin: 0;
+      background-color: #101116;
+      color: #f1f5f9;
+      cursor: none !important;
+      overflow-x: hidden;
+    }
+    a, button, input, label {
+      cursor: none !important;
+    }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0a0b10;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #7f1d1d;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #dc2626;
-    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0b10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #7f1d1d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #dc2626;
+    }
 
-    /* ========================================================
-       2. USER'S EXACT FOG ARCHITECTURE STYLES
-       ======================================================== */
-    /* Asli fog video: kaali background par screen blend se sirf dhuaan dikhta hai */
-    #vid {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      mix-blend-mode: screen;
-      opacity: 0.55;
-      pointer-events: none;
-      z-index: 1;
-    }
+    /* ========================================================
+       2. USER'S EXACT FOG ARCHITECTURE STYLES
+       ======================================================== */
+    /* Asli fog video: kaali background par screen blend se sirf dhuaan dikhta hai */
+    #vid {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-    /* Interactive fog: click/scroll rokta nahi */
-    #fog {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 20;
-    }
+    /* Interactive fog: click/scroll rokta nahi */
+    #fog {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
 
-    /* 3D Balls Canvas */
-    #ball-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: auto;
-      z-index: 10;
-    }
+    /* 3D Balls Canvas */
+    #ball-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: auto;
+      z-index: 10;
+    }
 
-    /* 2mm Crimson Horizontal Line with Soft Mist */
-    .blood-line-2mm {
-      height: 2mm;
-      background: linear-gradient(90deg, transparent, #7f1d1d 15%, #dc2626 50%, #991b1b 85%, transparent);
-      box-shadow: 0 0 14px rgba(220, 38, 38, 0.65), 0 0 28px rgba(185, 28, 28, 0.3);
-      position: relative;
-    }
+    /* 2mm Crimson Horizontal Line with Soft Mist */
+    .blood-line-2mm {
+      height: 2mm;
+      background: linear-gradient(90deg, transparent, #7f1d1d 15%, #dc2626 50%, #991b1b 85%, transparent);
+      box-shadow: 0 0 14px rgba(220, 38, 38, 0.65), 0 0 28px rgba(185, 28, 28, 0.3);
+      position: relative;
+    }
 
-    /* Horizontal Round Cylinder Shape Buttons */
-    .cylinder-btn {
-      border-radius: 9999px;
-      background: linear-gradient(145deg, rgba(24, 26, 36, 0.95), rgba(12, 14, 20, 0.98));
-      border: 1px solid rgba(220, 38, 38, 0.45);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .cylinder-btn:hover {
-      border-color: #ff4d4d;
-      box-shadow: 0 0 24px rgba(220, 38, 38, 0.7), inset 0 0 12px rgba(220, 38, 38, 0.3);
-      transform: translateY(-2px) scale(1.03);
-    }
+    /* Horizontal Round Cylinder Shape Buttons */
+    .cylinder-btn {
+      border-radius: 9999px;
+      background: linear-gradient(145deg, rgba(24, 26, 36, 0.95), rgba(12, 14, 20, 0.98));
+      border: 1px solid rgba(220, 38, 38, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cylinder-btn:hover {
+      border-color: #ff4d4d;
+      box-shadow: 0 0 24px rgba(220, 38, 38, 0.7), inset 0 0 12px rgba(220, 38, 38, 0.3);
+      transform: translateY(-2px) scale(1.03);
+    }
 
-    /* ========================================================
-       3. 10mm REALISTIC BURNING MASHAL TORCH CURSOR
-       ======================================================== */
-    #torch-cursor {
-      position: fixed;
-      width: 38px;
-      height: 72px;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-    }
+    /* ========================================================
+       3. 10mm REALISTIC BURNING MASHAL TORCH CURSOR
+       ======================================================== */
+    #torch-cursor {
+      position: fixed;
+      width: 38px;
+      height: 72px;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
 
-    @keyframes torchFlicker {
-      0% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
-      25% { transform: scale(1.08, 1.15) rotate(2deg); filter: drop-shadow(0 0 22px rgba(255, 75, 0, 0.95)); }
-      50% { transform: scale(0.96, 0.98) rotate(-2deg); filter: drop-shadow(0 0 14px rgba(255, 160, 30, 0.85)); }
-      75% { transform: scale(1.05, 1.12) rotate(1deg); filter: drop-shadow(0 0 20px rgba(255, 90, 10, 0.92)); }
-      100% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
-    }
-    .torch-flame-motion {
-      animation: torchFlicker 0.17s infinite alternate ease-in-out;
-      transform-origin: bottom center;
-    }
+    @keyframes torchFlicker {
+      0% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
+      25% { transform: scale(1.08, 1.15) rotate(2deg); filter: drop-shadow(0 0 22px rgba(255, 75, 0, 0.95)); }
+      50% { transform: scale(0.96, 0.98) rotate(-2deg); filter: drop-shadow(0 0 14px rgba(255, 160, 30, 0.85)); }
+      75% { transform: scale(1.05, 1.12) rotate(1deg); filter: drop-shadow(0 0 20px rgba(255, 90, 10, 0.92)); }
+      100% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
+    }
+    .torch-flame-motion {
+      animation: torchFlicker 0.17s infinite alternate ease-in-out;
+      transform-origin: bottom center;
+    }
 
-    @keyframes lightPulse {
-      0%, 100% { opacity: 0.82; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.22); }
-    }
-    .torch-aura {
-      animation: lightPulse 0.45s infinite ease-in-out;
-    }
+    @keyframes lightPulse {
+      0%, 100% { opacity: 0.82; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.22); }
+    }
+    .torch-aura {
+      animation: lightPulse 0.45s infinite ease-in-out;
+    }
 
-    /* Floating Cutout Photo Animation */
-    @keyframes floatCutout {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-9px); }
-    }
-    .floating-cutout {
-      animation: floatCutout 4.8s ease-in-out infinite;
-    }
-  </style>
+    /* Floating Cutout Photo Animation */
+    @keyframes floatCutout {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+    .floating-cutout {
+      animation: floatCutout 4.8s ease-in-out infinite;
+    }
+  </style>
 </head>
 
 <body class="selection:bg-red-800 selection:text-white">
 
-  <!-- =====================================================
-       LAYER 0 & 1: USER'S EXACT FOG VIDEO & VOLUMETRIC CANVAS
-       ===================================================== -->
-  <video id="vid" src="fog.mp4" autoplay muted loop playsinline onerror="this.remove()"></video>
-
-  <!-- Interactive physics floating balls canvas -->
-  <canvas id="ball-canvas"></canvas>
-
-  <!-- Interactive procedural fog canvas -->
-  <canvas id="fog"></canvas>
-
-  <!-- =====================================================
-       LAYER 2: 10mm REALISTIC BURNING MASHAL (TORCH CURSOR)
-       ===================================================== -->
-  <div id="torch-cursor">
-    <div class="relative w-full h-full flex flex-col items-center">
-      <div class="torch-aura absolute -top-14 -left-16 w-44 h-44 rounded-full bg-gradient-to-r from-amber-500/35 via-orange-500/25 to-transparent blur-2xl pointer-events-none"></div>
-
-      <div class="torch-flame-motion relative w-8 h-11 mt-1 flex items-center justify-center">
-        <div class="absolute inset-0 bg-gradient-to-t from-red-600 via-orange-500 to-amber-300 rounded-full blur-[1px] opacity-95"></div>
-        <div class="absolute bottom-1 w-4 h-7 bg-gradient-to-t from-amber-400 via-yellow-200 to-white rounded-full blur-[0.6px]"></div>
-        <div class="absolute -top-2.5 w-1.5 h-4.5 bg-yellow-100 rounded-full blur-[0.8px]"></div>
-      </div>
-
-      <div class="w-4.5 h-3 bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 rounded-sm border-t border-amber-500/80 shadow-md"></div>
-      <div class="w-3.5 h-1.5 bg-neutral-700 border-y border-neutral-900"></div>
-      <div class="w-2.5 h-9 bg-gradient-to-b from-amber-950 via-neutral-800 to-neutral-950 rounded-b-sm shadow-md"></div>
-    </div>
-  </div>
-
-  <!-- =====================================================
-       LAYER 3: MAIN VISUAL PAGE CONTENT
-       ===================================================== -->
-  <div class="relative z-30 min-h-screen flex flex-col justify-between">
-
-    <!-- 1. TOP FOCUS: ITACHI SHARINGAN EYES -->
-    <header class="w-full pt-4 pb-4 px-4 md:px-12 flex flex-col items-center relative overflow-hidden">
-      <div class="relative w-full max-w-4xl h-56 sm:h-64 flex items-center justify-center rounded-2xl border border-red-950/40 bg-neutral-950/40 backdrop-blur-sm overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)]">
-        <canvas id="itachi-canvas" class="w-full h-full block"></canvas>
-      </div>
-
-      <div class="w-full max-w-6xl mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center border-b border-neutral-800/80 pb-6">
-        <div class="text-left">
-          <span class="text-xs uppercase tracking-widest text-red-500/90 font-mono block mb-1">
-            <i class="ph-fill ph-circle text-red-500 text-[8px] animate-ping mr-1"></i> Visual Portfolio
-          </span>
-          <h1 class="font-broken-detroit text-4xl sm:text-5xl md:text-6xl font-bold">
-            Hello! i'm Anil
-          </h1>
-        </div>
-
-        <div class="text-left md:text-right">
-          <p class="font-college-dusty text-xl sm:text-2xl md:text-3xl tracking-wider">
-            Think Creative. Design Different
-          </p>
-          <p class="font-arial text-xs text-gray-300 mt-1 tracking-wide">
-            Graphic Designer &bull; Video Editor &bull; Motion Artist
-          </p>
-        </div>
-      </div>
-    </header>
-
-    <!-- 2. BIOGRAPHY SECTION -->
-    <section id="biography" class="w-full max-w-6xl mx-auto px-4 md:px-12 py-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        
-        <div class="lg:col-span-7 space-y-4 text-left">
-          <div>
-            <div class="flex items-center space-x-3">
-              <span class="h-3.5 w-3.5 rounded-full bg-red-600 shadow-[0_0_12px_#dc2626] flex-shrink-0"></span>
-              <h2 class="font-broken-detroit text-3xl sm:text-4xl">
-                BIOGRAPHY
-              </h2>
-            </div>
-            <p class="font-college-dusty text-base sm:text-lg text-white mt-2 pl-6">
-              About me..
-            </p>
-          </div>
-
-          <div class="pl-6 space-y-3 pt-2">
-            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
-              I’m a passionate Graphic Designer who believes that great design is more than just visuals — it’s about communicating ideas, telling stories, and creating meaningful experiences.
-            </p>
-            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
-              With a creative mindset and an eye for detail, I transform concepts into impactful visual designs that connect with audiences and bring brands to life. My approach combines creativity, strategy, and purpose to create designs that not only look good but also communicate effectively.
-            </p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 flex flex-col items-center justify-center">
-          <div class="relative group w-64 h-84 sm:w-72 sm:h-96 flex flex-col items-center justify-end">
-            
-            <div class="absolute inset-x-4 top-10 bottom-6 bg-gradient-to-t from-red-600/30 via-red-900/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-
-            <div class="relative w-full h-full flex items-end justify-center floating-cutout">
-              <!-- Yahan Unsplash link ki jagah my-photo.png set kar diya gaya hai -->
-              <img id="profile-img" 
-                   src="my-photo.png" 
-                   alt="Anil - Designer PNG Cutout" 
-                   class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(220,38,38,0.4)] transition duration-500 group-hover:scale-105"
-                   style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
-            </div>
-
-            <label for="avatar-input" class="mt-3 px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-200 hover:text-white flex items-center space-x-1.5 shadow-lg cursor-pointer">
-              <i class="ph-bold ph-image text-amber-400"></i>
-              <span>Change PNG Photo</span>
-            </label>
-            <input type="file" id="avatar-input" accept="image/*" class="hidden">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 3. NAVIGATION BUTTONS -->
-    <section class="w-full py-8 flex justify-center items-center px-4">
-      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 bg-neutral-950/85 p-3.5 rounded-full border border-red-900/60 backdrop-blur-md shadow-[0_0_35px_rgba(220,38,38,0.35)]">
-        <a href="#section-design" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-paint-brush"></i>
-          <span>Design</span>
-        </a>
-        <a href="#section-videography" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-film-strip"></i>
-          <span>Video Graphy</span>
-        </a>
-        <a href="#section-motionart" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-lightning"></i>
-          <span>Motion Art</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- 4. WORK SECTIONS -->
-    <main class="w-full max-w-6xl mx-auto px-4 md:px-12 space-y-20 py-8">
-      
-      <!-- 4.1 DESIGN SECTION -->
-      <section id="section-design" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Design
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Visual Identity &bull; Vector Layouts &bull; Print Production
-            </p>
-          </div>
-          <button onclick="openUploadModal('Design')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Work (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="design-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Visual Brand Architecture</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Illustrator &amp; Photoshop</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Packaging &amp; Vector Grid</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">CorelDRAW High Precision Print</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Typography &amp; Poster Art</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Creative Editorial Communication</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4.2 VIDEO GRAPHY SECTION -->
-      <section id="section-videography" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Video Graphy
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Timeline Editing &bull; Cinematic Color LUTs &bull; Dynamic Pacing
-            </p>
-          </div>
-          <button onclick="openUploadModal('Video Graphy')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Video (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Automotive Commercial Cut</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Premiere Pro &bull; Speed Transitions</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Brand Montage Sequence</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Sound Design &bull; Multi-Track Audio Sync</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Event Teaser Cut</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Color Grade &bull; Rhythm Match</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4.3 MOTION ART SECTION -->
-      <section id="section-motionart" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Motion Art
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Kinetic Typography &bull; VFX Compositing &bull; Visual Dynamics
-            </p>
-          </div>
-          <button onclick="openUploadModal('Motion Art')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Motion (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="motion-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Amaterasu Flame Particles</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Particle Physics &amp; Glow Synthesis</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Sci-Fi HUD UI Vector Loop</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">After Effects &bull; 2D Geometric Rigging</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Kinetic Glitch Distortion</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Displacement Channel Maps &amp; Motion Blur</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. QUALIFICATION -->
-      <section id="qualification" class="pt-8 space-y-4 text-left">
-        <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl">
-          Qailification
-        </h2>
-        <p class="font-college-dusty text-sm text-gray-200 tracking-wider">
-          Multi-Software Proficiency &bull; Magnetic 3D Fluffy Spheres
-        </p>
-
-        <div class="p-5 rounded-2xl bg-neutral-950/80 border border-red-900/40 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
-            <span>Adobe Photoshop (Ps)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b]"></span>
-            <span>Adobe Illustrator (Ai)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></span>
-            <span>Adobe Premiere Pro (Pr)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
-            <span>CorelDRAW (Cd)</span>
-          </div>
-          <span class="text-xs font-mono text-red-400 italic block w-full mt-1">
-            *Balls exhibit mutual magnetic attraction and cluster here, but scatter apart immediately when your burning torch cursor approaches!
-          </span>
-        </div>
-      </section>
-
-      <!-- 6. EDUCATION SECTION -->
-      <section id="education" class="pt-8 space-y-7 text-left">
-        <div class="flex items-center space-x-4">
-          <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-red-600/80 flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.35)] text-3xl flex-shrink-0">
-            <i class="ph-bold ph-graduation-cap"></i>
-          </div>
-          <div>
-            <h2 class="font-broken-detroit text-2xl sm:text-3xl md:text-4xl text-left">
-              Graphic Design &amp; Video Editing
-            </h2>
-            <div class="flex flex-wrap items-center gap-2 mt-1">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shadow-[0_0_6px_#facc15]"></span>
-              <span class="font-college-dusty text-yellow-400 text-sm md:text-base tracking-wider">
-                Brilliko Institute
-              </span>
-              <span class="text-gray-300 text-xs font-arial">| Course Completion: 2026.</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="font-arial text-sm sm:text-base text-gray-200 max-w-3xl leading-relaxed">
-          Creative design and video production training focused on visual communication, graphic design, and video editing.
-        </p>
-
-        <div class="w-full relative py-2">
-          <div class="blood-line-2mm w-full"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-sm pointer-events-none"></div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          <button onclick="navigateAndBounceBall('Photoshop')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-blue-300 hover:text-white flex items-center justify-center space-x-2 border-blue-500/50 hover:border-blue-400">
-            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-            <span>Adobe Photoshop</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Illustrator')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-amber-300 hover:text-white flex items-center justify-center space-x-2 border-amber-500/50 hover:border-amber-400">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            <span>Adobe Illustrator</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Premiere')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-purple-300 hover:text-white flex items-center justify-center space-x-2 border-purple-500/50 hover:border-purple-400">
-            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-            <span>Adobe Premiere Pro</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Corel')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-emerald-300 hover:text-white flex items-center justify-center space-x-2 border-emerald-500/50 hover:border-emerald-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>CorelDRAW</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- 7. LET'S CONNECT SECTION -->
-      <section id="connect" class="pt-10 border-t border-neutral-800/80 space-y-6 text-left">
-        <div>
-          <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl underline decoration-[#dc2626] decoration-4 underline-offset-8">
-            LET'S CONNECT
-          </h2>
-          <h3 class="font-college-dusty text-lg sm:text-xl text-white mt-4 underline decoration-gray-300 decoration-2 underline-offset-4">
-            Profile
-          </h3>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-pink-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-pink-950/60 text-pink-400 border border-pink-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-instagram-logo"></i>
-            </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Instagram Handle</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-pink-400 transition truncate">@Anil.Designer</p>
-            </div>
-          </a>
-
-          <a href="mailto:Anilanx144@gmail.com" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-red-950/60 text-red-400 border border-red-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-envelope"></i>
-            </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Direct Email</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-red-400 transition">Anilanx144@gmail.com</p>
-            </div>
-          </a>
-
-          <a href="tel:+918287734779" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-emerald-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-phone-call"></i>
-            </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Phone Number</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-emerald-400 transition truncate">+91 8287734779</p>
-            </div>
-          </a>
-
-          <a href="https://www.behance.net/Animax10044db5" target="_blank" rel="noopener noreferrer" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-blue-950/60 text-blue-400 border border-blue-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-behance-logo"></i>
-            </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Behance Profile</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-blue-400 transition">Animax10044db5</p>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- 8. THANK YOU SECTION -->
-      <footer class="pt-16 pb-24 text-center space-y-4">
-        <h2 class="font-broken-detroit text-4xl sm:text-5xl inline-block">
-          Thank you !!!
-        </h2>
-        <p class="font-arial text-base sm:text-lg text-gray-200 italic max-w-3xl mx-auto px-4 leading-relaxed">
-          “Behind every design is an idea, behind every frame is a story, and behind every creation is a dream”
-        </p>
-        <p class="font-arial text-xs text-gray-400 pt-6">
-          &copy; 2026 Anil. Visual Arts, Motion Direction &amp; Editing.
-        </p>
-      </footer>
-
-    </main>
-  </div>
-
-  <!-- UPLOAD MODAL -->
-  <div id="upload-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-neutral-900 border border-red-700/80 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-[0_0_45px_rgba(220,38,38,0.5)]">
-      <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
-        <h3 id="modal-title" class="font-broken-detroit text-2xl text-red-500">Master Upload</h3>
-        <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-xl">
-          <i class="ph-bold ph-x"></i>
-        </button>
-      </div>
-
-      <div class="space-y-3 font-arial text-xs text-gray-300 text-left">
-        <p class="text-amber-400 flex items-center space-x-1.5">
-          <i class="ph-fill ph-lock-key"></i>
-          <span>Creator Portal: Upload permissions reserved solely for Anil.</span>
-        </p>
-        <div>
-          <label class="block text-gray-300 mb-1">Project Name</label>
-          <input type="text" id="project-title" placeholder="e.g. Cinematic Commercial Cut" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
-        </div>
-        <div>
-          <label class="block text-gray-300 mb-1">Software / Tools Used</label>
-          <input type="text" id="project-tag" placeholder="Photoshop, Premiere Pro, After Effects" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
-        </div>
-        <div>
-          <label class="block text-gray-300 mb-1">Select Media File</label>
-          <input type="file" id="project-file" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2 text-gray-300 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-red-900 file:text-white">
-        </div>
-      </div>
-
-      <div class="pt-2 flex justify-end space-x-3">
-        <button onclick="closeUploadModal()" class="px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-arial text-xs">
-          Cancel
-        </button>
-        <button onclick="handleUploadSubmit()" class="px-5 py-2 rounded-lg bg-red-800 hover:bg-red-700 text-white font-arial text-xs shadow-[0_0_15px_#dc2626]">
-          Publish Artwork
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-red-600 px-4 py-3 rounded-xl shadow-2xl text-xs font-arial text-white flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-    <i class="ph-fill ph-check-circle text-red-500 text-lg"></i>
-    <span id="toast-msg">Success</span>
-  </div>
-
-  <script>
-    let mx = innerWidth / 2, my = innerHeight / 2, tx = mx, ty = my;
-    addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; });
-    addEventListener("touchmove", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
-
-    const torch = document.getElementById('torch-cursor');
-    function updateTorchPosition() {
-      if (torch) {
-        torch.style.left = `${mx}px`;
-        torch.style.top = `${my}px`;
-      }
-    }
-
-    const fc = document.getElementById("fog");
-    const fx = fc.getContext("2d");
-
-    const sprite = document.createElement("canvas");
-    sprite.width = sprite.height = 128;
-    {
-      const c = sprite.getContext("2d");
-      const g = c.createRadialGradient(64, 64, 0, 64, 64, 64);
-      g.addColorStop(0,   "rgba(175,182,200,1)");
-      g.addColorStop(.5, "rgba(150,158,178,.45)");
-      g.addColorStop(1,   "rgba(140,148,170,0)");
-      c.fillStyle = g;
-      c.fillRect(0, 0, 128, 128);
-    }
-
-    let puffs = [];
-    function fogInit() {
-      fc.width = innerWidth / 2;
-      fc.height = innerHeight / 2;
-      puffs = [];
-      const count = Math.round(innerWidth * innerHeight / 26000) + 12;
-      for (let i = 0; i < count; i++) {
-        puffs.push({
-          x: Math.random() * innerWidth,
-          y: Math.random() * innerHeight,
-          r: 140 + Math.random() * 240,
-          vx: (Math.random() - .3) * .35,
-          vy: (Math.random() - .5) * .15,
-          a: .1 + Math.random() * .16,
-          ph: Math.random() * 9,
-          sp: .1 + Math.random() * .25,
-          ox: 0, oy: 0
-        });
-      }
-    }
-
-    function fogDraw(t) {
-      fx.setTransform(.5, 0, 0, .5, 0, 0);
-      fx.clearRect(0, 0, innerWidth, innerHeight);
-      fx.globalCompositeOperation = "source-over";
-
-      for (const p of puffs) {
-        p.x += p.vx;
-        p.y += p.vy + Math.sin(t / 4000 + p.ph) * .12;
-
-        if (p.x > innerWidth + p.r) p.x = -p.r;
-        if (p.x < -p.r) p.x = innerWidth + p.r;
-        if (p.y > innerHeight + p.r) p.y = -p.r;
-        if (p.y < -p.r) p.y = innerHeight + p.r;
-
-        const dx = p.x - mx, dy = p.y - my;
-        const d = Math.hypot(dx, dy) || 1;
-        const R = p.r * .55 + 150;
-        const push = Math.max(0, R - d);
-        p.ox += (dx / d * push - p.ox) * .06;
-        p.oy += (dy / d * push - p.oy) * .06;
-
-        const patch = Math.max(0, Math.sin(t / 1000 * p.sp + p.ph) * .9 + .25);
-        fx.globalAlpha = Math.min(.5, p.a * patch * 1.8);
-
-        const s = p.r * 2;
-        fx.drawImage(sprite, p.x + p.ox - p.r, p.y + p.oy - p.r, s, s);
-      }
-
-      fx.globalAlpha = 1;
-      fx.globalCompositeOperation = "destination-out";
-      const g = fx.createRadialGradient(mx, my, 0, mx, my, 150);
-      g.addColorStop(0, "rgba(0,0,0,1)");
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      fx.fillStyle = g;
-      fx.fillRect(mx - 150, my - 150, 300, 300);
-    }
-
-    addEventListener("resize", fogInit);
-    fogInit();
-
-    (function loop(t) {
-      mx += (tx - mx) * .35;
-      my += (ty - my) * .35;
-      updateTorchPosition();
-      fogDraw(t);
-      requestAnimationFrame(loop);
-    })(0);
-
-    const itachiCanvas = document.getElementById('itachi-canvas');
-    const itachiCtx = itachiCanvas.getContext('2d');
-    let sharinganOpeningProgress = 0;
-    let eyeRotation = 0;
-    let hairClock = 0;
-
-    function resizeItachiCanvas() {
-      const parent = itachiCanvas.parentElement.getBoundingClientRect();
-      itachiCanvas.width = parent.width;
-      itachiCanvas.height = parent.height;
-    }
-    window.addEventListener('resize', resizeItachiCanvas);
-    resizeItachiCanvas();
-
-    function drawSharinganEye(cx, cy, targetX, targetY, isLeft) {
-      const ctx = itachiCtx;
-      const dx = targetX - cx;
-      const dy = targetY - cy;
-      const angle = Math.atan2(dy, dx);
-      const dist = Math.min(18, Math.hypot(dx, dy) * 0.048);
-
-      const openHeight = 28 * Math.min(1, sharinganOpeningProgress);
-
-      ctx.save();
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 72, cy);
-        ctx.quadraticCurveTo(cx - 20, cy - openHeight, cx + 50, cy - 2);
-        ctx.quadraticCurveTo(cx - 10, cy + openHeight * 0.88, cx - 72, cy);
-      } else {
-        ctx.moveTo(cx - 50, cy - 2);
-        ctx.quadraticCurveTo(cx + 20, cy - openHeight, cx + 72, cy);
-        ctx.quadraticCurveTo(cx + 10, cy + openHeight * 0.88, cx - 50, cy - 2);
-      }
-      ctx.closePath();
-      ctx.fillStyle = '#0c0e14';
-      ctx.fill();
-      ctx.clip();
-
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
-      ctx.fillRect(cx - 75, cy - 35, 150, 18);
-
-      const irisX = cx + Math.cos(angle) * dist;
-      const irisY = cy + Math.sin(angle) * dist;
-      const irisRadius = 24;
-
-      const irisGrad = ctx.createRadialGradient(irisX, irisY, 2, irisX, irisY, irisRadius + 8);
-      irisGrad.addColorStop(0, '#ff3333');
-      irisGrad.addColorStop(0.65, '#dc2626');
-      irisGrad.addColorStop(1, '#450a0a');
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, irisRadius, 0, Math.PI * 2);
-      ctx.fillStyle = irisGrad;
-      ctx.fill();
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 2.2;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, 14, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
-      ctx.lineWidth = 1.3;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(irisX, irisY, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#000000';
-      ctx.fill();
-
-      for (let i = 0; i < 3; i++) {
-        const tomoeAngle = eyeRotation + (i * (Math.PI * 2 / 3));
-        const tx = irisX + Math.cos(tomoeAngle) * 13.5;
-        const ty = irisY + Math.sin(tomoeAngle) * 13.5;
-
-        ctx.save();
-        ctx.translate(tx, ty);
-        ctx.rotate(tomoeAngle + Math.PI / 2);
-
-        ctx.beginPath();
-        ctx.arc(0, 0, 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = '#000000';
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.moveTo(2.2, 0);
-        ctx.quadraticCurveTo(4.2, 5, -2, 7);
-        ctx.quadraticCurveTo(1.2, 3, 0, 0);
-        ctx.fillStyle = '#000000';
-        ctx.fill();
-
-        ctx.restore();
-      }
-
-      ctx.beginPath();
-      ctx.arc(irisX - 6.5, irisY - 7, 2.8, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-      ctx.fill();
-
-      ctx.restore();
-
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 76, cy + 2);
-        ctx.quadraticCurveTo(cx - 20, cy - openHeight - 2, cx + 52, cy - 2);
-      } else {
-        ctx.moveTo(cx - 52, cy - 2);
-        ctx.quadraticCurveTo(cx + 20, cy - openHeight - 2, cx + 76, cy + 2);
-      }
-      ctx.strokeStyle = '#dc2626';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-
-      ctx.beginPath();
-      if (isLeft) {
-        ctx.moveTo(cx - 22, cy + 8);
-        ctx.quadraticCurveTo(cx - 16, cy + 38, cx - 38, cy + 56);
-      } else {
-        ctx.moveTo(cx + 22, cy + 8);
-        ctx.quadraticCurveTo(cx + 16, cy + 38, cx + 38, cy + 56);
-      }
-      ctx.strokeStyle = 'rgba(220, 38, 38, 0.55)';
-      ctx.lineWidth = 2.2;
-      ctx.stroke();
-    }
-
-    function renderItachiEyesAndHair() {
-      const w = itachiCanvas.width;
-      const h = itachiCanvas.height;
-      itachiCtx.clearRect(0, 0, w, h);
-
-      if (sharinganOpeningProgress < 1) {
-        sharinganOpeningProgress += 0.025;
-      }
-
-      const centerX = w / 2;
-      const centerY = h * 0.48;
-      eyeRotation += 0.032;
-      hairClock += 0.036;
-
-      const hairSwayOffset = (mx - centerX) * 0.045;
-
-      const aura = itachiCtx.createRadialGradient(centerX, centerY, 20, centerX, centerY, 240);
-      aura.addColorStop(0, 'rgba(220, 38, 38, 0.35)');
-      aura.addColorStop(0.65, 'rgba(28, 10, 10, 0.5)');
-      aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      itachiCtx.fillStyle = aura;
-      itachiCtx.fillRect(centerX - 260, centerY - 130, 520, 260);
-
-      const canvasRect = itachiCanvas.getBoundingClientRect();
-      const localMouseX = mx - canvasRect.left;
-      const localMouseY = my - canvasRect.top;
-
-      drawSharinganEye(centerX - 105, centerY - 8, localMouseX, localMouseY, true);
-      drawSharinganEye(centerX + 105, centerY - 8, localMouseX, localMouseY, false);
-
-      itachiCtx.fillStyle = '#080a10';
-      itachiCtx.strokeStyle = 'rgba(220, 38, 38, 0.4)';
-      itachiCtx.lineWidth = 1.6;
-
-      const sway1 = Math.sin(hairClock) * 7 + hairSwayOffset;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX - 145, centerY - 100);
-      itachiCtx.quadraticCurveTo(centerX - 120 + sway1, centerY + 8, centerX - 80 + sway1 * 1.4, centerY + 85);
-      itachiCtx.quadraticCurveTo(centerX - 105 + sway1, centerY + 5, centerX - 125, centerY - 100);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway2 = Math.sin(hairClock + 1.2) * 8 + hairSwayOffset * 1.2;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX - 40, centerY - 105);
-      itachiCtx.quadraticCurveTo(centerX - 28 + sway2, centerY - 10, centerX - 50 + sway2, centerY + 70);
-      itachiCtx.quadraticCurveTo(centerX - 45 + sway2, centerY - 25, centerX - 60, centerY - 105);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway3 = Math.sin(hairClock + 2.2) * 7 + hairSwayOffset * 1.1;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX + 145, centerY - 100);
-      itachiCtx.quadraticCurveTo(centerX + 120 + sway3, centerY + 8, centerX + 80 + sway3 * 1.4, centerY + 85);
-      itachiCtx.quadraticCurveTo(centerX + 105 + sway3, centerY + 5, centerX + 125, centerY - 100);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      const sway4 = Math.sin(hairClock + 0.8) * 5 + hairSwayOffset * 0.8;
-      itachiCtx.beginPath();
-      itachiCtx.moveTo(centerX + 38, centerY - 105);
-      itachiCtx.quadraticCurveTo(centerX + 30 + sway4, centerY - 30, centerX + 45 + sway4, centerY + 48);
-      itachiCtx.quadraticCurveTo(centerX + 18 + sway4, centerY - 40, centerX + 20, centerY - 105);
-      itachiCtx.fill();
-      itachiCtx.stroke();
-
-      requestAnimationFrame(renderItachiEyesAndHair);
-    }
-    requestAnimationFrame(renderItachiEyesAndHair);
-
-    const ballCanvas = document.getElementById('ball-canvas');
-    const ballCtx = ballCanvas.getContext('2d');
-
-    function resizeBallCanvas() {
-      ballCanvas.width = window.innerWidth;
-      ballCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeBallCanvas);
-    resizeBallCanvas();
-
-    const multiSoftwareBalls = [
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 220, y: 1550, vx: 0.2, vy: 0.1, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 340, y: 1600, vx: -0.2, vy: 0.1, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 450, y: 1520, vx: -0.15, vy: 0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 560, y: 1640, vx: 0.2, vy: -0.1, r: 34, baseR: 34, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 670, y: 1560, vx: 0.2, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 780, y: 1620, vx: -0.2, vy: -0.15, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 890, y: 1540, vx: -0.15, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 990, y: 1610, vx: 0.2, vy: 0.2, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: window.innerWidth * 0.15, y: 550, vx: 0.35, vy: 0.25, r: 38, baseR: 38, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: window.innerWidth * 0.85, y: 650, vx: -0.3, vy: 0.3, r: 38, baseR: 38, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: window.innerWidth * 0.18, y: 2200, vx: 0.3, vy: -0.3, r: 36, baseR: 36, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: window.innerWidth * 0.82, y: 2350, vx: -0.3, vy: 0.25, r: 36, baseR: 36, bounce: 0 }
-    ];
-
-    function animateSoftwareBalls() {
-      ballCtx.clearRect(0, 0, ballCanvas.width, ballCanvas.height);
-      const scrollY = window.scrollY;
-
-      const qualElem = document.getElementById('qualification');
-      let qualCenterY = 1600;
-      if (qualElem) {
-        const rect = qualElem.getBoundingClientRect();
-        qualCenterY = rect.top + scrollY + rect.height / 2;
-      }
-
-      for (let i = 0; i < multiSoftwareBalls.length; i++) {
-        for (let j = i + 1; j < multiSoftwareBalls.length; j++) {
-          const b1 = multiSoftwareBalls[i];
-          const b2 = multiSoftwareBalls[j];
-          const dist = Math.hypot(b2.x - b1.x, b2.y - b1.y);
-
-          if (dist > 75 && dist < 320) {
-            const pullForce = 0.00045 * (1 - dist / 320);
-            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
-            b1.vx += Math.cos(angle) * pullForce;
-            b1.vy += Math.sin(angle) * pullForce;
-            b2.vx -= Math.cos(angle) * pullForce;
-            b2.vy -= Math.sin(angle) * pullForce;
-          } else if (dist <= 75) {
-            const push = (75 - dist) * 0.03;
-            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
-            b1.vx -= Math.cos(angle) * push;
-            b1.vy -= Math.sin(angle) * push;
-            b2.vx += Math.cos(angle) * push;
-            b2.vy += Math.sin(angle) * push;
-          }
-        }
-      }
-
-      multiSoftwareBalls.forEach(ball => {
-        const dyToQual = qualCenterY - ball.y;
-        ball.vy += Math.sign(dyToQual) * Math.min(0.04, Math.abs(dyToQual) * 0.000035);
-
-        ball.x += ball.vx;
-        ball.y += ball.vy;
-
-        if (ball.bounce > 0) {
-          ball.r = ball.baseR + Math.sin(Date.now() * 0.03) * (ball.bounce * 18);
-          ball.bounce *= 0.94;
-          if (ball.bounce < 0.01) {
-            ball.bounce = 0;
-            ball.r = ball.baseR;
-          }
-        }
-
-        const docHeight = document.documentElement.scrollHeight;
-        if (ball.x - ball.r < 10) { ball.x = ball.r + 10; ball.vx *= -0.7; }
-        if (ball.x + ball.r > ballCanvas.width - 10) { ball.x = ballCanvas.width - ball.r - 10; ball.vx *= -0.7; }
-        if (ball.y - ball.r < 10) { ball.y = ball.r + 10; ball.vy *= -0.7; }
-        if (ball.y + ball.r > docHeight - 10) { ball.y = docHeight - ball.r - 10; ball.vy *= -0.7; }
-
-        const screenY = ball.y - scrollY;
-        if (screenY + ball.r < -120 || screenY - ball.r > ballCanvas.height + 120) return;
-
-        const distToTorch = Math.hypot(ball.x - mx, screenY - my);
-        const scatterDistance = ball.r + 115;
-        if (distToTorch < scatterDistance) {
-          const pushAngle = Math.atan2(screenY - my, ball.x - mx);
-          const force = (scatterDistance - distToTorch) * 0.17;
-          ball.vx += Math.cos(pushAngle) * force;
-          ball.vy += Math.sin(pushAngle) * force;
-          ball.bounce = Math.min(1.4, ball.bounce + 0.18);
-        }
-
-        ball.vx *= 0.965;
-        ball.vy *= 0.965;
-        if (Math.abs(ball.vx) < 0.08) ball.vx = (Math.random() - 0.5) * 0.4;
-        if (Math.abs(ball.vy) < 0.08) ball.vy = (Math.random() - 0.5) * 0.4;
-
-        const fluffGlow = ballCtx.createRadialGradient(ball.x, screenY, ball.r * 0.3, ball.x, screenY, ball.r * 2);
-        fluffGlow.addColorStop(0, ball.color);
-        fluffGlow.addColorStop(0.5, ball.color + '44');
-        fluffGlow.addColorStop(1, 'transparent');
-
-        ballCtx.beginPath();
-        ballCtx.arc(ball.x, screenY, ball.r * 2, 0, Math.PI * 2);
-        ballCtx.fillStyle = fluffGlow;
-        ballCtx.fill();
-
-        const sphere3D = ballCtx.createRadialGradient(
-          ball.x - ball.r * 0.3, screenY - ball.r * 0.35, ball.r * 0.1,
-          ball.x, screenY, ball.r
-        );
-        sphere3D.addColorStop(0, ball.bg2);
-        sphere3D.addColorStop(0.7, ball.bg1);
-        sphere3D.addColorStop(1, '#05070a');
-
-        ballCtx.beginPath();
-        ballCtx.arc(ball.x, screenY, ball.r, 0, Math.PI * 2);
-        ballCtx.fillStyle = sphere3D;
-        ballCtx.fill();
-        ballCtx.lineWidth = 2.2;
-        ballCtx.strokeStyle = ball.color;
-        ballCtx.stroke();
-
-        ballCtx.fillStyle = '#ffffff';
-        ballCtx.font = `bold ${Math.round(ball.r * 0.65)}px Arial, sans-serif`;
-        ballCtx.textAlign = 'center';
-        ballCtx.textBaseline = 'middle';
-        ballCtx.shadowColor = ball.color;
-        ballCtx.shadowBlur = 8;
-        ballCtx.fillText(ball.name, ball.x, screenY);
-        ballCtx.shadowBlur = 0;
-      });
-
-      requestAnimationFrame(animateSoftwareBalls);
-    }
-    requestAnimationFrame(animateSoftwareBalls);
-
-    function navigateAndBounceBall(toolId) {
-      const candidates = multiSoftwareBalls.filter(b => b.id.toLowerCase() === toolId.toLowerCase());
-      if (candidates.length > 0) {
-        const target = candidates[0];
-        const targetScrollY = Math.max(0, target.y - window.innerHeight / 2);
-        window.scrollTo({
-          top: targetScrollY,
-          behavior: 'smooth'
-        });
-
-        target.bounce = 2.5;
-        target.vy = -7.5;
-        target.vx = (Math.random() - 0.5) * 8.5;
-
-        fx.globalAlpha = 1;
-        fx.globalCompositeOperation = 'destination-out';
-        const g = fx.createRadialGradient(target.x, target.y - targetScrollY, 0, target.x, target.y - targetScrollY, 200);
-        g.addColorStop(0, "rgba(0,0,0,1)");
-        g.addColorStop(1, "rgba(0,0,0,0)");
-        fx.fillStyle = g;
-        fx.fillRect(target.x - 200, (target.y - targetScrollY) - 200, 400, 400);
-
-        showToast(`Located ${target.full} Sphere & Initiated Bounce!`);
-      }
-    }
-
-    let activeUploadSection = 'Design';
-    const uploadModal = document.getElementById('upload-modal');
-    const modalTitle = document.getElementById('modal-title');
-
-    function openUploadModal(sectionName) {
-      activeUploadSection = sectionName;
-      modalTitle.innerText = `${sectionName} // Creator Upload`;
-      uploadModal.classList.remove('hidden');
-    }
-
-    function closeUploadModal() {
-      uploadModal.classList.add('hidden');
-    }
-
-    function handleUploadSubmit() {
-      const titleInput = document.getElementById('project-title').value.trim() || 'Custom Creative Asset';
-      const tagInput = document.getElementById('project-tag').value.trim() || 'Visual Design & Motion';
-      const fileInput = document.getElementById('project-file');
-
-      let mediaSrc = 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=700&q=80';
-      if (fileInput.files && fileInput.files[0]) {
-        mediaSrc = URL.createObjectURL(fileInput.files[0]);
-      }
-
-      let gridId = 'design-grid';
-      if (activeUploadSection === 'Video Graphy') gridId = 'video-grid';
-      if (activeUploadSection === 'Motion Art') gridId = 'motion-grid';
-
-      const targetGrid = document.getElementById(gridId);
-      if (targetGrid) {
-        const itemCard = document.createElement('div');
-        itemCard.className = 'group relative rounded-2xl overflow-hidden bg-neutral-900 border border-red-600 transition duration-500 shadow-xl';
-        itemCard.innerHTML = `
-          <img src="${mediaSrc}" alt="${titleInput}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-          <div class="p-4 bg-gradient-to-t from-black via-zinc-950 to-transparent text-left">
-            <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-red-950 text-red-300 rounded border border-red-700">New Work</span>
-            <h3 class="font-college-dusty text-base text-white mt-1">${titleInput}</h3>
-            <p class="font-arial text-xs text-gray-300 mt-0.5">${tagInput}</p>
-          </div>
-        `;
-        targetGrid.prepend(itemCard);
-      }
-
-      closeUploadModal();
-      showToast(`Uploaded successfully to ${activeUploadSection}!`);
-    }
-
-    const avatarInput = document.getElementById('avatar-input');
-    const profileImg = document.getElementById('profile-img');
-    if (avatarInput) {
-      avatarInput.addEventListener('change', (e) => {
-        if (e.target.files && e.target.files[0]) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-            profileImg.src = event.target.result;
-            showToast('PNG portrait updated successfully!');
-          };
-          reader.readAsDataURL(e.target.files[0]);
-        }
-      });
-    }
-
-    function showToast(text) {
-      const toast = document.getElementById('toast');
-      const msg = document.getElementById('toast-msg');
-      if (toast && msg) {
-        msg.innerText = text;
-        toast.classList.remove('translate-y-20', 'opacity-0');
-        setTimeout(() => {
-          toast.classList.add('translate-y-20', 'opacity-0');
-        }, 3000);
-      }
-    }
-  </script>
+  <!-- =====================================================
+       LAYER 0 & 1: USER'S EXACT FOG VIDEO & VOLUMETRIC CANVAS
+       ===================================================== -->
+  <!-- fog.mp4 ko isi folder me rakho. Na mile to video hat jayegi, canvas fog chalta rahega -->
+  <video id="vid" src="fog.mp4" autoplay muted loop playsinline onerror="this.remove()"></video>
+
+  <!-- Interactive physics floating balls canvas -->
+  <canvas id="ball-canvas"></canvas>
+
+  <!-- Interactive procedural fog canvas (Exact User Implementation) -->
+  <canvas id="fog"></canvas>
+
+  <!-- =====================================================
+       LAYER 2: 10mm REALISTIC BURNING MASHAL (TORCH CURSOR)
+       ===================================================== -->
+  <div id="torch-cursor">
+    <div class="relative w-full h-full flex flex-col items-center">
+      <!-- Dynamic Moving Light Radiance -->
+      <div class="torch-aura absolute -top-14 -left-16 w-44 h-44 rounded-full bg-gradient-to-r from-amber-500/35 via-orange-500/25 to-transparent blur-2xl pointer-events-none"></div>
+
+      <!-- Flame Body (Gradiental Realistic Fire) -->
+      <div class="torch-flame-motion relative w-8 h-11 mt-1 flex items-center justify-center">
+        <!-- Outer fiery envelope -->
+        <div class="absolute inset-0 bg-gradient-to-t from-red-600 via-orange-500 to-amber-300 rounded-full blur-[1px] opacity-95"></div>
+        <!-- Inner core -->
+        <div class="absolute bottom-1 w-4 h-7 bg-gradient-to-t from-amber-400 via-yellow-200 to-white rounded-full blur-[0.6px]"></div>
+        <!-- Flickering flame tip -->
+        <div class="absolute -top-2.5 w-1.5 h-4.5 bg-yellow-100 rounded-full blur-[0.8px]"></div>
+      </div>
+
+      <!-- Charcoal / Cloth Wrapping -->
+      <div class="w-4.5 h-3 bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 rounded-sm border-t border-amber-500/80 shadow-md"></div>
+      
+      <!-- Bound Ring -->
+      <div class="w-3.5 h-1.5 bg-neutral-700 border-y border-neutral-900"></div>
+
+      <!-- 10mm Wooden Staff Handle -->
+      <div class="w-2.5 h-9 bg-gradient-to-b from-amber-950 via-neutral-800 to-neutral-950 rounded-b-sm shadow-md"></div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       LAYER 3: MAIN VISUAL PAGE CONTENT
+       ===================================================== -->
+  <div class="relative z-30 min-h-screen flex flex-col justify-between">
+
+    <!-- 1. TOP FOCUS: ITACHI SHARINGAN EYES (NO FACE, SHARP EYES IN CINEMATIC FRAMING) -->
+    <header class="w-full pt-4 pb-4 px-4 md:px-12 flex flex-col items-center relative overflow-hidden">
+      
+      <!-- Eyes Canvas: Wide open Sharingan + Rotating Tomoe + Swaying front hair (No face cut) -->
+      <div class="relative w-full max-w-4xl h-56 sm:h-64 flex items-center justify-center rounded-2xl border border-red-950/40 bg-neutral-950/40 backdrop-blur-sm overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)]">
+        <canvas id="itachi-canvas" class="w-full h-full block"></canvas>
+      </div>
+
+      <!-- HEADER ROW: Hello! i'm Anil (Left) & Think Creative. Design Different (Right) -->
+      <div class="w-full max-w-6xl mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center border-b border-neutral-800/80 pb-6">
+        <!-- Left: Hello! i'm Anil (Title font, visual, left-align) -->
+        <div class="text-left">
+          <span class="text-xs uppercase tracking-widest text-red-500/90 font-mono block mb-1">
+            <i class="ph-fill ph-circle text-red-500 text-[8px] animate-ping mr-1"></i> Visual Portfolio
+          </span>
+          <h1 class="font-broken-detroit text-4xl sm:text-5xl md:text-6xl font-bold">
+            Hello! i'm Anil
+          </h1>
+        </div>
+
+        <!-- Right: Think Creative. Design Different (Summary font, pure white, right-align) -->
+        <div class="text-left md:text-right">
+          <p class="font-college-dusty text-xl sm:text-2xl md:text-3xl tracking-wider">
+            Think Creative. Design Different
+          </p>
+          <p class="font-arial text-xs text-gray-300 mt-1 tracking-wide">
+            Graphic Designer &bull; Video Editor &bull; Motion Artist
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. BIOGRAPHY SECTION (STYLISH CUTOUT PNG PHOTO, NO BOX) -->
+    <section id="biography" class="w-full max-w-6xl mx-auto px-4 md:px-12 py-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Biography Content & Philosophy Taglines -->
+        <div class="lg:col-span-7 space-y-4 text-left">
+          <div>
+            <div class="flex items-center space-x-3">
+              <span class="h-3.5 w-3.5 rounded-full bg-red-600 shadow-[0_0_12px_#dc2626] flex-shrink-0"></span>
+              <h2 class="font-broken-detroit text-3xl sm:text-4xl">
+                BIOGRAPHY
+              </h2>
+            </div>
+            <p class="font-college-dusty text-base sm:text-lg text-white mt-2 pl-6">
+              About me..
+            </p>
+          </div>
+
+          <!-- Tagline in Arial Font -->
+          <div class="pl-6 space-y-3 pt-2">
+            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
+              I’m a passionate Graphic Designer who believes that great design is more than just visuals — it’s about communicating ideas, telling stories, and creating meaningful experiences.
+            </p>
+            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
+              With a creative mindset and an eye for detail, I transform concepts into impactful visual designs that connect with audiences and bring brands to life. My approach combines creativity, strategy, and purpose to create designs that not only look good but also communicate effectively.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Stylized Transparent PNG Cutout (No rectangular box, no border cards) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative group w-64 h-84 sm:w-72 sm:h-96 flex flex-col items-center justify-end">
+            
+            <!-- Soft Ambient Crimson Backlight Halo -->
+            <div class="absolute inset-x-4 top-10 bottom-6 bg-gradient-to-t from-red-600/30 via-red-900/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Floating Cutout Character PNG (Masked transparent avatar) -->
+            <div class="relative w-full h-full flex items-end justify-center floating-cutout">
+              <img id="profile-img" 
+                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" 
+                   alt="Anil - Designer PNG Cutout" 
+                   class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(220,38,38,0.4)] transition duration-500 group-hover:scale-105"
+                   style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
+            </div>
+
+            <!-- Upload Custom PNG Photo Button -->
+            <label for="avatar-input" class="mt-3 px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-200 hover:text-white flex items-center space-x-1.5 shadow-lg cursor-pointer">
+              <i class="ph-bold ph-image text-amber-400"></i>
+              <span>Change PNG Photo</span>
+            </label>
+            <input type="file" id="avatar-input" accept="image/*" class="hidden">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. THREE HORIZONTAL ROUND CYLINDER NAVIGATION BUTTONS -->
+    <section class="w-full py-8 flex justify-center items-center px-4">
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 bg-neutral-950/85 p-3.5 rounded-full border border-red-900/60 backdrop-blur-md shadow-[0_0_35px_rgba(220,38,38,0.35)]">
+        <a href="#section-design" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
+          <i class="ph-bold ph-paint-brush"></i>
+          <span>Design</span>
+        </a>
+        <a href="#section-videography" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
+          <i class="ph-bold ph-film-strip"></i>
+          <span>Video Graphy</span>
+        </a>
+        <a href="#section-motionart" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
+          <i class="ph-bold ph-lightning"></i>
+          <span>Motion Art</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. WORK SECTIONS: DESIGN, VIDEO GRAPHY, MOTION ART -->
+    <main class="w-full max-w-6xl mx-auto px-4 md:px-12 space-y-20 py-8">
+      
+      <!-- 4.1 DESIGN SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <section id="section-design" class="space-y-6 pt-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
+          <div>
+            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
+              Design
+            </h2>
+            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
+              Visual Identity &bull; Vector Layouts &bull; Print Production
+            </p>
+          </div>
+          <!-- Owner Only Upload Rights -->
+          <button onclick="openUploadModal('Design')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
+            <i class="ph-bold ph-lock-simple text-amber-400"></i>
+            <span>Upload Work (Anil Only)</span>
+          </button>
+        </div>
+
+        <div id="design-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Visual Brand Architecture</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Illustrator &amp; Photoshop</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Packaging &amp; Vector Grid</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">CorelDRAW High Precision Print</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Typography &amp; Poster Art</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Creative Editorial Communication</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.2 VIDEO GRAPHY SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <section id="section-videography" class="space-y-6 pt-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
+          <div>
+            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
+              Video Graphy
+            </h2>
+            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
+              Timeline Editing &bull; Cinematic Color LUTs &bull; Dynamic Pacing
+            </p>
+          </div>
+          <button onclick="openUploadModal('Video Graphy')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
+            <i class="ph-bold ph-lock-simple text-amber-400"></i>
+            <span>Upload Video (Anil Only)</span>
+          </button>
+        </div>
+
+        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <div class="relative w-full h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
+                  <i class="ph-fill ph-play"></i>
+                </span>
+              </div>
+            </div>
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Automotive Commercial Cut</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Premiere Pro &bull; Speed Transitions</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <div class="relative w-full h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
+                  <i class="ph-fill ph-play"></i>
+                </span>
+              </div>
+            </div>
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Brand Montage Sequence</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Sound Design &bull; Multi-Track Audio Sync</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <div class="relative w-full h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
+                  <i class="ph-fill ph-play"></i>
+                </span>
+              </div>
+            </div>
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Event Teaser Cut</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Color Grade &bull; Rhythm Match</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.3 MOTION ART SECTION (LEFT-ALIGNED TITLE FONT) -->
+      <section id="section-motionart" class="space-y-6 pt-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
+          <div>
+            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
+              Motion Art
+            </h2>
+            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
+              Kinetic Typography &bull; VFX Compositing &bull; Visual Dynamics
+            </p>
+          </div>
+          <button onclick="openUploadModal('Motion Art')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
+            <i class="ph-bold ph-lock-simple text-amber-400"></i>
+            <span>Upload Motion (Anil Only)</span>
+          </button>
+        </div>
+
+        <div id="motion-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Amaterasu Flame Particles</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Particle Physics &amp; Glow Synthesis</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Sci-Fi HUD UI Vector Loop</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">After Effects &bull; 2D Geometric Rigging</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
+              <h3 class="font-college-dusty text-base text-white">Kinetic Glitch Distortion</h3>
+              <p class="font-arial text-xs text-gray-300 mt-1">Displacement Channel Maps &amp; Motion Blur</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. QUALIFICATION (MAGNETIC FLUFFY 3D BALLS ZONE) -->
+      <section id="qualification" class="pt-8 space-y-4 text-left">
+        <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl">
+          Qailification
+        </h2>
+        <p class="font-college-dusty text-sm text-gray-200 tracking-wider">
+          Multi-Software Proficiency &bull; Magnetic 3D Fluffy Spheres
+        </p>
+
+        <!-- Magnetic cluster status bar -->
+        <div class="p-5 rounded-2xl bg-neutral-950/80 border border-red-900/40 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
+            <span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
+            <span>Adobe Photoshop (Ps)</span>
+          </div>
+          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
+            <span class="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b]"></span>
+            <span>Adobe Illustrator (Ai)</span>
+          </div>
+          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
+            <span class="w-3.5 h-3.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></span>
+            <span>Adobe Premiere Pro (Pr)</span>
+          </div>
+          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
+            <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
+            <span>CorelDRAW (Cd)</span>
+          </div>
+          <span class="text-xs font-mono text-red-400 italic block w-full mt-1">
+            *Balls exhibit mutual magnetic attraction and cluster here, but scatter apart immediately when your burning torch cursor approaches!
+          </span>
+        </div>
+      </section>
+
+      <!-- 6. EDUCATION SECTION -->
+      <section id="education" class="pt-8 space-y-7 text-left">
+        
+        <!-- Graduation Cap & Left-aligned Title -->
+        <div class="flex items-center space-x-4">
+          <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-red-600/80 flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.35)] text-3xl flex-shrink-0">
+            <i class="ph-bold ph-graduation-cap"></i>
+          </div>
+          <div>
+            <h2 class="font-broken-detroit text-2xl sm:text-3xl md:text-4xl text-left">
+              Graphic Design &amp; Video Editing
+            </h2>
+            <div class="flex flex-wrap items-center gap-2 mt-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shadow-[0_0_6px_#facc15]"></span>
+              <span class="font-college-dusty text-yellow-400 text-sm md:text-base tracking-wider">
+                Brilliko Institute
+              </span>
+              <span class="text-gray-300 text-xs font-arial">| Course Completion: 2026.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tagline in Arial Font -->
+        <p class="font-arial text-sm sm:text-base text-gray-200 max-w-3xl leading-relaxed">
+          Creative design and video production training focused on visual communication, graphic design, and video editing.
+        </p>
+
+        <!-- 2mm Red Horizontal Divider Line with Subtle Fog Overlay -->
+        <div class="w-full relative py-2">
+          <div class="blood-line-2mm w-full"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-sm pointer-events-none"></div>
+        </div>
+
+        <!-- 4 Cylindrical Buttons in Summary Font (Locate & Bounce Software Ball) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          
+          <button onclick="navigateAndBounceBall('Photoshop')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-blue-300 hover:text-white flex items-center justify-center space-x-2 border-blue-500/50 hover:border-blue-400">
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            <span>Adobe Photoshop</span>
+          </button>
+
+          <button onclick="navigateAndBounceBall('Illustrator')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-amber-300 hover:text-white flex items-center justify-center space-x-2 border-amber-500/50 hover:border-amber-400">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span>Adobe Illustrator</span>
+          </button>
+
+          <button onclick="navigateAndBounceBall('Premiere')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-purple-300 hover:text-white flex items-center justify-center space-x-2 border-purple-500/50 hover:border-purple-400">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+            <span>Adobe Premiere Pro</span>
+          </button>
+
+          <button onclick="navigateAndBounceBall('Corel')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-emerald-300 hover:text-white flex items-center justify-center space-x-2 border-emerald-500/50 hover:border-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>CorelDRAW</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- 7. LET'S CONNECT SECTION -->
+      <section id="connect" class="pt-10 border-t border-neutral-800/80 space-y-6 text-left">
+        <div>
+          <!-- Title font UNDERLINED -->
+          <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl underline decoration-[#dc2626] decoration-4 underline-offset-8">
+            LET'S CONNECT
+          </h2>
+          <!-- Profile in Summary font UNDERLINED -->
+          <h3 class="font-college-dusty text-lg sm:text-xl text-white mt-4 underline decoration-gray-300 decoration-2 underline-offset-4">
+            Profile
+          </h3>
+        </div>
+
+        <!-- 4 Contact Links in Arial Font -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          
+          <!-- 1) Instagram Handle with logo -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-pink-500 transition flex items-center space-x-3 group">
+            <div class="w-10 h-10 rounded-xl bg-pink-950/60 text-pink-400 border border-pink-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
+              <i class="ph-bold ph-instagram-logo"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="font-college-dusty text-xs text-gray-400">Instagram Handle</p>
+              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-pink-400 transition truncate">@Anil.Designer</p>
+            </div>
+          </a>
+
+          <!-- 2) Email Address with icon (Direct User Mailbox) -->
+          <a href="mailto:Anilanx144@gmail.com" 
+             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition flex items-center space-x-3 group">
+            <div class="w-10 h-10 rounded-xl bg-red-950/60 text-red-400 border border-red-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
+              <i class="ph-bold ph-envelope"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="font-college-dusty text-xs text-gray-400">Direct Email</p>
+              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-red-400 transition">Anilanx144@gmail.com</p>
+            </div>
+          </a>
+
+          <!-- 3) Phone Icon with Phone Number -->
+          <a href="tel:+918287734779" 
+             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-emerald-500 transition flex items-center space-x-3 group">
+            <div class="w-10 h-10 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
+              <i class="ph-bold ph-phone-call"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="font-college-dusty text-xs text-gray-400">Phone Number</p>
+              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-emerald-400 transition truncate">+91 8287734779</p>
+            </div>
+          </a>
+
+          <!-- 4) Behance Profile Link with Logo -->
+          <a href="https://www.behance.net/Animax10044db5" target="_blank" rel="noopener noreferrer" 
+             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-500 transition flex items-center space-x-3 group">
+            <div class="w-10 h-10 rounded-xl bg-blue-950/60 text-blue-400 border border-blue-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
+              <i class="ph-bold ph-behance-logo"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="font-college-dusty text-xs text-gray-400">Behance Profile</p>
+              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-blue-400 transition">Animax10044db5</p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- 8. THANK YOU SECTION (CENTER-ALIGNED PHILOSOPHY QUOTE) -->
+      <footer class="pt-16 pb-24 text-center space-y-4">
+        <h2 class="font-broken-detroit text-4xl sm:text-5xl inline-block">
+          Thank you !!!
+        </h2>
+        <!-- Exact Quote in Arial Font -->
+        <p class="font-arial text-base sm:text-lg text-gray-200 italic max-w-3xl mx-auto px-4 leading-relaxed">
+          “Behind every design is an idea, behind every frame is a story, and behind every creation is a dream”
+        </p>
+        <p class="font-arial text-xs text-gray-400 pt-6">
+          &copy; 2026 Anil. Visual Arts, Motion Direction &amp; Editing.
+        </p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- =====================================================
+       SECURE UPLOAD MODAL (ONLY ANIL HAS UPLOAD PRIVILEGES)
+       ===================================================== -->
+  <div id="upload-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-neutral-900 border border-red-700/80 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-[0_0_45px_rgba(220,38,38,0.5)]">
+      <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
+        <h3 id="modal-title" class="font-broken-detroit text-2xl text-red-500">Master Upload</h3>
+        <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-xl">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 font-arial text-xs text-gray-300 text-left">
+        <p class="text-amber-400 flex items-center space-x-1.5">
+          <i class="ph-fill ph-lock-key"></i>
+          <span>Creator Portal: Upload permissions reserved solely for Anil.</span>
+        </p>
+        <div>
+          <label class="block text-gray-300 mb-1">Project Name</label>
+          <input type="text" id="project-title" placeholder="e.g. Cinematic Commercial Cut" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Software / Tools Used</label>
+          <input type="text" id="project-tag" placeholder="Photoshop, Premiere Pro, After Effects" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Select Media File</label>
+          <input type="file" id="project-file" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2 text-gray-300 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-red-900 file:text-white">
+        </div>
+      </div>
+
+      <div class="pt-2 flex justify-end space-x-3">
+        <button onclick="closeUploadModal()" class="px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-arial text-xs">
+          Cancel
+        </button>
+        <button onclick="handleUploadSubmit()" class="px-5 py-2 rounded-lg bg-red-800 hover:bg-red-700 text-white font-arial text-xs shadow-[0_0_15px_#dc2626]">
+          Publish Artwork
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Message Box -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-red-600 px-4 py-3 rounded-xl shadow-2xl text-xs font-arial text-white flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <i class="ph-fill ph-check-circle text-red-500 text-lg"></i>
+    <span id="toast-msg">Success</span>
+  </div>
+
+  <!-- =====================================================
+       SCRIPTS: USER'S FOG CODE + ITACHI EYES + MASHAL + 3D BALLS
+       ===================================================== -->
+  <script>
+    /* ---------- cursor position (smooth) ---------- */
+    let mx = innerWidth / 2, my = innerHeight / 2, tx = mx, ty = my;
+    addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; });
+    addEventListener("touchmove", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+
+    /* Update 10mm burning mashal torch cursor smoothly */
+    const torch = document.getElementById('torch-cursor');
+    function updateTorchPosition() {
+      if (torch) {
+        torch.style.left = `${mx}px`;
+        torch.style.top = `${my}px`;
+      }
+    }
+
+    /* ---------- USER'S EXACT FOG SETUP ---------- */
+    const fc = document.getElementById("fog");
+    const fx = fc.getContext("2d");
+
+    // Ek soft dhuaan ka puff (radial gradient), baar-baar isi ko draw karenge
+    const sprite = document.createElement("canvas");
+    sprite.width = sprite.height = 128;
+    {
+      const c = sprite.getContext("2d");
+      const g = c.createRadialGradient(64, 64, 0, 64, 64, 64);
+      g.addColorStop(0,   "rgba(175,182,200,1)");     // halka white-grey
+      g.addColorStop(.5, "rgba(150,158,178,.45)");
+      g.addColorStop(1,   "rgba(140,148,170,0)");
+      c.fillStyle = g;
+      c.fillRect(0, 0, 128, 128);
+    }
+
+    let puffs = [];
+    function fogInit() {
+      // half resolution = fast + soft look
+      fc.width = innerWidth / 2;
+      fc.height = innerHeight / 2;
+      puffs = [];
+      const count = Math.round(innerWidth * innerHeight / 26000) + 12;   // zyada fog chahiye to 26000 kam karo
+      for (let i = 0; i < count; i++) {
+        puffs.push({
+          x: Math.random() * innerWidth,
+          y: Math.random() * innerHeight,
+          r: 140 + Math.random() * 240,              // puff ka size
+          vx: (Math.random() - .3) * .35,            // drift speed
+          vy: (Math.random() - .5) * .15,
+          a: .1 + Math.random() * .16,               // base opacity
+          ph: Math.random() * 9,                     // random phase (patchy effect ke liye)
+          sp: .1 + Math.random() * .25,              // fade in/out speed
+          ox: 0, oy: 0                               // cursor se dhakke ka offset
+        });
+      }
+    }
+
+    /* ---------- USER'S EXACT FOG DRAW (HAR FRAME) ---------- */
+    function fogDraw(t) {
+      fx.setTransform(.5, 0, 0, .5, 0, 0);
+      fx.clearRect(0, 0, innerWidth, innerHeight);
+      fx.globalCompositeOperation = "source-over";
+
+      for (const p of puffs) {
+        // behna + upar-neeche halka lehrana
+        p.x += p.vx;
+        p.y += p.vy + Math.sin(t / 4000 + p.ph) * .12;
+
+        // screen se bahar jaye to doosri taraf se wapas
+        if (p.x > innerWidth + p.r) p.x = -p.r;
+        if (p.x < -p.r) p.x = innerWidth + p.r;
+        if (p.y > innerHeight + p.r) p.y = -p.r;
+        if (p.y < -p.r) p.y = innerHeight + p.r;
+
+        // cursor ke paas aate hi puff door dhakel do
+        const dx = p.x - mx, dy = p.y - my;
+        const d = Math.hypot(dx, dy) || 1;
+        const R = p.r * .55 + 150;                  // cursor ka asar kitni door tak
+        const push = Math.max(0, R - d);
+        p.ox += (dx / d * push - p.ox) * .06;       // smooth dhakka
+        p.oy += (dy / d * push - p.oy) * .06;
+
+        // patchy fog: kabhi gaadha, kabhi bilkul gayab
+        const patch = Math.max(0, Math.sin(t / 1000 * p.sp + p.ph) * .9 + .25);
+        fx.globalAlpha = Math.min(.5, p.a * patch * 1.8);
+
+        const s = p.r * 2;
+        fx.drawImage(sprite, p.x + p.ox - p.r, p.y + p.oy - p.r, s, s);
+      }
+
+      // cursor ke theek neeche fog ka chhota sa "hole" (Mashal clears fog directly)
+      fx.globalAlpha = 1;
+      fx.globalCompositeOperation = "destination-out";
+      const g = fx.createRadialGradient(mx, my, 0, mx, my, 150);
+      g.addColorStop(0, "rgba(0,0,0,1)");
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      fx.fillStyle = g;
+      fx.fillRect(mx - 150, my - 150, 300, 300);
+    }
+
+    addEventListener("resize", fogInit);
+    fogInit();
+
+    /* Combined master frame loop */
+    (function loop(t) {
+      mx += (tx - mx) * .35;     // cursor smooth follow
+      my += (ty - my) * .35;
+      updateTorchPosition();
+      fogDraw(t);
+      requestAnimationFrame(loop);
+    })(0);
+
+
+    /* =====================================================
+       4. ITACHI SHARINGAN JUTSU: WIDE-OPEN EYES ONLY (NO FACE CUT)
+       ===================================================== */
+    const itachiCanvas = document.getElementById('itachi-canvas');
+    const itachiCtx = itachiCanvas.getContext('2d');
+    let sharinganOpeningProgress = 0;
+    let eyeRotation = 0;
+    let hairClock = 0;
+
+    function resizeItachiCanvas() {
+      const parent = itachiCanvas.parentElement.getBoundingClientRect();
+      itachiCanvas.width = parent.width;
+      itachiCanvas.height = parent.height;
+    }
+    window.addEventListener('resize', resizeItachiCanvas);
+    resizeItachiCanvas();
+
+    function drawSharinganEye(cx, cy, targetX, targetY, isLeft) {
+      const ctx = itachiCtx;
+      const dx = targetX - cx;
+      const dy = targetY - cy;
+      const angle = Math.atan2(dy, dx);
+      const dist = Math.min(18, Math.hypot(dx, dy) * 0.048);
+
+      // Wide-open anime eye aperture
+      const openHeight = 28 * Math.min(1, sharinganOpeningProgress);
+
+      ctx.save();
+      // Sharp anime eye socket
+      ctx.beginPath();
+      if (isLeft) {
+        ctx.moveTo(cx - 72, cy);
+        ctx.quadraticCurveTo(cx - 20, cy - openHeight, cx + 50, cy - 2);
+        ctx.quadraticCurveTo(cx - 10, cy + openHeight * 0.88, cx - 72, cy);
+      } else {
+        ctx.moveTo(cx - 50, cy - 2);
+        ctx.quadraticCurveTo(cx + 20, cy - openHeight, cx + 72, cy);
+        ctx.quadraticCurveTo(cx + 10, cy + openHeight * 0.88, cx - 50, cy - 2);
+      }
+      ctx.closePath();
+      ctx.fillStyle = '#0c0e14';
+      ctx.fill();
+      ctx.clip();
+
+      // Deep eye socket shade
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
+      ctx.fillRect(cx - 75, cy - 35, 150, 18);
+
+      // Tracking Iris Position
+      const irisX = cx + Math.cos(angle) * dist;
+      const irisY = cy + Math.sin(angle) * dist;
+      const irisRadius = 24;
+
+      // Crimson Sharingan Radial Gradient
+      const irisGrad = ctx.createRadialGradient(irisX, irisY, 2, irisX, irisY, irisRadius + 8);
+      irisGrad.addColorStop(0, '#ff3333');
+      irisGrad.addColorStop(0.65, '#dc2626');
+      irisGrad.addColorStop(1, '#450a0a');
+
+      ctx.beginPath();
+      ctx.arc(irisX, irisY, irisRadius, 0, Math.PI * 2);
+      ctx.fillStyle = irisGrad;
+      ctx.fill();
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 2.2;
+      ctx.stroke();
+
+      // Inner Tomoe orbit ring
+      ctx.beginPath();
+      ctx.arc(irisX, irisY, 14, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.7)';
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+
+      // Center pupil
+      ctx.beginPath();
+      ctx.arc(irisX, irisY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#000000';
+      ctx.fill();
+
+      // 3 Tomoe spinning Jutsu
+      for (let i = 0; i < 3; i++) {
+        const tomoeAngle = eyeRotation + (i * (Math.PI * 2 / 3));
+        const tx = irisX + Math.cos(tomoeAngle) * 13.5;
+        const ty = irisY + Math.sin(tomoeAngle) * 13.5;
+
+        ctx.save();
+        ctx.translate(tx, ty);
+        ctx.rotate(tomoeAngle + Math.PI / 2);
+
+        ctx.beginPath();
+        ctx.arc(0, 0, 3.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#000000';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(2.2, 0);
+        ctx.quadraticCurveTo(4.2, 5, -2, 7);
+        ctx.quadraticCurveTo(1.2, 3, 0, 0);
+        ctx.fillStyle = '#000000';
+        ctx.fill();
+
+        ctx.restore();
+      }
+
+      // Specular light reflection
+      ctx.beginPath();
+      ctx.arc(irisX - 6.5, irisY - 7, 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+      ctx.fill();
+
+      ctx.restore();
+
+      // Upper Sharp Eyelid line
+      ctx.beginPath();
+      if (isLeft) {
+        ctx.moveTo(cx - 76, cy + 2);
+        ctx.quadraticCurveTo(cx - 20, cy - openHeight - 2, cx + 52, cy - 2);
+      } else {
+        ctx.moveTo(cx - 52, cy - 2);
+        ctx.quadraticCurveTo(cx + 20, cy - openHeight - 2, cx + 76, cy + 2);
+      }
+      ctx.strokeStyle = '#dc2626';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      // Itachi's tear-troughs (creases)
+      ctx.beginPath();
+      if (isLeft) {
+        ctx.moveTo(cx - 22, cy + 8);
+        ctx.quadraticCurveTo(cx - 16, cy + 38, cx - 38, cy + 56);
+      } else {
+        ctx.moveTo(cx + 22, cy + 8);
+        ctx.quadraticCurveTo(cx + 16, cy + 38, cx + 38, cy + 56);
+      }
+      ctx.strokeStyle = 'rgba(220, 38, 38, 0.55)';
+      ctx.lineWidth = 2.2;
+      ctx.stroke();
+    }
+
+    function renderItachiEyesAndHair() {
+      const w = itachiCanvas.width;
+      const h = itachiCanvas.height;
+      itachiCtx.clearRect(0, 0, w, h);
+
+      // Eye opening animation progress on site entry
+      if (sharinganOpeningProgress < 1) {
+        sharinganOpeningProgress += 0.025;
+      }
+
+      const centerX = w / 2;
+      const centerY = h * 0.48;
+      eyeRotation += 0.032;
+      hairClock += 0.036;
+
+      const hairSwayOffset = (mx - centerX) * 0.045;
+
+      // Soft crimson ambiance around eyes
+      const aura = itachiCtx.createRadialGradient(centerX, centerY, 20, centerX, centerY, 240);
+      aura.addColorStop(0, 'rgba(220, 38, 38, 0.35)');
+      aura.addColorStop(0.65, 'rgba(28, 10, 10, 0.5)');
+      aura.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      itachiCtx.fillStyle = aura;
+      itachiCtx.fillRect(centerX - 260, centerY - 130, 520, 260);
+
+      const canvasRect = itachiCanvas.getBoundingClientRect();
+      const localMouseX = mx - canvasRect.left;
+      const localMouseY = my - canvasRect.top;
+
+      // Draw left & right wide-open Sharingan eyes (No face cut)
+      drawSharinganEye(centerX - 105, centerY - 8, localMouseX, localMouseY, true);
+      drawSharinganEye(centerX + 105, centerY - 8, localMouseX, localMouseY, false);
+
+      // Natural hanging & swaying front hair bangs
+      itachiCtx.fillStyle = '#080a10';
+      itachiCtx.strokeStyle = 'rgba(220, 38, 38, 0.4)';
+      itachiCtx.lineWidth = 1.6;
+
+      // Left hair lock
+      const sway1 = Math.sin(hairClock) * 7 + hairSwayOffset;
+      itachiCtx.beginPath();
+      itachiCtx.moveTo(centerX - 145, centerY - 100);
+      itachiCtx.quadraticCurveTo(centerX - 120 + sway1, centerY + 8, centerX - 80 + sway1 * 1.4, centerY + 85);
+      itachiCtx.quadraticCurveTo(centerX - 105 + sway1, centerY + 5, centerX - 125, centerY - 100);
+      itachiCtx.fill();
+      itachiCtx.stroke();
+
+      // Center split bang
+      const sway2 = Math.sin(hairClock + 1.2) * 8 + hairSwayOffset * 1.2;
+      itachiCtx.beginPath();
+      itachiCtx.moveTo(centerX - 40, centerY - 105);
+      itachiCtx.quadraticCurveTo(centerX - 28 + sway2, centerY - 10, centerX - 50 + sway2, centerY + 70);
+      itachiCtx.quadraticCurveTo(centerX - 45 + sway2, centerY - 25, centerX - 60, centerY - 105);
+      itachiCtx.fill();
+      itachiCtx.stroke();
+
+      // Right hair lock
+      const sway3 = Math.sin(hairClock + 2.2) * 7 + hairSwayOffset * 1.1;
+      itachiCtx.beginPath();
+      itachiCtx.moveTo(centerX + 145, centerY - 100);
+      itachiCtx.quadraticCurveTo(centerX + 120 + sway3, centerY + 8, centerX + 80 + sway3 * 1.4, centerY + 85);
+      itachiCtx.quadraticCurveTo(centerX + 105 + sway3, centerY + 5, centerX + 125, centerY - 100);
+      itachiCtx.fill();
+      itachiCtx.stroke();
+
+      // Forehead fringe
+      const sway4 = Math.sin(hairClock + 0.8) * 5 + hairSwayOffset * 0.8;
+      itachiCtx.beginPath();
+      itachiCtx.moveTo(centerX + 38, centerY - 105);
+      itachiCtx.quadraticCurveTo(centerX + 30 + sway4, centerY - 30, centerX + 45 + sway4, centerY + 48);
+      itachiCtx.quadraticCurveTo(centerX + 18 + sway4, centerY - 40, centerX + 20, centerY - 105);
+      itachiCtx.fill();
+      itachiCtx.stroke();
+
+      requestAnimationFrame(renderItachiEyesAndHair);
+    }
+    requestAnimationFrame(renderItachiEyesAndHair);
+
+
+    /* =====================================================
+       5. QUALIFICATION: MAGNETIC FLUFFY 3D BALLS PHYSICS
+       ===================================================== */
+    const ballCanvas = document.getElementById('ball-canvas');
+    const ballCtx = ballCanvas.getContext('2d');
+
+    function resizeBallCanvas() {
+      ballCanvas.width = window.innerWidth;
+      ballCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeBallCanvas);
+    resizeBallCanvas();
+
+    const multiSoftwareBalls = [
+      // Cluster 1: Concentration in Qualifications zone
+      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 220, y: 1550, vx: 0.2, vy: 0.1, r: 42, baseR: 42, bounce: 0 },
+      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 340, y: 1600, vx: -0.2, vy: 0.1, r: 35, baseR: 35, bounce: 0 },
+      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 450, y: 1520, vx: -0.15, vy: 0.2, r: 42, baseR: 42, bounce: 0 },
+      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 560, y: 1640, vx: 0.2, vy: -0.1, r: 34, baseR: 34, bounce: 0 },
+      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 670, y: 1560, vx: 0.2, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
+      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 780, y: 1620, vx: -0.2, vy: -0.15, r: 35, baseR: 35, bounce: 0 },
+      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 890, y: 1540, vx: -0.15, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
+      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 990, y: 1610, vx: 0.2, vy: 0.2, r: 35, baseR: 35, bounce: 0 },
+      
+      // Secondary ambient floating balls across the site
+      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: window.innerWidth * 0.15, y: 550, vx: 0.35, vy: 0.25, r: 38, baseR: 38, bounce: 0 },
+      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: window.innerWidth * 0.85, y: 650, vx: -0.3, vy: 0.3, r: 38, baseR: 38, bounce: 0 },
+      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: window.innerWidth * 0.18, y: 2200, vx: 0.3, vy: -0.3, r: 36, baseR: 36, bounce: 0 },
+      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: window.innerWidth * 0.82, y: 2350, vx: -0.3, vy: 0.25, r: 36, baseR: 36, bounce: 0 }
+    ];
+
+    function animateSoftwareBalls() {
+      ballCtx.clearRect(0, 0, ballCanvas.width, ballCanvas.height);
+      const scrollY = window.scrollY;
+
+      const qualElem = document.getElementById('qualification');
+      let qualCenterY = 1600;
+      if (qualElem) {
+        const rect = qualElem.getBoundingClientRect();
+        qualCenterY = rect.top + scrollY + rect.height / 2;
+      }
+
+      // 1. Magnetic Attraction between balls
+      for (let i = 0; i < multiSoftwareBalls.length; i++) {
+        for (let j = i + 1; j < multiSoftwareBalls.length; j++) {
+          const b1 = multiSoftwareBalls[i];
+          const b2 = multiSoftwareBalls[j];
+          const dist = Math.hypot(b2.x - b1.x, b2.y - b1.y);
+
+          if (dist > 75 && dist < 320) {
+            const pullForce = 0.00045 * (1 - dist / 320);
+            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
+            b1.vx += Math.cos(angle) * pullForce;
+            b1.vy += Math.sin(angle) * pullForce;
+            b2.vx -= Math.cos(angle) * pullForce;
+            b2.vy -= Math.sin(angle) * pullForce;
+          } else if (dist <= 75) {
+            const push = (75 - dist) * 0.03;
+            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
+            b1.vx -= Math.cos(angle) * push;
+            b1.vy -= Math.sin(angle) * push;
+            b2.vx += Math.cos(angle) * push;
+            b2.vy += Math.sin(angle) * push;
+          }
+        }
+      }
+
+      // 2. Render & Torch Repulsion (Dispersion)
+      multiSoftwareBalls.forEach(ball => {
+        const dyToQual = qualCenterY - ball.y;
+        ball.vy += Math.sign(dyToQual) * Math.min(0.04, Math.abs(dyToQual) * 0.000035);
+
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+
+        if (ball.bounce > 0) {
+          ball.r = ball.baseR + Math.sin(Date.now() * 0.03) * (ball.bounce * 18);
+          ball.bounce *= 0.94;
+          if (ball.bounce < 0.01) {
+            ball.bounce = 0;
+            ball.r = ball.baseR;
+          }
+        }
+
+        const docHeight = document.documentElement.scrollHeight;
+        if (ball.x - ball.r < 10) { ball.x = ball.r + 10; ball.vx *= -0.7; }
+        if (ball.x + ball.r > ballCanvas.width - 10) { ball.x = ballCanvas.width - ball.r - 10; ball.vx *= -0.7; }
+        if (ball.y - ball.r < 10) { ball.y = ball.r + 10; ball.vy *= -0.7; }
+        if (ball.y + ball.r > docHeight - 10) { ball.y = docHeight - ball.r - 10; ball.vy *= -0.7; }
+
+        const screenY = ball.y - scrollY;
+        if (screenY + ball.r < -120 || screenY - ball.r > ballCanvas.height + 120) return;
+
+        // CURSOR REPULSION: Torch arrives, balls scatter apart
+        const distToTorch = Math.hypot(ball.x - mx, screenY - my);
+        const scatterDistance = ball.r + 115;
+        if (distToTorch < scatterDistance) {
+          const pushAngle = Math.atan2(screenY - my, ball.x - mx);
+          const force = (scatterDistance - distToTorch) * 0.17;
+          ball.vx += Math.cos(pushAngle) * force;
+          ball.vy += Math.sin(pushAngle) * force;
+          ball.bounce = Math.min(1.4, ball.bounce + 0.18);
+        }
+
+        ball.vx *= 0.965;
+        ball.vy *= 0.965;
+        if (Math.abs(ball.vx) < 0.08) ball.vx = (Math.random() - 0.5) * 0.4;
+        if (Math.abs(ball.vy) < 0.08) ball.vy = (Math.random() - 0.5) * 0.4;
+
+        // Fluffy Glow
+        const fluffGlow = ballCtx.createRadialGradient(ball.x, screenY, ball.r * 0.3, ball.x, screenY, ball.r * 2);
+        fluffGlow.addColorStop(0, ball.color);
+        fluffGlow.addColorStop(0.5, ball.color + '44');
+        fluffGlow.addColorStop(1, 'transparent');
+
+        ballCtx.beginPath();
+        ballCtx.arc(ball.x, screenY, ball.r * 2, 0, Math.PI * 2);
+        ballCtx.fillStyle = fluffGlow;
+        ballCtx.fill();
+
+        // 3D Spherical Volume
+        const sphere3D = ballCtx.createRadialGradient(
+          ball.x - ball.r * 0.3, screenY - ball.r * 0.35, ball.r * 0.1,
+          ball.x, screenY, ball.r
+        );
+        sphere3D.addColorStop(0, ball.bg2);
+        sphere3D.addColorStop(0.7, ball.bg1);
+        sphere3D.addColorStop(1, '#05070a');
+
+        ballCtx.beginPath();
+        ballCtx.arc(ball.x, screenY, ball.r, 0, Math.PI * 2);
+        ballCtx.fillStyle = sphere3D;
+        ballCtx.fill();
+        ballCtx.lineWidth = 2.2;
+        ballCtx.strokeStyle = ball.color;
+        ballCtx.stroke();
+
+        // Software Logo
+        ballCtx.fillStyle = '#ffffff';
+        ballCtx.font = `bold ${Math.round(ball.r * 0.65)}px Arial, sans-serif`;
+        ballCtx.textAlign = 'center';
+        ballCtx.textBaseline = 'middle';
+        ballCtx.shadowColor = ball.color;
+        ballCtx.shadowBlur = 8;
+        ballCtx.fillText(ball.name, ball.x, screenY);
+        ballCtx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(animateSoftwareBalls);
+    }
+    requestAnimationFrame(animateSoftwareBalls);
+
+    // Education Buttons: Locate, Scroll, and Bounce
+    function navigateAndBounceBall(toolId) {
+      const candidates = multiSoftwareBalls.filter(b => b.id.toLowerCase() === toolId.toLowerCase());
+      if (candidates.length > 0) {
+        const target = candidates[0];
+        const targetScrollY = Math.max(0, target.y - window.innerHeight / 2);
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: 'smooth'
+        });
+
+        target.bounce = 2.5;
+        target.vy = -7.5;
+        target.vx = (Math.random() - 0.5) * 8.5;
+
+        // Disperse fog instantly around target ball
+        fx.globalAlpha = 1;
+        fx.globalCompositeOperation = 'destination-out';
+        const g = fx.createRadialGradient(target.x, target.y - targetScrollY, 0, target.x, target.y - targetScrollY, 200);
+        g.addColorStop(0, "rgba(0,0,0,1)");
+        g.addColorStop(1, "rgba(0,0,0,0)");
+        fx.fillStyle = g;
+        fx.fillRect(target.x - 200, (target.y - targetScrollY) - 200, 400, 400);
+
+        showToast(`Located ${target.full} Sphere & Initiated Bounce!`);
+      }
+    }
+
+
+    /* =====================================================
+       6. EXCLUSIVE UPLOADER & IMAGE HANDLERS (ANIL ONLY)
+       ===================================================== */
+    let activeUploadSection = 'Design';
+    const uploadModal = document.getElementById('upload-modal');
+    const modalTitle = document.getElementById('modal-title');
+
+    function openUploadModal(sectionName) {
+      activeUploadSection = sectionName;
+      modalTitle.innerText = `${sectionName} // Creator Upload`;
+      uploadModal.classList.remove('hidden');
+    }
+
+    function closeUploadModal() {
+      uploadModal.classList.add('hidden');
+    }
+
+    function handleUploadSubmit() {
+      const titleInput = document.getElementById('project-title').value.trim() || 'Custom Creative Asset';
+      const tagInput = document.getElementById('project-tag').value.trim() || 'Visual Design & Motion';
+      const fileInput = document.getElementById('project-file');
+
+      let mediaSrc = 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=700&q=80';
+      if (fileInput.files && fileInput.files[0]) {
+        mediaSrc = URL.createObjectURL(fileInput.files[0]);
+      }
+
+      let gridId = 'design-grid';
+      if (activeUploadSection === 'Video Graphy') gridId = 'video-grid';
+      if (activeUploadSection === 'Motion Art') gridId = 'motion-grid';
+
+      const targetGrid = document.getElementById(gridId);
+      if (targetGrid) {
+        const itemCard = document.createElement('div');
+        itemCard.className = 'group relative rounded-2xl overflow-hidden bg-neutral-900 border border-red-600 transition duration-500 shadow-xl';
+        itemCard.innerHTML = `
+          <img src="${mediaSrc}" alt="${titleInput}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+          <div class="p-4 bg-gradient-to-t from-black via-zinc-950 to-transparent text-left">
+            <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-red-950 text-red-300 rounded border border-red-700">New Work</span>
+            <h3 class="font-college-dusty text-base text-white mt-1">${titleInput}</h3>
+            <p class="font-arial text-xs text-gray-300 mt-0.5">${tagInput}</p>
+          </div>
+        `;
+        targetGrid.prepend(itemCard);
+      }
+
+      closeUploadModal();
+      showToast(`Uploaded successfully to ${activeUploadSection}!`);
+    }
+
+    // Avatar PNG File Selection
+    const avatarInput = document.getElementById('avatar-input');
+    const profileImg = document.getElementById('profile-img');
+    if (avatarInput) {
+      avatarInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            profileImg.src = event.target.result;
+            showToast('PNG portrait updated successfully!');
+          };
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      });
+    }
+
+    // Toast utility
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toast-msg');
+      if (toast && msg) {
+        msg.innerText = text;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+      }
+    }
+  </script>
 
 </body>
 </html>
+
+
+
+ye mera pura code hai website ka yahan dhund ke batao ki meri profile picture ka naam kya hai
