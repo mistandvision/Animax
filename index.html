@@ -1,1050 +1,1130 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth bg-[#060608] text-[#f3f4f8] selection:bg-[var(--accent)] selection:text-black">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anil — Graphic Designer, Video Editor & Motion Artist</title>
+  <title>animax // Anil Kumar - Portfolio</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <!-- Google Fonts: Space Grotesk, Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Rubik+Glitch&family=Syne:wght@700;800&display=swap');
-
-    .font-broken-detroit {
-      font-family: 'Rubik Glitch', 'Syne', Impact, sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #dc2626;
-      text-align: left;
-      text-shadow: 
-        0 0 10px rgba(220, 38, 38, 0.45),
-        0 0 24px rgba(185, 28, 28, 0.25);
+    :root {
+      --accent: #ff5722;
+      --accent-glow: rgba(255, 87, 34, 0.45);
+      --accent-soft: rgba(255, 87, 34, 0.12);
+      --accent-gradient: linear-gradient(135deg, #ff7a18 0%, #ff3d00 55%, #c41e00 100%);
+      --accent-rgb: 255, 87, 34;
     }
 
-    .font-college-dusty {
-      font-family: 'Black Ops One', 'Special Elite', Impact, sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.35);
+    [data-theme="gold"] {
+      --accent: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.45);
+      --accent-soft: rgba(212, 175, 55, 0.12);
+      --accent-gradient: linear-gradient(135deg, #f7d070 0%, #d4af37 55%, #997316 100%);
+      --accent-rgb: 212, 175, 55;
     }
 
-    .font-arial {
-      font-family: Arial, Helvetica, sans-serif;
+    [data-theme="cyan"] {
+      --accent: #00f2fe;
+      --accent-glow: rgba(0, 242, 254, 0.45);
+      --accent-soft: rgba(0, 242, 254, 0.12);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --accent-rgb: 0, 242, 254;
     }
 
-    html, body {
-      margin: 0;
-      background-color: #101116;
-      color: #f1f5f9;
-      cursor: none !important;
-      overflow-x: hidden;
-    }
-    a, button, input, label {
-      cursor: none !important;
+    [data-theme="acid"] {
+      --accent: #bbf444;
+      --accent-glow: rgba(187, 244, 68, 0.45);
+      --accent-soft: rgba(187, 244, 68, 0.12);
+      --accent-gradient: linear-gradient(135deg, #d2f866 0%, #bbf444 55%, #7ca800 100%);
+      --accent-rgb: 187, 244, 68;
     }
 
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .font-syne {
+      font-family: 'Syne', sans-serif;
+    }
+
+    .font-mono-code {
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    /* Redsun Horizon Glow */
+    .horizon-glow {
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      filter: blur(80px);
+      opacity: 0.45;
+      transition: all 0.5s ease;
+    }
+
+    .horizon-ring {
+      border-top: 1.5px solid var(--accent);
+      box-shadow: 0 -20px 60px var(--accent-glow);
+      transition: all 0.5s ease;
+    }
+
+    /* Glass Panels */
+    .glass-card {
+      background: radial-gradient(120% 120% at 50% 0%, rgba(24, 24, 32, 0.7) 0%, rgba(10, 10, 14, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(20px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 15px 45px -10px var(--accent-glow);
+    }
+
+    /* Marquee animation */
+    @keyframes marqueeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-smooth {
+      display: flex;
+      width: max-content;
+      animation: marqueeMove 28s linear infinite;
+    }
+    .animate-marquee-smooth:hover {
+      animation-play-state: paused;
+    }
+
+    /* 45 Deg Rotating Skill Cards */
+    .skill-card {
+      perspective: 1000px;
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .skill-card:hover .skill-inner {
+      transform: rotate(45deg) scale(1.08);
+      border-color: var(--accent);
+      box-shadow: 0 0 35px var(--accent-glow);
+    }
+    .skill-inner {
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    /* Active filter tab */
+    .tab-active {
+      background: var(--accent) !important;
+      color: #000 !important;
+      font-weight: 700;
+    }
+
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 7px;
+      width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0a0b10;
+      background: #060608;
     }
     ::-webkit-scrollbar-thumb {
-      background: #7f1d1d;
+      background: #1c1c24;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #dc2626;
+      background: var(--accent);
     }
-
-    #vid {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      mix-blend-mode: screen;
-      opacity: 0.55;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    #fog {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 20;
-    }
-
-    #ball-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: auto;
-      z-index: 10;
-    }
-
-    .blood-line-2mm {
-      height: 2mm;
-      background: linear-gradient(90deg, transparent, #7f1d1d 15%, #dc2626 50%, #991b1b 85%, transparent);
-      box-shadow: 0 0 14px rgba(220, 38, 38, 0.65), 0 0 28px rgba(185, 28, 28, 0.3);
-      position: relative;
-    }
-
-    .cylinder-btn {
-      border-radius: 9999px;
-      background: linear-gradient(145deg, rgba(24, 26, 36, 0.95), rgba(12, 14, 20, 0.98));
-      border: 1px solid rgba(220, 38, 38, 0.45);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .cylinder-btn:hover {
-      border-color: #ff4d4d;
-      box-shadow: 0 0 24px rgba(220, 38, 38, 0.7), inset 0 0 12px rgba(220, 38, 38, 0.3);
-      transform: translateY(-2px) scale(1.03);
-    }
-
-    #torch-cursor {
-      position: fixed;
-      width: 38px;
-      height: 72px;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-    }
-
-    @keyframes torchFlicker {
-      0% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
-      25% { transform: scale(1.08, 1.15) rotate(2deg); filter: drop-shadow(0 0 22px rgba(255, 75, 0, 0.95)); }
-      50% { transform: scale(0.96, 0.98) rotate(-2deg); filter: drop-shadow(0 0 14px rgba(255, 160, 30, 0.85)); }
-      75% { transform: scale(1.05, 1.12) rotate(1deg); filter: drop-shadow(0 0 20px rgba(255, 90, 10, 0.92)); }
-      100% { transform: scale(1) rotate(-1.5deg); filter: drop-shadow(0 0 16px rgba(255, 120, 20, 0.9)); }
-    }
-    .torch-flame-motion {
-      animation: torchFlicker 0.17s infinite alternate ease-in-out;
-      transform-origin: bottom center;
-    }
-
-    @keyframes lightPulse {
-      0%, 100% { opacity: 0.82; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.22); }
-    }
-    .torch-aura {
-      animation: lightPulse 0.45s infinite ease-in-out;
-    }
-
-    @keyframes floatCutout {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-9px); }
-    }
-    .floating-cutout {
-      animation: floatCutout 4.8s ease-in-out infinite;
-    }
-
-    .eyes{--w:clamp(130px,27vw,340px);--lid:.05;display:flex;justify-content:center;gap:calc(var(--w)*.8);cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .eye{width:var(--w);height:auto;overflow:visible;transform:scaleY(var(--lid));
-         transition:transform .14s ease-out,filter .9s;filter:drop-shadow(0 0 12px rgba(255,255,255,.3))}
-    .eye.r{transform:scale(-1,var(--lid))}
-    .eyes.opening .eye{transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .9s}
-    .eyes.rinn .eye{filter:drop-shadow(0 0 20px rgba(190,110,255,.85))}
-    .sh{transition:opacity .7s}
-    .rinn .sh{opacity:0}
-    .rn{opacity:0;transition:opacity .7s .25s}
-    .rinn .rn{opacity:1}
-    .s{transform-origin:0 0}
-    .morph .s{animation:pulse .9s ease-in-out}
-    @keyframes pulse{40%{transform:scale(1.2)}}
-    @media (prefers-reduced-motion:reduce){.eye{transition:none!important}}
   </style>
 </head>
+<body class="bg-[#060608] text-[#f3f4f8] antialiased overflow-x-hidden relative selection:bg-[var(--accent)] selection:text-black">
 
-<body class="selection:bg-red-800 selection:text-white">
+  <!-- ========================================================= -->
+  <!-- FLOATING THEME SELECTOR DOCK (RIGHT SIDE) -->
+  <!-- ========================================================= -->
+  <aside class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2.5 p-2 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+    <span class="text-[8px] font-mono-code uppercase tracking-widest text-zinc-400 font-bold px-1">Theme</span>
+    <button onclick="setTheme('amber')" title="Redsun Ember" class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#ff3d00] to-[#ff7a18] ring-2 ring-white/20 hover:scale-125 transition-transform"></button>
+    <button onclick="setTheme('gold')" title="Jacob Gold" class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#997316] to-[#d4af37] hover:scale-125 transition-transform"></button>
+    <button onclick="setTheme('cyan')" title="Cyber Cyan" class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#0072ff] to-[#00f2fe] hover:scale-125 transition-transform"></button>
+    <button onclick="setTheme('acid')" title="Acid Green" class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#7ca800] to-[#bbf444] hover:scale-125 transition-transform"></button>
+  </aside>
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-    <clipPath id="ec"><path d="M4,10 C60,-2 150,6 236,100 C160,108 80,104 38,66 C22,50 10,30 4,10Z"/></clipPath>
-    <linearGradient id="scl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#85858c"/><stop offset=".4" stop-color="#f2f2f5"/><stop offset="1" stop-color="#fff"/></linearGradient>
-    <radialGradient id="sclP"><stop offset=".4" stop-color="#fff"/><stop offset="1" stop-color="#c78bff"/></radialGradient>
-    <radialGradient id="sg"><stop offset="0" stop-color="#ff5a2a"/><stop offset=".7" stop-color="#e2260f"/><stop offset="1" stop-color="#8e0b05"/></radialGradient>
-    <radialGradient id="rg"><stop offset="0" stop-color="#fff"/><stop offset=".75" stop-color="#f4eaff"/><stop offset="1" stop-color="#d7b3ff"/></radialGradient>
-    <g id="tm"><circle r="7.5" fill="#150000"/><path d="M5,-6 Q18,-4 13,10 Q12,1 3,-1Z" fill="#150000"/></g>
-  </defs></svg>
-
-  <video id="vid" src="fog.mp4" autoplay muted loop playsinline onerror="this.remove()"></video>
-  <canvas id="ball-canvas"></canvas>
-  <canvas id="fog"></canvas>
-
-  <div id="torch-cursor">
-    <div class="relative w-full h-full flex flex-col items-center">
-      <div class="torch-aura absolute -top-14 -left-16 w-44 h-44 rounded-full bg-gradient-to-r from-amber-500/35 via-orange-500/25 to-transparent blur-2xl pointer-events-none"></div>
-      <div class="torch-flame-motion relative w-8 h-11 mt-1 flex items-center justify-center">
-        <div class="absolute inset-0 bg-gradient-to-t from-red-600 via-orange-500 to-amber-300 rounded-full blur-[1px] opacity-95"></div>
-        <div class="absolute bottom-1 w-4 h-7 bg-gradient-to-t from-amber-400 via-yellow-200 to-white rounded-full blur-[0.6px]"></div>
-        <div class="absolute -top-2.5 w-1.5 h-4.5 bg-yellow-100 rounded-full blur-[0.8px]"></div>
-      </div>
-      <div class="w-4.5 h-3 bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 rounded-sm border-t border-amber-500/80 shadow-md"></div>
-      <div class="w-3.5 h-1.5 bg-neutral-700 border-y border-neutral-900"></div>
-      <div class="w-2.5 h-9 bg-gradient-to-b from-amber-950 via-neutral-800 to-neutral-950 rounded-b-sm shadow-md"></div>
-    </div>
-  </div>
-
-  <div class="relative z-30 min-h-screen flex flex-col justify-between">
-
-    <header class="w-full pt-4 pb-4 px-4 md:px-12 flex flex-col items-center relative overflow-hidden">
-      <div class="relative w-full max-w-4xl h-56 sm:h-64 flex items-center justify-center rounded-2xl border border-red-950/40 bg-neutral-950/40 backdrop-blur-sm overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)]">
-        <div class="eyes opening" id="eyes" role="img" aria-label="Sharingan eyes that follow the cursor"></div>
-      </div>
-
-      <div class="w-full max-w-6xl mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center border-b border-neutral-800/80 pb-6">
-        <div class="text-left">
-          <span class="text-xs uppercase tracking-widest text-red-500/90 font-mono block mb-1">
-            <i class="ph-fill ph-circle text-red-500 text-[8px] animate-ping mr-1"></i> Visual Portfolio
-          </span>
-          <h1 class="font-broken-detroit text-4xl sm:text-5xl md:text-6xl font-bold">
-            Hello! i'm Anil
-          </h1>
-        </div>
-
-        <div class="text-left md:text-right">
-          <p class="font-college-dusty text-xl sm:text-2xl md:text-3xl tracking-wider">
-            Think Creative. Design Different
-          </p>
-          <p class="font-arial text-xs text-gray-300 mt-1 tracking-wide">
-            Graphic Designer &bull; Video Editor &bull; Motion Artist
-          </p>
-        </div>
-      </div>
-    </header>
-
-    <section id="biography" class="w-full max-w-6xl mx-auto px-4 md:px-12 py-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        
-        <div class="lg:col-span-7 space-y-4 text-left">
-          <div>
-            <div class="flex items-center space-x-3">
-              <span class="h-3.5 w-3.5 rounded-full bg-red-600 shadow-[0_0_12px_#dc2626] flex-shrink-0"></span>
-              <h2 class="font-broken-detroit text-3xl sm:text-4xl">
-                BIOGRAPHY
-              </h2>
-            </div>
-            <p class="font-college-dusty text-base sm:text-lg text-white mt-2 pl-6">
-              About me..
-            </p>
-          </div>
-
-          <div class="pl-6 space-y-3 pt-2">
-            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
-              I’m a passionate Graphic Designer who believes that great design is more than just visuals — it’s about communicating ideas, telling stories, and creating meaningful experiences.
-            </p>
-            <p class="font-arial text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
-              With a creative mindset and an eye for detail, I transform concepts into impactful visual designs that connect with audiences and bring brands to life. My approach combines creativity, strategy, and purpose to create designs that not only look good but also communicate effectively.
-            </p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 flex flex-col items-center justify-center">
-          <div class="relative group w-64 h-84 sm:w-72 sm:h-96 flex flex-col items-center justify-end">
-            <div class="absolute inset-x-4 top-10 bottom-6 bg-gradient-to-t from-red-600/30 via-red-900/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-
-            <div class="relative w-full h-full flex items-end justify-center floating-cutout">
-              <img id="profile-img" 
-                   src="my-photo.png" 
-                   alt="Anil - Designer PNG Cutout" 
-                   class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(220,38,38,0.4)] transition duration-500 group-hover:scale-105"
-                   style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
-            </div>
-
-            <label for="avatar-input" class="mt-3 px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-200 hover:text-white flex items-center space-x-1.5 shadow-lg cursor-pointer">
-              <i class="ph-bold ph-image text-amber-400"></i>
-              <span>Change PNG Photo</span>
-            </label>
-            <input type="file" id="avatar-input" accept="image/*" class="hidden">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="w-full py-8 flex justify-center items-center px-4">
-      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 bg-neutral-950/85 p-3.5 rounded-full border border-red-900/60 backdrop-blur-md shadow-[0_0_35px_rgba(220,38,38,0.35)]">
-        <a href="#section-design" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-paint-brush"></i>
-          <span>Design</span>
-        </a>
-        <a href="#section-videography" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-film-strip"></i>
-          <span>Video Graphy</span>
-        </a>
-        <a href="#section-motionart" class="cylinder-btn px-8 py-3 font-broken-detroit text-base md:text-lg text-red-400 hover:text-white flex items-center space-x-2">
-          <i class="ph-bold ph-lightning"></i>
-          <span>Motion Art</span>
-        </a>
-      </div>
-    </section>
-
-    <main class="w-full max-w-6xl mx-auto px-4 md:px-12 space-y-20 py-8">
+  <!-- ========================================================= -->
+  <!-- TOP BAR / NAVBAR (As Requested: animax logo + 4 Links ONLY) -->
+  <!-- ========================================================= -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-[#060608]/85 backdrop-blur-xl border-b border-white/[0.07]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
       
-      <section id="section-design" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Design
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Visual Identity &bull; Vector Layouts &bull; Print Production
-            </p>
-          </div>
-          <button onclick="openUploadModal('Design')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Work (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="design-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Visual Brand Architecture</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Illustrator &amp; Photoshop</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Packaging &amp; Vector Grid</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">CorelDRAW High Precision Print</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=700&q=80" alt="Design Artwork" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Typography &amp; Poster Art</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Creative Editorial Communication</p>
-            </div>
+      <!-- Brand Logo: User Photo + "animax" -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-full p-[2px] transition-transform duration-300 group-hover:scale-105" style="background: var(--accent-gradient);">
+          <div class="w-full h-full rounded-full overflow-hidden bg-zinc-900">
+            <!-- Provided user image -->
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+              alt="Anil Kumar - animax" 
+              class="w-full h-full object-cover"
+              onerror="this.src='https://placehold.co/100x100/181822/ffffff?text=ANIL'"
+            />
           </div>
         </div>
-      </section>
-
-      <section id="section-videography" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Video Graphy
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Timeline Editing &bull; Cinematic Color LUTs &bull; Dynamic Pacing
-            </p>
-          </div>
-          <button onclick="openUploadModal('Video Graphy')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Video (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Automotive Commercial Cut</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Adobe Premiere Pro &bull; Speed Transitions</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Brand Montage Sequence</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Sound Design &bull; Multi-Track Audio Sync</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <div class="relative w-full h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=700&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-[0_0_18px_#dc2626]">
-                  <i class="ph-fill ph-play"></i>
-                </span>
-              </div>
-            </div>
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Event Teaser Cut</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Color Grade &bull; Rhythm Match</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="section-motionart" class="space-y-6 pt-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800/80 pb-3 gap-2">
-          <div>
-            <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl text-left">
-              Motion Art
-            </h2>
-            <p class="font-college-dusty text-sm text-gray-200 tracking-wider text-left mt-1">
-              Kinetic Typography &bull; VFX Compositing &bull; Visual Dynamics
-            </p>
-          </div>
-          <button onclick="openUploadModal('Motion Art')" class="self-start sm:self-auto px-4 py-2 rounded-full cylinder-btn text-xs font-arial text-red-300 border-red-700 flex items-center space-x-2">
-            <i class="ph-bold ph-lock-simple text-amber-400"></i>
-            <span>Upload Motion (Anil Only)</span>
-          </button>
-        </div>
-
-        <div id="motion-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Amaterasu Flame Particles</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Particle Physics &amp; Glow Synthesis</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Sci-Fi HUD UI Vector Loop</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">After Effects &bull; 2D Geometric Rigging</p>
-            </div>
-          </div>
-          <div class="group relative rounded-2xl overflow-hidden bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition duration-500 shadow-xl">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" alt="Motion Piece" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-            <div class="p-4 bg-gradient-to-t from-neutral-950 via-neutral-900 to-transparent text-left">
-              <h3 class="font-college-dusty text-base text-white">Kinetic Glitch Distortion</h3>
-              <p class="font-arial text-xs text-gray-300 mt-1">Displacement Channel Maps &amp; Motion Blur</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="qualification" class="pt-8 space-y-4 text-left">
-        <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl">
-          Qailification
-        </h2>
-        <p class="font-college-dusty text-sm text-gray-200 tracking-wider">
-          Multi-Software Proficiency &bull; Magnetic 3D Fluffy Spheres
-        </p>
-
-        <div class="p-5 rounded-2xl bg-neutral-950/80 border border-red-900/40 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
-            <span>Adobe Photoshop (Ps)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b]"></span>
-            <span>Adobe Illustrator (Ai)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></span>
-            <span>Adobe Premiere Pro (Pr)</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs font-arial text-gray-200">
-            <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
-            <span>CorelDRAW (Cd)</span>
-          </div>
-          <span class="text-xs font-mono text-red-400 italic block w-full mt-1">
-            *Balls exhibit mutual magnetic attraction and cluster here, but scatter apart immediately when your burning torch cursor approaches!
+        <div class="flex flex-col">
+          <span class="font-syne font-black text-2xl tracking-wider uppercase text-white leading-none">
+            animax<span style="color: var(--accent);">.</span>
           </span>
+          <span class="text-[9px] font-mono-code uppercase tracking-widest text-zinc-400 mt-1">Creative Atelier</span>
         </div>
-      </section>
+      </a>
 
-      <section id="education" class="pt-8 space-y-7 text-left">
-        <div class="flex items-center space-x-4">
-          <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-red-600/80 flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.35)] text-3xl flex-shrink-0">
-            <i class="ph-bold ph-graduation-cap"></i>
+      <!-- 4 Requested Buttons ONLY -->
+      <nav class="flex items-center gap-5 sm:gap-9 text-xs sm:text-sm font-mono-code uppercase tracking-wider text-zinc-300">
+        <a href="#home" class="hover:text-white transition-colors">Home</a>
+        <a href="#work" class="hover:text-white transition-colors">Work</a>
+        <a href="#my-service" class="hover:text-white transition-colors">My Service</a>
+        <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 1ST PAGE: HERO ("Hi! i'm Anil" & "Create Beyond") -->
+  <!-- ========================================================= -->
+  <section id="home" class="relative min-h-screen pt-36 pb-20 flex flex-col justify-center items-center px-4 overflow-hidden">
+    
+    <!-- Horizon Glow Eclipse Background -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[360px] rounded-full horizon-glow pointer-events-none -z-10"></div>
+    <div class="w-[88%] max-w-4xl h-[320px] rounded-[50%] horizon-ring absolute top-[38%] pointer-events-none -z-10"></div>
+
+    <div class="text-center relative z-10 max-w-4xl mx-auto space-y-6">
+      
+      <!-- Status Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full animate-ping" style="background: var(--accent);"></span>
+        <span class="text-xs font-mono-code uppercase tracking-widest text-zinc-300">Available For Global Commissions</span>
+      </div>
+
+      <!-- Main Headline: Hi! i'm Anil -->
+      <h1 class="font-syne font-black text-5xl sm:text-7xl md:text-8xl tracking-tight text-white leading-[1.05]">
+        Hi! i'm Anil
+      </h1>
+
+      <!-- Subheadline: Create Beyond -->
+      <h2 class="font-syne font-extrabold text-2xl sm:text-4xl md:text-5xl uppercase tracking-wider" style="color: var(--accent);">
+        Create Beyond
+      </h2>
+
+      <!-- Description -->
+      <p class="max-w-xl mx-auto text-sm sm:text-base text-zinc-400 font-normal leading-relaxed">
+        Visual Arts, Motion Direction &amp; Editing. Transforming concepts into cinematic visuals, vector laser blueprints, and memorable brand identities.
+      </p>
+
+      <!-- Buttons -->
+      <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+        <a href="#work" class="px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold font-mono-code uppercase tracking-wider text-black shadow-lg transition-transform hover:-translate-y-0.5" style="background: var(--accent); box-shadow: 0 0 30px var(--accent-glow);">
+          Explore Work
+        </a>
+        <a href="#connect" class="px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold font-mono-code uppercase tracking-wider text-white border border-white/15 bg-white/5 hover:bg-white/10 transition-colors">
+          Get in Touch
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500 hover:text-white transition-colors">
+      <span class="text-[10px] font-mono-code tracking-widest uppercase">Scroll Down</span>
+      <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+    </a>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 2ND PAGE: ABOUT... (Centered Title + Center Aligned Text) -->
+  <!-- ========================================================= -->
+  <section id="about" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    <div class="max-w-4xl mx-auto text-center space-y-10">
+      
+      <!-- Title -->
+      <div class="space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">02 / PROFILE</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          About...
+        </h2>
+      </div>
+
+      <!-- Exact user text center aligned in glass frame -->
+      <div class="glass-card rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full horizon-glow pointer-events-none"></div>
+
+        <p class="text-base sm:text-xl md:text-2xl text-zinc-300 font-normal leading-relaxed text-center max-w-3xl mx-auto">
+          I’m a passionate Graphic Designer who believes that great design is more than just visuals — it’s about communicating ideas, telling stories, and creating meaningful experiences.
+        </p>
+
+        <div class="w-16 h-[2px] mx-auto my-8" style="background: var(--accent);"></div>
+
+        <p class="text-sm sm:text-lg text-zinc-400 font-normal leading-relaxed text-center max-w-3xl mx-auto">
+          With a creative mindset and an eye for detail, I transform concepts into impactful visual designs that connect with audiences and bring brands to life. My approach combines creativity, strategy, and purpose to create designs that not only look good but also communicate effectively.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 3RD PAGE: WORK (Moving Templates + Filter Sections) -->
+  <!-- ========================================================= -->
+  <section id="work" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">03 / PORTFOLIO</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          Work
+        </h2>
+        <p class="text-xs sm:text-sm font-mono-code text-zinc-400 uppercase tracking-wider">
+          Crafted templates, commercial productions &amp; motion dynamics
+        </p>
+      </div>
+
+      <!-- Part 1: Infinite Moving Design Templates Strip -->
+      <div class="relative w-full overflow-hidden py-4 rounded-3xl bg-black/40 border border-white/5">
+        <div class="animate-marquee-smooth flex items-center gap-6">
+          
+          <!-- Moving Template Item 1 -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #01</span>
+              <span class="text-xs font-bold text-white">Luxury Brand Identity Kit</span>
+            </div>
+          </div>
+
+          <!-- Moving Template Item 2 -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #02</span>
+              <span class="text-xs font-bold text-white">Cinematic Video Reel Layout</span>
+            </div>
+          </div>
+
+          <!-- Moving Template Item 3 -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #03</span>
+              <span class="text-xs font-bold text-white">Dynamic Motion Title Pack</span>
+            </div>
+          </div>
+
+          <!-- Moving Template Item 4 -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #04</span>
+              <span class="text-xs font-bold text-white">Vector CNC Laser Cut Geometry</span>
+            </div>
+          </div>
+
+          <!-- Moving Template Item 5 -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #05</span>
+              <span class="text-xs font-bold text-white">Gold Foil Box Packaging Dieline</span>
+            </div>
+          </div>
+
+          <!-- Duplicate Set for Seamless Loop -->
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #01</span>
+              <span class="text-xs font-bold text-white">Luxury Brand Identity Kit</span>
+            </div>
+          </div>
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #02</span>
+              <span class="text-xs font-bold text-white">Cinematic Video Reel Layout</span>
+            </div>
+          </div>
+          <div class="w-64 sm:w-80 h-44 rounded-2xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Template" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+              <span class="text-[10px] font-mono-code uppercase text-white font-bold" style="color: var(--accent);">Template #03</span>
+              <span class="text-xs font-bold text-white">Dynamic Motion Title Pack</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Part 2: Interactive Project Filters (Design, Video Graphi, Motion Art) -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <button onclick="filterWork('all')" id="btn-all" class="tab-btn px-5 py-2.5 rounded-xl font-mono-code text-xs uppercase tracking-wider tab-active transition-all">
+          All Showcase
+        </button>
+        <button onclick="filterWork('design')" id="btn-design" class="tab-btn px-5 py-2.5 rounded-xl font-mono-code text-xs uppercase tracking-wider bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10 transition-all">
+          Design
+        </button>
+        <button onclick="filterWork('videography')" id="btn-videography" class="tab-btn px-5 py-2.5 rounded-xl font-mono-code text-xs uppercase tracking-wider bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10 transition-all">
+          Video Graphi
+        </button>
+        <button onclick="filterWork('motion')" id="btn-motion" class="tab-btn px-5 py-2.5 rounded-xl font-mono-code text-xs uppercase tracking-wider bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10 transition-all">
+          Motion Art
+        </button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4" id="projects-grid">
+        
+        <!-- DESIGN 1 -->
+        <div class="project-item design glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Vector Laser Cut Wall Decor', 'Design', 'Craft & Creation', 'Precision AutoCAD/CorelDRAW vector nesting with kerf offsets and smooth lead-ins designed for architectural acrylic cutouts.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80" alt="Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">CorelDRAW</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">DESIGN CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">Vector Laser Cut Architectural Panel</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">High tolerance vector paths optimized for zero-burn CO₂ laser cutting machines.</p>
+        </div>
+
+        <!-- VIDEO GRAPHI 1 -->
+        <div class="project-item videography glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Cinematic Brand Promo Reel', 'Video Graphi', 'Commercial Campaign', 'Dynamic multi-angle cut with beat-matched transitions, sound foley layers, and stylized LUT color grading in Premiere Pro.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=700&q=80" alt="Video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="play" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">Premiere Pro</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">VIDEO GRAPHI CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">Cinematic Brand Promo &amp; Sound Design</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">High energy promotional cut with clean pacing and calibrated cinematic color tones.</p>
+        </div>
+
+        <!-- MOTION ART 1 -->
+        <div class="project-item motion glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Demon Slayer Kinetic Motion Poster', 'Motion Art', 'Animax Creative Lab', 'Multi-layered parallax depth displacement, looping aura particles, kinetic Japanese typography and glowing edge shaders.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=700&q=80" alt="Motion Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">Motion FX</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">MOTION ART CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">Kinetic Motion Art &amp; Title Reveal</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">Fluid title sequence animations with organic particle visual effects.</p>
+        </div>
+
+        <!-- DESIGN 2 -->
+        <div class="project-item design glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Pre-Press Rigid Box Packaging', 'Design', 'Sharp Digital', 'Structural packaging dieline, CTP 4-color plate separations, Spot-UV channel isolation, and foil blocking master files.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80" alt="Packaging" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">Illustrator / CTP</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">DESIGN CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">Pre-Press Gold Foil Cosmetic Box</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">Complete dieline blueprint with CMYK separation and Spot UV coating masks.</p>
+        </div>
+
+        <!-- VIDEO GRAPHI 2 -->
+        <div class="project-item videography glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Social Media Reels Batch & Hooks', 'Video Graphi', 'Client Retention', 'High-retention vertical 9:16 short form edits with dynamic captions, sound bites, and pacing designed for viral reach.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=700&q=80" alt="Reels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="play" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">Vertical 9:16</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">VIDEO GRAPHI CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">High-Retention Viral Video Shorts</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">Punchy cuts, sound sync, and animated lower thirds calibrated for social attention.</p>
+        </div>
+
+        <!-- MOTION ART 2 -->
+        <div class="project-item motion glass-card rounded-3xl p-5 cursor-pointer group" onclick="openProjectModal('Animax 3D Identity Reveal Stinger', 'Motion Art', 'Brand Studio', 'Futuristic sci-fi identity animation with volumetric beam lighting, holographic HUD elements, and ambient bass drop.')">
+          <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-black relative mb-4">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80" alt="Stinger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[var(--accent)] group-hover:text-black transition-colors">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-mono-code px-2 py-0.5 rounded-md bg-black/80 text-white border border-white/10">3D Kinetic</span>
+          </div>
+          <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" style="color: var(--accent);">MOTION ART CATEGORY</span>
+          <h4 class="font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">animax 3D Logo Stinger &amp; Intro</h4>
+          <p class="text-xs text-zinc-400 mt-1 line-clamp-2">Cyberpunk neon light pass over metallic 3D extruded logotype.</p>
+        </div>
+
+      </div>
+
+      <!-- Roadmap helper CTA -->
+      <div class="text-center pt-8">
+        <button onclick="toggleRoadmapModal()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono-code uppercase tracking-wider text-zinc-200 transition-colors">
+          <i data-lucide="list-checks" class="w-4 h-4" style="color: var(--accent);"></i>
+          <span>View Future Upload &amp; Project List Roadmap</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 4TH PAGE: MY SERVICE (Exact 4 requested cards & texts) -->
+  <!-- ========================================================= -->
+  <section id="my-service" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto space-y-14">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">04 / CAPABILITIES</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          my service
+        </h2>
+        <p class="text-xs sm:text-sm font-mono-code text-zinc-400 uppercase tracking-wider">
+          Specialized creative execution across four core disciplines
+        </p>
+      </div>
+
+      <!-- 4 Requested Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Service 1 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-black font-bold mb-6 transition-transform group-hover:scale-110" style="background: var(--accent);">
+            <i data-lucide="palette" class="w-6 h-6 text-black"></i>
+          </div>
+          <span class="text-xs font-mono-code uppercase tracking-wider text-zinc-500 block mb-2">SERVICE // 01</span>
+          <h3 class="font-syne font-bold text-2xl text-white mb-3">Graphic design</h3>
+          <p class="text-sm text-zinc-300 leading-relaxed">
+            Posters, social media creatives, logos and brand visuals made to be noticed and remembered.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-black font-bold mb-6 transition-transform group-hover:scale-110" style="background: var(--accent);">
+            <i data-lucide="video" class="w-6 h-6 text-black"></i>
+          </div>
+          <span class="text-xs font-mono-code uppercase tracking-wider text-zinc-500 block mb-2">SERVICE // 02</span>
+          <h3 class="font-syne font-bold text-2xl text-white mb-3">Video editing</h3>
+          <p class="text-sm text-zinc-300 leading-relaxed">
+            Reels, promos and long-form edits with clean cuts, sound and colour that hold attention.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-black font-bold mb-6 transition-transform group-hover:scale-110" style="background: var(--accent);">
+            <i data-lucide="sparkles" class="w-6 h-6 text-black"></i>
+          </div>
+          <span class="text-xs font-mono-code uppercase tracking-wider text-zinc-500 block mb-2">SERVICE // 03</span>
+          <h3 class="font-syne font-bold text-2xl text-white mb-3">Motion art</h3>
+          <p class="text-sm text-zinc-300 leading-relaxed">
+            Animated titles, transitions and graphics that bring a static idea to life.
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-black font-bold mb-6 transition-transform group-hover:scale-110" style="background: var(--accent);">
+            <i data-lucide="layers" class="w-6 h-6 text-black"></i>
+          </div>
+          <span class="text-xs font-mono-code uppercase tracking-wider text-zinc-500 block mb-2">SERVICE // 04</span>
+          <h3 class="font-syne font-bold text-2xl text-white mb-3">Brand identity</h3>
+          <p class="text-sm text-zinc-300 leading-relaxed">
+            A consistent look across logo, colours and type, so your brand feels the same everywhere.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5TH PAGE: SKILLS (45 Deg Rotating Cards + Neon Line Canvas) -->
+  <!-- ========================================================= -->
+  <section id="skills" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06] overflow-hidden">
+    
+    <!-- Reactive Neon Line Canvas Background -->
+    <canvas id="neonCanvas" class="absolute inset-0 w-full h-full pointer-events-none -z-10"></canvas>
+
+    <div class="max-w-7xl mx-auto space-y-16 relative z-10">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">05 / TOOLKIT</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          skills
+        </h2>
+        <p class="text-xs sm:text-sm font-mono-code text-zinc-400 uppercase tracking-wider">
+          Software Mastery &bull; Hover cards rotate 45 degrees with cursor interaction
+        </p>
+      </div>
+
+      <!-- 4 Software Cards with 45 Degree Rotation -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- 1. Adobe Photoshop -->
+        <div class="skill-card p-4 flex flex-col items-center text-center">
+          <div class="skill-inner w-36 h-36 rounded-3xl bg-[#0e0e16] border-2 border-white/10 flex flex-col items-center justify-center p-5 shadow-xl relative cursor-pointer">
+            <div class="w-16 h-16 rounded-2xl bg-[#001e36] text-[#31a8ff] font-bold text-2xl flex items-center justify-center font-mono-code shadow-md">
+              Ps
+            </div>
+          </div>
+          <h4 class="font-syne font-bold text-lg text-white mt-8">Adobe Photoshop</h4>
+          <span class="text-xs font-mono-code text-zinc-400 mt-1">Image Craft &bull; Retouching</span>
+        </div>
+
+        <!-- 2. Adobe Illustrator -->
+        <div class="skill-card p-4 flex flex-col items-center text-center">
+          <div class="skill-inner w-36 h-36 rounded-3xl bg-[#0e0e16] border-2 border-white/10 flex flex-col items-center justify-center p-5 shadow-xl relative cursor-pointer">
+            <div class="w-16 h-16 rounded-2xl bg-[#330000] text-[#ff9a00] font-bold text-2xl flex items-center justify-center font-mono-code shadow-md">
+              Ai
+            </div>
+          </div>
+          <h4 class="font-syne font-bold text-lg text-white mt-8">Adobe Illustrator</h4>
+          <span class="text-xs font-mono-code text-zinc-400 mt-1">Vector Art &bull; Brand Assets</span>
+        </div>
+
+        <!-- 3. Adobe Premiere Pro -->
+        <div class="skill-card p-4 flex flex-col items-center text-center">
+          <div class="skill-inner w-36 h-36 rounded-3xl bg-[#0e0e16] border-2 border-white/10 flex flex-col items-center justify-center p-5 shadow-xl relative cursor-pointer">
+            <div class="w-16 h-16 rounded-2xl bg-[#00005b] text-[#9999ff] font-bold text-2xl flex items-center justify-center font-mono-code shadow-md">
+              Pr
+            </div>
+          </div>
+          <h4 class="font-syne font-bold text-lg text-white mt-8">Adobe Premiere Pro</h4>
+          <span class="text-xs font-mono-code text-zinc-400 mt-1">Cinematic Video &bull; Sound Sync</span>
+        </div>
+
+        <!-- 4. CorelDraw -->
+        <div class="skill-card p-4 flex flex-col items-center text-center">
+          <div class="skill-inner w-36 h-36 rounded-3xl bg-[#0e0e16] border-2 border-white/10 flex flex-col items-center justify-center p-5 shadow-xl relative cursor-pointer">
+            <div class="w-16 h-16 rounded-2xl bg-[#003816] text-[#00ff66] font-bold text-2xl flex items-center justify-center font-mono-code shadow-md">
+              Cd
+            </div>
+          </div>
+          <h4 class="font-syne font-bold text-lg text-white mt-8">CorelDraw</h4>
+          <span class="text-xs font-mono-code text-zinc-400 mt-1">Laser Cutting &bull; Pre-Press Dielines</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 6TH PAGE: QUALIFICATION (Graduation Cap + Brilliko Institute) -->
+  <!-- ========================================================= -->
+  <section id="qualification" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">06 / ACADEMICS</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          Qualification
+        </h2>
+      </div>
+
+      <!-- Card -->
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden flex flex-col sm:flex-row items-center gap-8 text-center sm:text-left">
+        <div class="w-20 h-20 rounded-3xl flex items-center justify-center text-black flex-shrink-0 shadow-2xl" style="background: var(--accent); box-shadow: 0 0 35px var(--accent-glow);">
+          <i data-lucide="graduation-cap" class="w-10 h-10 text-black"></i>
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-xs font-mono-code uppercase tracking-widest text-zinc-400 block">PROFESSIONAL CERTIFICATION</span>
+          <h3 class="font-syne font-bold text-2xl sm:text-3xl text-white">
+            Graphic Designer &amp; Video Editor
+          </h3>
+          <p class="text-base text-zinc-300 font-normal">
+            <span class="font-bold underline decoration-2 underline-offset-4" style="color: var(--accent);">Brilliko Institute</span>
+            <span class="text-zinc-500 mx-2">|</span>
+            <span class="font-mono-code text-sm text-zinc-300">Course Completion: 2026.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 7TH PAGE: EXPERINCE (Gradient Colors According to Web Theme) -->
+  <!-- ========================================================= -->
+  <section id="experience" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    <div class="max-w-5xl mx-auto space-y-14">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">07 / CAREER HISTORY</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          Experience
+        </h2>
+        <p class="text-xs sm:text-sm font-mono-code text-zinc-400 uppercase tracking-wider">
+          Production Ateliers &amp; Industrial Design Tenure
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        
+        <!-- Timeline 1: Sharp Digital -->
+        <div class="glass-card rounded-3xl p-7 sm:p-9 relative overflow-hidden border-l-4" style="border-left-color: var(--accent);">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <h3 class="font-syne font-black text-2xl sm:text-3xl uppercase tracking-wide bg-clip-text text-transparent" style="background-image: var(--accent-gradient);">
+              sharp digital (2024-2026)
+            </h3>
+            <span class="text-xs font-mono-code px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300 w-fit">
+              Current Tenure
+            </span>
+          </div>
+          <p class="text-base sm:text-lg text-zinc-200 font-medium">
+            (Pre-Press &amp; Print Production Designer)
+          </p>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+            Engineered CTP offset plate color separation, 4-color trapping, Spot-UV masking, and rigid box structural dielines.
+          </p>
+        </div>
+
+        <!-- Timeline 2: Hindustan Metal Work -->
+        <div class="glass-card rounded-3xl p-7 sm:p-9 relative overflow-hidden border-l-4" style="border-left-color: var(--accent);">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <h3 class="font-syne font-black text-2xl sm:text-3xl uppercase tracking-wide bg-clip-text text-transparent" style="background-image: var(--accent-gradient);">
+              hindustan metal work (2023-2024)
+            </h3>
+            <span class="text-xs font-mono-code px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400 w-fit">
+              Fabrication Lab
+            </span>
+          </div>
+          <p class="text-base sm:text-lg text-zinc-200 font-medium">
+            (Graphic Designer &amp; Laser Production)
+          </p>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+            Fabricated metal, stainless steel, and acrylic signages with zero-burn laser kerf calculations and CNC G-code optimization.
+          </p>
+        </div>
+
+        <!-- Timeline 3: Craft and Creation -->
+        <div class="glass-card rounded-3xl p-7 sm:p-9 relative overflow-hidden border-l-4" style="border-left-color: var(--accent);">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <h3 class="font-syne font-black text-2xl sm:text-3xl uppercase tracking-wide bg-clip-text text-transparent" style="background-image: var(--accent-gradient);">
+              craftand creation (2021-2023)
+            </h3>
+            <span class="text-xs font-mono-code px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400 w-fit">
+              Vector Atelier
+            </span>
+          </div>
+          <p class="text-base sm:text-lg text-zinc-200 font-medium">
+            (Vector Design &amp; Laser Cutting Specialist)
+          </p>
+          <p class="text-xs sm:text-sm text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+            Constructed multi-layered vector patterns, architectural jali motifs, and nested cutting files for CO₂ laser machines.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8TH PAGE: CONECT (Requested Contact List with Logos) -->
+  <!-- ========================================================= -->
+  <section id="connect" class="py-28 px-4 sm:px-6 relative border-t border-white/[0.06]">
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-3">
+        <span class="text-xs font-mono-code uppercase tracking-widest" style="color: var(--accent);">08 / COMMISSIONS</span>
+        <h2 class="font-syne font-black text-4xl sm:text-6xl text-white tracking-tight">
+          Connect
+        </h2>
+        <p class="text-xs sm:text-sm font-mono-code text-zinc-400 uppercase tracking-wider">
+          Let’s build memorable visual stories together
+        </p>
+      </div>
+
+      <!-- Contact List Cards as requested -->
+      <div class="glass-card rounded-3xl p-8 sm:p-12 space-y-5">
+        
+        <!-- Man Logo / Anil Kumar -->
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-black/40 border border-white/5 hover:border-white/20 transition-colors">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-black font-bold flex-shrink-0" style="background: var(--accent);">
+            <i data-lucide="user" class="w-6 h-6 text-black"></i>
           </div>
           <div>
-            <h2 class="font-broken-detroit text-2xl sm:text-3xl md:text-4xl text-left">
-              Graphic Design &amp; Video Editing
-            </h2>
-            <div class="flex flex-wrap items-center gap-2 mt-1">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shadow-[0_0_6px_#facc15]"></span>
-              <span class="font-college-dusty text-yellow-400 text-sm md:text-base tracking-wider">
-                Brilliko Institute
-              </span>
-              <span class="text-gray-300 text-xs font-arial">| Course Completion: 2026.</span>
-            </div>
+            <span class="text-[10px] font-mono-code uppercase text-zinc-400 block">CREATIVE DIRECTOR</span>
+            <span class="font-syne font-bold text-xl text-white">Anil Kumar</span>
           </div>
         </div>
 
-        <p class="font-arial text-sm sm:text-base text-gray-200 max-w-3xl leading-relaxed">
-          Creative design and video production training focused on visual communication, graphic design, and video editing.
-        </p>
-
-        <div class="w-full relative py-2">
-          <div class="blood-line-2mm w-full"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-sm pointer-events-none"></div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          <button onclick="navigateAndBounceBall('Photoshop')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-blue-300 hover:text-white flex items-center justify-center space-x-2 border-blue-500/50 hover:border-blue-400">
-            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-            <span>Adobe Photoshop</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Illustrator')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-amber-300 hover:text-white flex items-center justify-center space-x-2 border-amber-500/50 hover:border-amber-400">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            <span>Adobe Illustrator</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Premiere')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-purple-300 hover:text-white flex items-center justify-center space-x-2 border-purple-500/50 hover:border-purple-400">
-            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-            <span>Adobe Premiere Pro</span>
-          </button>
-          <button onclick="navigateAndBounceBall('Corel')" class="cylinder-btn py-3.5 px-6 font-college-dusty text-sm tracking-wider text-emerald-300 hover:text-white flex items-center justify-center space-x-2 border-emerald-500/50 hover:border-emerald-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>CorelDRAW</span>
-          </button>
-        </div>
-      </section>
-
-      <section id="connect" class="pt-10 border-t border-neutral-800/80 space-y-6 text-left">
-        <div>
-          <h2 class="font-broken-detroit text-3xl sm:text-4xl md:text-5xl underline decoration-[#dc2626] decoration-4 underline-offset-8">
-            LET'S CONNECT
-          </h2>
-          <h3 class="font-college-dusty text-lg sm:text-xl text-white mt-4 underline decoration-gray-300 decoration-2 underline-offset-4">
-            Profile
-          </h3>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-pink-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-pink-950/60 text-pink-400 border border-pink-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-instagram-logo"></i>
+        <!-- Phone Logo / +91 8287734779 -->
+        <a href="tel:+918287734779" class="flex items-center justify-between p-4 rounded-2xl bg-black/40 border border-white/5 hover:border-[var(--accent)] transition-colors group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-black font-bold flex-shrink-0" style="background: var(--accent);">
+              <i data-lucide="phone" class="w-6 h-6 text-black"></i>
             </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Instagram Handle</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-pink-400 transition truncate">@Anil.Designer</p>
+            <div>
+              <span class="text-[10px] font-mono-code uppercase text-zinc-400 block">DIRECT CALL &amp; WHATSAPP</span>
+              <span class="font-mono-code font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">+91 8287734779</span>
             </div>
-          </a>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-white transition-colors"></i>
+        </a>
 
-          <!-- Updated Email Button with mailto pre-fill -->
-          <a href="mailto:Anilanx144@gmail.com?subject=Hello%20Anil,%20I%20saw%20your%20portfolio&body=Hi%20Anil,%20" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-red-600 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-red-950/60 text-red-400 border border-red-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-envelope"></i>
+        <!-- Email Logo / anilanx144@gmail.com -->
+        <a href="mailto:anilanx144@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-black/40 border border-white/5 hover:border-[var(--accent)] transition-colors group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-black font-bold flex-shrink-0" style="background: var(--accent);">
+              <i data-lucide="mail" class="w-6 h-6 text-black"></i>
             </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Direct Email</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-red-400 transition">Anilanx144@gmail.com</p>
+            <div>
+              <span class="text-[10px] font-mono-code uppercase text-zinc-400 block">OFFICIAL INBOX</span>
+              <span class="font-mono-code font-bold text-lg text-white group-hover:text-[var(--accent)] transition-colors">anilanx144@gmail.com</span>
             </div>
-          </a>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-white transition-colors"></i>
+        </a>
 
-          <a href="tel:+918287734779" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-emerald-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-phone-call"></i>
+        <!-- Behance Logo / link -->
+        <a href="https://www.behance.net/Animax10044db5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-black/40 border border-white/5 hover:border-[var(--accent)] transition-colors group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-black font-bold flex-shrink-0" style="background: var(--accent);">
+              <i data-lucide="globe" class="w-6 h-6 text-black"></i>
             </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Phone Number</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 group-hover:text-emerald-400 transition truncate">+91 8287734779</p>
+            <div>
+              <span class="text-[10px] font-mono-code uppercase text-zinc-400 block">BEHANCE PORTFOLIO</span>
+              <span class="font-mono-code font-bold text-sm sm:text-base text-white group-hover:text-[var(--accent)] transition-colors">https://www.behance.net/Animax10044db5</span>
             </div>
-          </a>
+          </div>
+          <i data-lucide="external-link" class="w-5 h-5 text-zinc-500 group-hover:text-white transition-colors"></i>
+        </a>
 
-          <a href="https://www.behance.net/Animax10044db5" target="_blank" rel="noopener noreferrer" 
-             class="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 hover:border-blue-500 transition flex items-center space-x-3 group">
-            <div class="w-10 h-10 rounded-xl bg-blue-950/60 text-blue-400 border border-blue-700/50 flex items-center justify-center text-xl group-hover:scale-110 transition flex-shrink-0">
-              <i class="ph-bold ph-behance-logo"></i>
-            </div>
-            <div class="overflow-hidden">
-              <p class="font-college-dusty text-xs text-gray-400">Behance Profile</p>
-              <p class="font-arial text-sm font-semibold text-gray-200 truncate group-hover:text-blue-400 transition">Animax10044db5</p>
-            </div>
-          </a>
-        </div>
-      </section>
+      </div>
 
-      <footer class="pt-16 pb-24 text-center space-y-4">
-        <h2 class="font-broken-detroit text-4xl sm:text-5xl inline-block">
-          Thank you !!!
-        </h2>
-        <p class="font-arial text-base sm:text-lg text-gray-200 italic max-w-3xl mx-auto px-4 leading-relaxed">
-          “Behind every design is an idea, behind every frame is a story, and behind every creation is a dream”
-        </p>
-        <p class="font-arial text-xs text-gray-400 pt-6">
-          &copy; 2026 Anil. Visual Arts, Motion Direction &amp; Editing.
-        </p>
-      </footer>
+    </div>
+  </section>
 
-    </main>
+  <!-- ========================================================= -->
+  <!-- FOOTBAR: (Thank You, Quote, Copyright all Center Aligned) -->
+  <!-- ========================================================= -->
+  <footer class="py-20 px-4 sm:px-6 border-t border-white/[0.08] bg-[#040406] text-center relative overflow-hidden">
+    
+    <div class="max-w-4xl mx-auto space-y-6">
+      
+      <!-- Title: Thank You (Center) -->
+      <h3 class="font-syne font-black text-3xl sm:text-5xl text-white tracking-tight uppercase">
+        Thank You
+      </h3>
+
+      <!-- Quote (Center) -->
+      <p class="text-sm sm:text-lg text-zinc-300 font-normal italic max-w-2xl mx-auto leading-relaxed">
+        &ldquo;Behind every design is an idea, behind every frame is a story, and behind every creation is a dream&rdquo;
+      </p>
+
+      <div class="w-12 h-[1px] mx-auto bg-white/20"></div>
+
+      <!-- Copyright (Center) -->
+      <p class="text-xs font-mono-code text-zinc-400">
+        &copy; 2026 Anil. Visual Arts, Motion Direction &amp; Editing.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- MODAL: PROJECT DETAIL INSPECTOR -->
+  <!-- ========================================================= -->
+  <div id="projectModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card rounded-3xl max-w-lg w-full p-6 sm:p-8 relative">
+      <button onclick="closeProjectModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 border border-white/10 text-zinc-400 hover:text-white flex items-center justify-center">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <span class="text-[10px] font-mono-code uppercase tracking-widest block mb-1 font-bold" id="modalCategory" style="color: var(--accent);">CATEGORY</span>
+      <h3 class="font-syne font-bold text-2xl text-white mb-2" id="modalTitle">Project Title</h3>
+      <span class="text-xs font-mono-code text-zinc-400 block mb-4" id="modalClient">Client Atelier</span>
+      <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6" id="modalDesc">Detailed description</p>
+
+      <div class="flex justify-end gap-3">
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl bg-white/5 text-xs font-mono-code text-zinc-400 hover:text-white">
+          Close
+        </button>
+        <a href="#connect" onclick="closeProjectModal()" class="px-5 py-2 rounded-xl text-xs font-bold font-mono-code uppercase tracking-wider text-black" style="background: var(--accent);">
+          Commission Similar
+        </a>
+      </div>
+    </div>
   </div>
 
-  <div id="upload-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-neutral-900 border border-red-700/80 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-[0_0_45px_rgba(220,38,38,0.5)]">
-      <div class="flex items-center justify-between border-b border-neutral-800 pb-3">
-        <h3 id="modal-title" class="font-broken-detroit text-2xl text-red-500">Master Upload</h3>
-        <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white text-xl">
-          <i class="ph-bold ph-x"></i>
-        </button>
-      </div>
+  <!-- ========================================================= -->
+  <!-- MODAL: ROADMAP & FUTURE UPLOAD PROJECTS LIST -->
+  <!-- ========================================================= -->
+  <div id="roadmapModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card rounded-3xl max-w-2xl w-full p-6 sm:p-8 max-h-[85vh] overflow-y-auto relative">
+      <button onclick="toggleRoadmapModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 border border-white/10 text-zinc-400 hover:text-white flex items-center justify-center">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
 
-      <div class="space-y-3 font-arial text-xs text-gray-300 text-left">
-        <p class="text-amber-400 flex items-center space-x-1.5">
-          <i class="ph-fill ph-lock-key"></i>
-          <span>Creator Portal: Upload permissions reserved solely for Anil.</span>
-        </p>
-        <div>
-          <label class="block text-gray-300 mb-1">Project Name</label>
-          <input type="text" id="project-title" placeholder="e.g. Cinematic Commercial Cut" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-black font-bold" style="background: var(--accent);">
+          <i data-lucide="folder-git-2" class="w-5 h-5 text-black"></i>
         </div>
         <div>
-          <label class="block text-gray-300 mb-1">Software / Tools Used</label>
-          <input type="text" id="project-tag" placeholder="Photoshop, Premiere Pro, After Effects" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2.5 text-white focus:border-red-500 focus:outline-none">
-        </div>
-        <div>
-          <label class="block text-gray-300 mb-1">Select Media File</label>
-          <input type="file" id="project-file" class="w-full bg-neutral-950 border border-neutral-700 rounded-lg p-2 text-gray-300 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:bg-red-900 file:text-white">
+          <h3 class="font-syne font-bold text-xl text-white">Anil Kumar // Upload Roadmap</h3>
+          <p class="text-xs font-mono-code text-zinc-400">Curated project titles for future uploads</p>
         </div>
       </div>
 
-      <div class="pt-2 flex justify-end space-x-3">
-        <button onclick="closeUploadModal()" class="px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-arial text-xs">
-          Cancel
-        </button>
-        <button onclick="handleUploadSubmit()" class="px-5 py-2 rounded-lg bg-red-800 hover:bg-red-700 text-white font-arial text-xs shadow-[0_0_15px_#dc2626]">
-          Publish Artwork
+      <div class="space-y-6 text-xs sm:text-sm">
+        
+        <!-- 1. Design Projects -->
+        <div class="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-2">
+          <span class="text-[11px] font-mono-code uppercase font-bold tracking-wider" style="color: var(--accent);">
+            1. Graphic Design Projects Upload List
+          </span>
+          <ul class="space-y-1.5 text-zinc-300 list-disc list-inside">
+            <li><strong>ARTMOOD Luxury Perfume Campaign</strong> &ndash; Premium packaging &amp; social poster design</li>
+            <li><strong>Architectural Laser Cut Mandala &amp; Wall Art</strong> &ndash; High-precision vector .CDR &amp; .DXF files</li>
+            <li><strong>Editorial Magazine &amp; Print Brochure</strong> &ndash; 16-page offset print with 2400 DPI CTP separation</li>
+            <li><strong>Minimalist Brand Identity &amp; Stationery Kit</strong> &ndash; Vector logos, typography &amp; visiting cards</li>
+            <li><strong>Pre-Press Rigid Box Dielines</strong> &ndash; Multi-layered gold foil &amp; Spot-UV die separation</li>
+          </ul>
+        </div>
+
+        <!-- 2. Video Graphi Projects -->
+        <div class="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-2">
+          <span class="text-[11px] font-mono-code uppercase font-bold tracking-wider" style="color: var(--accent);">
+            2. Video Graphi Projects Upload List
+          </span>
+          <ul class="space-y-1.5 text-zinc-300 list-disc list-inside">
+            <li><strong>Commercial Fashion Promo Cut</strong> &ndash; Cinematic color grade, speed ramps &amp; sound foley</li>
+            <li><strong>High-Retention Instagram Reels Series</strong> &ndash; Vertical 9:16 viral hooks &amp; caption styling</li>
+            <li><strong>Podcast &amp; Long-Form YouTube Production</strong> &ndash; Multi-cam cuts, audio leveling &amp; lower thirds</li>
+            <li><strong>Laser CNC Industrial Behind The Scenes</strong> &ndash; Dynamic machine cutting b-roll edit</li>
+          </ul>
+        </div>
+
+        <!-- 3. Motion Art Projects -->
+        <div class="p-4 rounded-2xl bg-black/50 border border-white/5 space-y-2">
+          <span class="text-[11px] font-mono-code uppercase font-bold tracking-wider" style="color: var(--accent);">
+            3. Motion Art Projects Upload List
+          </span>
+          <ul class="space-y-1.5 text-zinc-300 list-disc list-inside">
+            <li><strong>Demon Slayer Kinetic Motion Poster</strong> &ndash; Parallax 2.5D depth &amp; fire aura loops</li>
+            <li><strong>animax 3D Identity Reveal Stinger</strong> &ndash; Sci-fi volumetric lighting &amp; metallic text extrusion</li>
+            <li><strong>Kinetic Typography Lyric Reel</strong> &ndash; Rhythm-matched typography transitions &amp; camera pans</li>
+            <li><strong>Futuristic HUD UI Screen Concept</strong> &ndash; Micro-animations &amp; glowing cybernetic overlays</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button onclick="toggleRoadmapModal()" class="px-5 py-2.5 rounded-xl text-xs font-bold font-mono-code uppercase tracking-wider text-black" style="background: var(--accent);">
+          Got It
         </button>
       </div>
     </div>
   </div>
 
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-red-600 px-4 py-3 rounded-xl shadow-2xl text-xs font-arial text-white flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-    <i class="ph-fill ph-check-circle text-red-500 text-lg"></i>
-    <span id="toast-msg">Success</span>
-  </div>
-
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT: ICONS, THEMES, CANVAS & FILTERS -->
+  <!-- ========================================================= -->
   <script>
-    let mx = innerWidth / 2, my = innerHeight / 2, tx = mx, ty = my;
-    addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; });
-    addEventListener("touchmove", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+    // 1. Initialize Lucide Icons
+    lucide.createIcons();
 
-    const torch = document.getElementById('torch-cursor');
-    function updateTorchPosition() {
-      if (torch) {
-        torch.style.left = `${mx}px`;
-        torch.style.top = `${my}px`;
+    // 2. Dynamic Theme Switcher
+    function setTheme(theme) {
+      if (theme === 'amber') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      // Re-trigger icon redraw & update canvas particle color
+      lucide.createIcons();
+    }
+
+    // 3. Work Category Filter (Design, Video Graphi, Motion Art)
+    function filterWork(cat) {
+      const buttons = ['all', 'design', 'videography', 'motion'];
+      buttons.forEach(b => {
+        const btn = document.getElementById(`btn-${b}`);
+        if (btn) {
+          if (b === cat) {
+            btn.classList.add('tab-active');
+            btn.classList.remove('bg-white/5', 'text-zinc-300', 'border', 'border-white/10');
+          } else {
+            btn.classList.remove('tab-active');
+            btn.classList.add('bg-white/5', 'text-zinc-300', 'border', 'border-white/10');
+          }
+        }
+      });
+
+      const items = document.querySelectorAll('.project-item');
+      items.forEach(item => {
+        if (cat === 'all') {
+          item.style.display = 'block';
+        } else if (item.classList.contains(cat)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // 4. Project Modal Handlers
+    function openProjectModal(title, category, client, desc) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalCategory').textContent = category;
+      document.getElementById('modalClient').textContent = client;
+      document.getElementById('modalDesc').textContent = desc;
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // 5. Roadmap Modal
+    function toggleRoadmapModal() {
+      const modal = document.getElementById('roadmapModal');
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
       }
     }
 
-    const fc = document.getElementById("fog");
-    const fx = fc.getContext("2d");
+    // 6. Interactive Neon Lines Canvas for Skills Section
+    const canvas = document.getElementById('neonCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const mouse = { x: -1000, y: -1000, radius: 180 };
 
-    const sprite = document.createElement("canvas");
-    sprite.width = sprite.height = 128;
-    {
-      const c = sprite.getContext("2d");
-      const g = c.createRadialGradient(64, 64, 0, 64, 64, 64);
-      g.addColorStop(0,   "rgba(175,182,200,1)");
-      g.addColorStop(.5, "rgba(150,158,178,.45)");
-      g.addColorStop(1,   "rgba(140,148,170,0)");
-      c.fillStyle = g;
-      c.fillRect(0, 0, 128, 128);
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      width = canvas.width = rect.width;
+      height = canvas.height = rect.height;
+      initParticles();
     }
 
-    let puffs = [];
-    function fogInit() {
-      fc.width = innerWidth / 2;
-      fc.height = innerHeight / 2;
-      puffs = [];
-      const count = Math.round(innerWidth * innerHeight / 26000) + 12;
+    function initParticles() {
+      particles = [];
+      const count = Math.floor(width / 22);
       for (let i = 0; i < count; i++) {
-        puffs.push({
-          x: Math.random() * innerWidth,
-          y: Math.random() * innerHeight,
-          r: 140 + Math.random() * 240,
-          vx: (Math.random() - .3) * .35,
-          vy: (Math.random() - .5) * .15,
-          a: .1 + Math.random() * .16,
-          ph: Math.random() * 9,
-          sp: .1 + Math.random() * .25,
-          ox: 0, oy: 0
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.9,
+          vy: (Math.random() - 0.5) * 0.9,
+          radius: Math.random() * 2 + 1
         });
       }
     }
 
-    function fogDraw(t) {
-      fx.setTransform(.5, 0, 0, .5, 0, 0);
-      fx.clearRect(0, 0, innerWidth, innerHeight);
-      fx.globalCompositeOperation = "source-over";
+    window.addEventListener('resize', resizeCanvas);
+    canvas.parentElement.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
 
-      for (const p of puffs) {
+    canvas.parentElement.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    function getComputedAccentRGB() {
+      const val = getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim();
+      return val || '255, 87, 34';
+    }
+
+    function animateNeonCanvas() {
+      ctx.clearRect(0, 0, width, height);
+      const rgb = getComputedAccentRGB();
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         p.x += p.vx;
-        p.y += p.vy + Math.sin(t / 4000 + p.ph) * .12;
+        p.y += p.vy;
 
-        if (p.x > innerWidth + p.r) p.x = -p.r;
-        if (p.x < -p.r) p.x = innerWidth + p.r;
-        if (p.y > innerHeight + p.r) p.y = -p.r;
-        if (p.y < -p.r) p.y = innerHeight + p.r;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        const dx = p.x - mx, dy = p.y - my;
-        const d = Math.hypot(dx, dy) || 1;
-        const R = p.r * .55 + 150;
-        const push = Math.max(0, R - d);
-        p.ox += (dx / d * push - p.ox) * .06;
-        p.oy += (dy / d * push - p.oy) * .06;
+        // Interaction with mouse
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          p.x -= (dx / dist) * force * 3;
+          p.y -= (dy / dist) * force * 3;
+        }
 
-        const patch = Math.max(0, Math.sin(t / 1000 * p.sp + p.ph) * .9 + .25);
-        fx.globalAlpha = Math.min(.5, p.a * patch * 1.8);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb}, 0.6)`;
+        ctx.shadowColor = `rgba(${rgb}, 0.8)`;
+        ctx.shadowBlur = 8;
+        ctx.fill();
 
-        const s = p.r * 2;
-        fx.drawImage(sprite, p.x + p.ox - p.r, p.y + p.oy - p.r, s, s);
+        // Connect with nearby particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist2 = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist2 < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(${rgb}, ${1 - dist2 / 110 * 0.85})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+
+        // Connect with mouse if close
+        if (dist < mouse.radius) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(${rgb}, ${1 - dist / mouse.radius * 0.9})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
       }
 
-      fx.globalAlpha = 1;
-      fx.globalCompositeOperation = "destination-out";
-      const g = fx.createRadialGradient(mx, my, 0, mx, my, 150);
-      g.addColorStop(0, "rgba(0,0,0,1)");
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      fx.fillStyle = g;
-      fx.fillRect(mx - 150, my - 150, 300, 300);
+      requestAnimationFrame(animateNeonCanvas);
     }
 
-    addEventListener("resize", fogInit);
-    fogInit();
-
-    (function loop(t) {
-      mx += (tx - mx) * .35;
-      my += (ty - my) * .35;
-      updateTorchPosition();
-      fogDraw(t);
-      requestAnimationFrame(loop);
-    })(0);
-
-    const AUTO = 0; 
-    const wrap = document.getElementById('eyes');
-    const E = 'M4,10 C60,-2 150,6 236,100 C160,108 80,104 38,66 C22,50 10,30 4,10Z';
-
-    const eyeHTML = r => `
-    <svg class="eye${r ? ' r' : ''}" viewBox="0 0 240 110" aria-hidden="true">
-      <g clip-path="url(#ec)">
-        <rect width="240" height="110" fill="url(#scl)"/>
-        <rect class="rn" width="240" height="110" fill="url(#sclP)"/>
-        <g transform="translate(118 52)"><g class="gz" data-s="${r ? -1 : 1}"><g class="s">
-          <g class="sh">
-            <circle r="50" fill="url(#sg)" stroke="#1a0000" stroke-width="3"/>
-            <circle r="31" fill="none" stroke="#1a0000" stroke-width="2.5"/>
-            <use href="#tm" transform="rotate(0) translate(0,-31)"/>
-            <use href="#tm" transform="rotate(120) translate(0,-31)"/>
-            <use href="#tm" transform="rotate(240) translate(0,-31)"/>
-            <circle r="7" fill="#0a0000"/>
-          </g>
-          <g class="rn">
-            <circle r="66" fill="url(#rg)"/>
-            ${[9,20,31,42,54,66].map(x => `<circle r="${x}" fill="none" stroke="#161616" stroke-width="1.8"/>`).join('')}
-            <circle r="3.5" fill="#111"/>
-          </g>
-        </g></g></g>
-      </g>
-      <path d="${E}" fill="none" stroke="#000" stroke-width="2"/>
-    </svg>`;
-
-    wrap.innerHTML = eyeHTML(false) + eyeHTML(true);
-
-    requestAnimationFrame(() => requestAnimationFrame(() => wrap.style.setProperty('--lid', 1)));
-    setTimeout(() => wrap.classList.remove('opening'), 1500);
-    (function blink() {
-      setTimeout(() => {
-        wrap.style.setProperty('--lid', .08);
-        setTimeout(() => wrap.style.setProperty('--lid', 1), 130);
-        blink();
-      }, 2500 + Math.random() * 3500);
-    })();
-
-    const gz = [...wrap.querySelectorAll('.gz')];
-    const cur = gz.map(() => ({ x: 0, y: 0 }));
-    let last = performance.now(), wx = 0, wy = 0, wt = 0;
-    const move = e => { mx = e.clientX; my = e.clientY; last = performance.now(); };
-    addEventListener('pointermove', move);
-    addEventListener('pointerdown', move);
-
-    (function loopEyes(t) {
-      const idle = t - last > 3500;
-      if (idle && t > wt) {
-        wx = (Math.random() - .5) * innerWidth * .5;
-        wy = (Math.random() - .5) * innerHeight * .3;
-        wt = t + 1200 + Math.random() * 1800;
-      }
-      gz.forEach((g, i) => {
-        const b = g.ownerSVGElement.getBoundingClientRect();
-        const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
-        const tx = idle ? innerWidth / 2 + wx : mx, ty = idle ? innerHeight / 2 + wy : my;
-        const dx = tx - cx, dy = ty - cy, d = Math.hypot(dx, dy) || 1;
-        const k = Math.min(1, d / (Math.max(innerWidth, innerHeight) * .3));
-        const X = dx / d * k * 28 * (+g.dataset.s), Y = dy / d * k * 13;
-        cur[i].x += (X - cur[i].x) * .14;
-        cur[i].y += (Y - cur[i].y) * .14;
-        g.setAttribute('transform', `translate(${cur[i].x.toFixed(2)} ${cur[i].y.toFixed(2)})`);
-      });
-      requestAnimationFrame(loopEyes);
-    })(performance.now());
-
-    const toggle = () => {
-      wrap.classList.add('morph');
-      wrap.classList.toggle('rinn');
-      setTimeout(() => wrap.classList.remove('morph'), 950);
+    // Launch canvas after DOM loads
+    window.onload = function() {
+      resizeCanvas();
+      animateNeonCanvas();
     };
-    wrap.addEventListener('click', toggle);
-    if (AUTO) setInterval(toggle, AUTO);
-
-    const ballCanvas = document.getElementById('ball-canvas');
-    const ballCtx = ballCanvas.getContext('2d');
-
-    function resizeBallCanvas() {
-      ballCanvas.width = window.innerWidth;
-      ballCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeBallCanvas);
-    resizeBallCanvas();
-
-    const multiSoftwareBalls = [
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 220, y: 1550, vx: 0.2, vy: 0.1, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: 340, y: 1600, vx: -0.2, vy: 0.1, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 450, y: 1520, vx: -0.15, vy: 0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: 560, y: 1640, vx: 0.2, vy: -0.1, r: 34, baseR: 34, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 670, y: 1560, vx: 0.2, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: 780, y: 1620, vx: -0.2, vy: -0.15, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 890, y: 1540, vx: -0.15, vy: -0.2, r: 42, baseR: 42, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: 990, y: 1610, vx: 0.2, vy: 0.2, r: 35, baseR: 35, bounce: 0 },
-      { id: 'Photoshop', name: 'Ps', full: 'Adobe Photoshop', color: '#00c8ff', bg1: '#001e36', bg2: '#005f9e', x: window.innerWidth * 0.15, y: 550, vx: 0.35, vy: 0.25, r: 38, baseR: 38, bounce: 0 },
-      { id: 'Illustrator', name: 'Ai', full: 'Adobe Illustrator', color: '#ff9a00', bg1: '#331a00', bg2: '#804000', x: window.innerWidth * 0.85, y: 650, vx: -0.3, vy: 0.3, r: 38, baseR: 38, bounce: 0 },
-      { id: 'Premiere', name: 'Pr', full: 'Adobe Premiere Pro', color: '#ea77ff', bg1: '#2b0038', bg2: '#750996', x: window.innerWidth * 0.18, y: 2200, vx: 0.3, vy: -0.3, r: 36, baseR: 36, bounce: 0 },
-      { id: 'Corel', name: 'Cd', full: 'CorelDRAW', color: '#22c55e', bg1: '#0a2e16', bg2: '#15803d', x: window.innerWidth * 0.82, y: 2350, vx: -0.3, vy: 0.25, r: 36, baseR: 36, bounce: 0 }
-    ];
-
-    function animateSoftwareBalls() {
-      ballCtx.clearRect(0, 0, ballCanvas.width, ballCanvas.height);
-      const scrollY = window.scrollY;
-
-      const qualElem = document.getElementById('qualification');
-      let qualCenterY = 1600;
-      if (qualElem) {
-        const rect = qualElem.getBoundingClientRect();
-        qualCenterY = rect.top + scrollY + rect.height / 2;
-      }
-
-      for (let i = 0; i < multiSoftwareBalls.length; i++) {
-        for (let j = i + 1; j < multiSoftwareBalls.length; j++) {
-          const b1 = multiSoftwareBalls[i];
-          const b2 = multiSoftwareBalls[j];
-          const dist = Math.hypot(b2.x - b1.x, b2.y - b1.y);
-
-          if (dist > 75 && dist < 320) {
-            const pullForce = 0.00045 * (1 - dist / 320);
-            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
-            b1.vx += Math.cos(angle) * pullForce;
-            b1.vy += Math.sin(angle) * pullForce;
-            b2.vx -= Math.cos(angle) * pullForce;
-            b2.vy -= Math.sin(angle) * pullForce;
-          } else if (dist <= 75) {
-            const push = (75 - dist) * 0.03;
-            const angle = Math.atan2(b2.y - b1.y, b2.x - b1.x);
-            b1.vx -= Math.cos(angle) * push;
-            b1.vy -= Math.sin(angle) * push;
-            b2.vx += Math.cos(angle) * push;
-            b2.vy += Math.sin(angle) * push;
-          }
-        }
-      }
-
-      multiSoftwareBalls.forEach(ball => {
-        const dyToQual = qualCenterY - ball.y;
-        ball.vy += Math.sign(dyToQual) * Math.min(0.04, Math.abs(dyToQual) * 0.000035);
-
-        ball.x += ball.vx;
-        ball.y += ball.vy;
-
-        if (ball.bounce > 0) {
-          ball.r = ball.baseR + Math.sin(Date.now() * 0.03) * (ball.bounce * 18);
-          ball.bounce *= 0.94;
-          if (ball.bounce < 0.01) {
-            ball.bounce = 0;
-            ball.r = ball.baseR;
-          }
-        }
-
-        const docHeight = document.documentElement.scrollHeight;
-        if (ball.x - ball.r < 10) { ball.x = ball.r + 10; ball.vx *= -0.7; }
-        if (ball.x + ball.r > ballCanvas.width - 10) { ball.x = ballCanvas.width - ball.r - 10; ball.vx *= -0.7; }
-        if (ball.y - ball.r < 10) { ball.y = ball.r + 10; ball.vy *= -0.7; }
-        if (ball.y + ball.r > docHeight - 10) { ball.y = docHeight - ball.r - 10; ball.vy *= -0.7; }
-
-        const screenY = ball.y - scrollY;
-        if (screenY + ball.r < -120 || screenY - ball.r > ballCanvas.height + 120) return;
-
-        const distToTorch = Math.hypot(ball.x - mx, screenY - my);
-        const scatterDistance = ball.r + 115;
-        if (distToTorch < scatterDistance) {
-          const pushAngle = Math.atan2(screenY - my, ball.x - mx);
-          const force = (scatterDistance - distToTorch) * 0.17;
-          ball.vx += Math.cos(pushAngle) * force;
-          ball.vy += Math.sin(pushAngle) * force;
-          ball.bounce = Math.min(1.4, ball.bounce + 0.18);
-        }
-
-        ball.vx *= 0.965;
-        ball.vy *= 0.965;
-        if (Math.abs(ball.vx) < 0.08) ball.vx = (Math.random() - 0.5) * 0.4;
-        if (Math.abs(ball.vy) < 0.08) ball.vy = (Math.random() - 0.5) * 0.4;
-
-        const fluffGlow = ballCtx.createRadialGradient(ball.x, screenY, ball.r * 0.3, ball.x, screenY, ball.r * 2);
-        fluffGlow.addColorStop(0, ball.color);
-        fluffGlow.addColorStop(0.5, ball.color + '44');
-        fluffGlow.addColorStop(1, 'transparent');
-
-        ballCtx.beginPath();
-        ballCtx.arc(ball.x, screenY, ball.r * 2, 0, Math.PI * 2);
-        ballCtx.fillStyle = fluffGlow;
-        ballCtx.fill();
-
-        const sphere3D = ballCtx.createRadialGradient(
-          ball.x - ball.r * 0.3, screenY - ball.r * 0.35, ball.r * 0.1,
-          ball.x, screenY, ball.r
-        );
-        sphere3D.addColorStop(0, ball.bg2);
-        sphere3D.addColorStop(0.7, ball.bg1);
-        sphere3D.addColorStop(1, '#05070a');
-
-        ballCtx.beginPath();
-        ballCtx.arc(ball.x, screenY, ball.r, 0, Math.PI * 2);
-        ballCtx.fillStyle = sphere3D;
-        ballCtx.fill();
-        ballCtx.lineWidth = 2.2;
-        ballCtx.strokeStyle = ball.color;
-        ballCtx.stroke();
-
-        ballCtx.fillStyle = '#ffffff';
-        ballCtx.font = `bold ${Math.round(ball.r * 0.65)}px Arial, sans-serif`;
-        ballCtx.textAlign = 'center';
-        ballCtx.textBaseline = 'middle';
-        ballCtx.shadowColor = ball.color;
-        ballCtx.shadowBlur = 8;
-        ballCtx.fillText(ball.name, ball.x, screenY);
-        ballCtx.shadowBlur = 0;
-      });
-
-      requestAnimationFrame(animateSoftwareBalls);
-    }
-    requestAnimationFrame(animateSoftwareBalls);
-
-    function navigateAndBounceBall(toolId) {
-      const candidates = multiSoftwareBalls.filter(b => b.id.toLowerCase() === toolId.toLowerCase());
-      if (candidates.length > 0) {
-        const target = candidates[0];
-        const targetScrollY = Math.max(0, target.y - window.innerHeight / 2);
-        window.scrollTo({
-          top: targetScrollY,
-          behavior: 'smooth'
-        });
-
-        target.bounce = 2.5;
-        target.vy = -7.5;
-        target.vx = (Math.random() - 0.5) * 8.5;
-
-        fx.globalAlpha = 1;
-        fx.globalCompositeOperation = 'destination-out';
-        const g = fx.createRadialGradient(target.x, target.y - targetScrollY, 0, target.x, target.y - targetScrollY, 200);
-        g.addColorStop(0, "rgba(0,0,0,1)");
-        g.addColorStop(1, "rgba(0,0,0,0)");
-        fx.fillStyle = g;
-        fx.fillRect(target.x - 200, (target.y - targetScrollY) - 200, 400, 400);
-
-        showToast(`Located ${target.full} Sphere & Initiated Bounce!`);
-      }
-    }
-
-    let activeUploadSection = 'Design';
-    const uploadModal = document.getElementById('upload-modal');
-    const modalTitle = document.getElementById('modal-title');
-
-    function openUploadModal(sectionName) {
-      activeUploadSection = sectionName;
-      modalTitle.innerText = `${sectionName} // Creator Upload`;
-      uploadModal.classList.remove('hidden');
-    }
-
-    function closeUploadModal() {
-      uploadModal.classList.add('hidden');
-    }
-
-    function handleUploadSubmit() {
-      const titleInput = document.getElementById('project-title').value.trim() || 'Custom Creative Asset';
-      const tagInput = document.getElementById('project-tag').value.trim() || 'Visual Design & Motion';
-      const fileInput = document.getElementById('project-file');
-
-      let mediaSrc = 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=700&q=80';
-      if (fileInput.files && fileInput.files[0]) {
-        mediaSrc = URL.createObjectURL(fileInput.files[0]);
-      }
-
-      let gridId = 'design-grid';
-      if (activeUploadSection === 'Video Graphy') gridId = 'video-grid';
-      if (activeUploadSection === 'Motion Art') gridId = 'motion-grid';
-
-      const targetGrid = document.getElementById(gridId);
-      if (targetGrid) {
-        const itemCard = document.createElement('div');
-        itemCard.className = 'group relative rounded-2xl overflow-hidden bg-neutral-900 border border-red-600 transition duration-500 shadow-xl';
-        itemCard.innerHTML = `
-          <img src="${mediaSrc}" alt="${titleInput}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
-          <div class="p-4 bg-gradient-to-t from-black via-zinc-950 to-transparent text-left">
-            <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-red-950 text-red-300 rounded border border-red-700">New Work</span>
-            <h3 class="font-college-dusty text-base text-white mt-1">${titleInput}</h3>
-            <p class="font-arial text-xs text-gray-300 mt-0.5">${tagInput}</p>
-          </div>
-        `;
-        targetGrid.prepend(itemCard);
-      }
-
-      closeUploadModal();
-      showToast(`Uploaded successfully to ${activeUploadSection}!`);
-    }
-
-    const avatarInput = document.getElementById('avatar-input');
-    const profileImg = document.getElementById('profile-img');
-    if (avatarInput) {
-      avatarInput.addEventListener('change', (e) => {
-        if (e.target.files && e.target.files[0]) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-            profileImg.src = event.target.result;
-            showToast('PNG portrait updated successfully!');
-          };
-          reader.readAsDataURL(e.target.files[0]);
-        }
-      });
-    }
-
-    function showToast(text) {
-      const toast = document.getElementById('toast');
-      const msg = document.getElementById('toast-msg');
-      if (toast && msg) {
-        msg.innerText = text;
-        toast.classList.remove('translate-y-20', 'opacity-0');
-        setTimeout(() => {
-          toast.classList.add('translate-y-20', 'opacity-0');
-        }, 3000);
-      }
-    }
   </script>
-
 </body>
 </html>
